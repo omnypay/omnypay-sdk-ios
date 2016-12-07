@@ -33,7 +33,7 @@ Currently Omnypay does not support CocoaPods but committed to provide it shortly
 Until we support CocoaPods installation, you can integrate OmnyPay into your project manually.
 
 #### Embedded Framework
-1. Download the OmnyPay iOS SDK <a href="OmnyPayPublicRepoURL">here ( OmnyPayPublicRepoURL )</a>.
+1. Download the OmnyPay iOS SDK <a href="https://github.com/omnypay/omnypay-sdk-ios">here</a>.
 2. Navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
 3. In the tab bar at the top of that window, open the "General" panel.
 4. Drag `OmnyPayAPI.framework` to "Embedded Binaries" section.
