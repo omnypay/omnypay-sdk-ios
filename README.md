@@ -39,11 +39,11 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
 4. Drag `OmnyPayAPI.framework` to "Embedded Binaries" section.
 5. Choose "Copy items if needed" and "Create Groups". Click Finish.
 
-    ![CopyItemsPopup](DocAssests/CopyItemsPopUp.PNG)
+    ![CopyItemsPopup](DocAssests/CopyItemsPopUp.png)
 
 6. Verify OmnyPayAPI.framework is added in "Linked Frameworks and Libraries" section also.
 
-    ![EmbeddedBinaries](DocAssests/EmbeddedBinaries.PNG)
+    ![EmbeddedBinaries](DocAssests/EmbeddedBinaries.png)
 
 7. Create a `Podfile` in your project's root directory (where the xcodeproj file sits). For more information about `Podfile` see [CocoaPods](http://cocoapods.org).
 8. Add below in your `Podfile`
@@ -69,7 +69,7 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
     end
     ```
 
-    ![PodFile](DocAssests/PodFile.PNG)
+    ![PodFile](DocAssests/PodFile.png)
 
 10. Open terminal and run `pod install` in your project's root directory.
 11. That's it. Open the workspace and build.
