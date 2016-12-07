@@ -8,9 +8,9 @@ OmnyPay provides an iOS SDK in Swift that enables retailer/merchant iOS apps to 
 
 ### Version
 
-|Version| Release date| description                          | Author            |
-|-------|-------------|--------------------------------------|-------------------|
-|    1.0|  08-Dec-2016| First Release                        |***                |
+|Version| Release date| description                          |
+|-------|-------------|--------------------------------------|
+|    1.0|  08-Dec-2016| First Release                        |
 
 
 ### Requirements
