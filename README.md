@@ -198,9 +198,9 @@ An example flow can be created as below:
     ```
 
 - **Scan the Point of Sale QRCode**
-
-    Scan the QRCode flashed on the Point of Sale using **OmnyPayScan SDK**.
-
+    
+    Scan the QRCode for the Point of Sale using OmnyPayScan SDK.
+    
     ```swift
     import UIKit
     import OmnyPayScan
