@@ -1,0 +1,1 @@
+Global classes to access data in a particular transaction session.

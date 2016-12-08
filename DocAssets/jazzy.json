@@ -1,0 +1,72 @@
+{
+	"author": "OmnyPay",
+	"readme": "MarkUps/Introduction.md",
+	"author_url": "http://www.omnypay.net/",
+	"xcodebuild_arguments": ["-scheme", "OmnyPay"],
+	"module": "OmnyPay",
+	"theme": "fullwidth",
+	"hide_documentation_coverage": "true",
+	"documentation": "DocAssets/MarkUps/*.md",
+	"abstract": "DocAssets/MarkUps/api/*.md",
+	"custom_categories": [
+		{
+			"name": "",
+			"children": [
+				"Introduction",
+				"Installation",
+				"GettingStarted"
+			]
+		},
+    {
+      "name": "OmnyPayAPI",
+      "children": ["OmnyPayAPI","OmnyPayEventListener"]
+    },
+		{
+			"name" : "OmnyPayAPI-Protocols",
+			"children" : ["OmnyPayEventDelegate"]
+		},
+    {
+    "name": "OmnyPayAPI-Store",
+    "children": [ "Store" ]
+    },
+		{
+			"name": "OmnyPayAPI-Models",
+			"children": [
+				"Session",
+				"SessionState",
+				"Shopper",
+				"OmnyPayMerchant",
+				"Basket",
+				"BasketState",
+				"Item",
+				"BasketPreview",
+				"BasketReceipt",
+				"TotalSummary",
+				"BasketPaymentConfirmation",
+				"BasketPaymentConfirmationStatus",
+				"PaymentInstrumentInfo",
+				"PaymentInstrumentOffers",
+				"ProductOffer",
+				"ReconciledTotal",
+				"Receipt",
+				"ReceiptItem",
+				"PaymentType",
+				"PaymentConfirmation",
+				"PaymentTypeOffer",
+				"MerchantOffer",
+				"ProvisionCardParam",
+				"SetDefaultPaymentInstrumentValue",
+				"CardType",
+        "ShopperLoyalty",
+				"Reward"]
+		},
+		{
+			"name": "OmnyPayAPI-Error",
+			"children": ["OmnyPayError"]
+		},
+    {
+    "name": "OmnyPayScan",
+    "children": ["OmnyPayScan","ScanConfig","ScanMode","ScanResult"]
+    }
+	]
+}

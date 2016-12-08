@@ -1,16 +1,25 @@
 # [![OmnyPay](http://static1.squarespace.com/static/54ae3170e4b0afa8bbd35870/t/580cb7a09f7456d38de76cd7/1477511927583)](http://www.omnypay.net/)
 
 ## Introduction
-OmnyPay allows retailers to know their customers while they are browsing, shopping and during checkout. By having an improved understanding of shoppers’ behavior and profile, retailers are able to better serve them at a personalized level and deliver services and savings that would further enhance customer loyalty. OmnyPay creates a dynamic digital channel between the retailer and the shopper at the time of checkout, allowing shoppers easy, integrated redemption of loyalty, rewards and coupons through a simplified dashboard for maximum savings, steering them towards optimized payment options. OmnyPay helps retailers deliver a consistent experience across all channels - in store, online, in-app, virtual aisle and dynamic media, using any smart mobile device.
+In order to serve the emerging needs of merchants, OmnyPay has developed a SaaS based white label Contextual Commerce platform with which merchants, banks and service providers will be able to offer their consumers, several unique digital commerce services, as part of their own branded mobile app – thus giving the merchants, full control of their consumer relationships, consumer data and consumer experiences when shopping across their multi-channels environments. Equally, working with partner’s bank’s app, merchants can have a “virtual” relationship with non-frequent customers as well.
+The OmnyPay SaaS platform offers a cutting edge orchestration layer which allows the rapid integration of its platform to the merchants’ POS, CRM, Loyalty, marketing, inventory, analytics, and payments, while also enabling a unique core set of premium digital services as part of the Merchants’ own branded app for their repeat customers, and their partners app for less frequently visiting customers.
+
+![OmnyPaySaaS](DocAssets/images/OmnyPaySaaS.png)
+
+Consumers identify with the brands that they interact with the most, and have built inherent loyalty with them. The OmnyPay white label solution leverages and strengthens the ongoing brand equity built by the merchant or bank or service provider throughout the ongoing relationship with their loyal shoppers, and by consistently promoting it across all channels.  Through its mobile SDK and Open APIs, the OmnyPay platform can be quickly integrated with the existing mobile apps, as well as, with their legacy POS and backend systems.
+## Registration
+
+Register your app at http://www.omnypay.net. You will  be assigned a merchant id. Please save this for future.
+
 
 ## iOS SDK
-OmnyPay provides an iOS SDK in Swift that enables retailer/merchant iOS apps to integrate OmnyPay’s rich checkout experience for a shopper using the Retailer’s mobile app. OmnyPay SDK provides simple functions to perform operations on OmnyPay platform.
+OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS apps to integrate OmnyPay’s rich checkout experience for a shopper using the Retailer’s mobile app. OmnyPay SDK provides simple functions to perform operations on OmnyPay platform.
 
-### Version
 
-|Version| Release date| description                          | Author            |
-|-------|-------------|--------------------------------------|-------------------|
-|    1.0|  08-Dec-2016| First Release                        |***                |
+|   **SDK**   | **Description**                                                               | **Version** | **Release Date** |
+|:-----------:|-------------------------------------------------------------------------------|:-----------:|:----------------:|
+| OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     1.0     |    08-Dec-2016   |
+| OmnyPayScan | Provides an easy way to scan machine readable codes like QRCode, Barcode etc. |     1.0     |    08-Dec-2016   |
 
 
 ### Requirements
@@ -18,6 +27,7 @@ OmnyPay provides an iOS SDK in Swift that enables retailer/merchant iOS apps to 
 - iOS 8.0+
 - Xcode 8.0+
 - Swift 2.3 or Objective C (Swift 3.0 support will be coming soon)
+
 
 # Installation
 
@@ -33,17 +43,17 @@ Currently Omnypay does not support CocoaPods but committed to provide it shortly
 Until we support CocoaPods installation, you can integrate OmnyPay into your project manually.
 
 #### Embedded Framework
-1. Download the OmnyPay iOS SDK <a href="https://github.com/omnypay/omnypay-sdk-ios">here</a>.
+1. Download OmnyPay iOS SDKs <a href="https://github.com/omnypay/omnypay-sdk-ios">here</a>.
 2. Navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
 3. In the tab bar at the top of that window, open the "General" panel.
 4. Drag `OmnyPayAPI.framework` to "Embedded Binaries" section.
 5. Choose "Copy items if needed" and "Create Groups". Click Finish.
 
-    ![CopyItemsPopup](DocAssests/CopyItemsPopUp.png)
+    ![CopyItemsPopup](DocAssets/images/CopyItemsPopUp.png)
 
 6. Verify OmnyPayAPI.framework is added in "Linked Frameworks and Libraries" section also.
 
-    ![EmbeddedBinaries](DocAssests/EmbeddedBinaries.png)
+    ![EmbeddedBinaries](DocAssets/images/EmbeddedBinaries.png)
 
 7. Create a `Podfile` in your project's root directory (where the xcodeproj file sits). For more information about `Podfile` see [CocoaPods](http://cocoapods.org).
 8. Add below in your `Podfile`
@@ -69,19 +79,15 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
     end
     ```
 
-    ![PodFile](DocAssests/PodFile.png)
+    ![PodFile](DocAssets/images/PodFile.png)
 
-10. Open terminal and run `pod install` in your project's root directory.
+9.  Open terminal and run `pod install` in your project's root directory.
+10. If you are including OmnyPayScan SDK then **follow Step 1-6 for OmnyPayScan.framework**.
 11. That's it. Open the workspace and build.
-
-## Registration
-
-Register your app at http://www.omnypay.net. You will  be assigned a merchant id. Please save this for future.
-
 
 ## Integrating with core services
 
-There are two main classes of SDK:
+There are two main classes of OmnyPayAPI SDK:
 
 - **OmnyPayAPI**: A static class that is used to access all OmnyPay APIs.
 - **OmnyPayEventListener**: A singleton class to start listening to OmnyPay events like basket updated, receipt received etc. This class expects a delegate of type `OmnyPayEventDelegate` protocol to be set. All the callbacks are delivered to this delegate.
@@ -188,6 +194,46 @@ An example flow can be created as below:
       }
       
       print("Basket successfully.")
+    }
+    ```
+
+- **Scan the Point of Sale QRCode**
+
+    Scan the QRCode flashed on the Point of Sale using **OmnyPayScan SDK**.
+
+    ```swift
+    import UIKit
+    import OmnyPayScan
+
+    class ViewController: UIViewController {
+
+      private lazy var omnyPayScanner: OmnyPayScan? = OmnyPayScan.sharedInstance
+      private var posId: String?
+
+      @IBAction func presentScanView(sender: UIButton) {
+
+        let didDismissHandler = {
+          print("OmnyPay scan view did dismiss")
+        }
+
+        let didScanHandler = { [weak self] (result: ScanResult?) in
+          if let result = result {
+            print("Completion with result: \(result.value) of type \(result.metadataType)")
+            self?.posId = result.value
+          }
+          self?.omnyPayScanner?.dismissScanView(true, completion: didDismissHandler)
+        }
+
+        omnyPayScanner?.didScanHandler = didScanHandler
+        omnyPayScanner?.presentScanView(over: self, animated: true){ 
+          (success:Bool, error:NSError?) in
+          if success {
+            print("success")
+          } else {
+            print(error?.description)
+          }
+        }
+      }
     }
     ```
 

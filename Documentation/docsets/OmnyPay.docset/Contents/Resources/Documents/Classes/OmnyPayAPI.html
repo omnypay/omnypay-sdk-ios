@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OmnyPayAPI Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/OmnyPayAPI" class="dashAnchor"></a>
+
+    <a title="OmnyPayAPI Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          OmnyPay Docs
+        </a>
+        
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">OmnyPay Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      OmnyPayAPI Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../.html"></a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../introduction.html">Introduction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../gettingstarted.html">GettingStarted</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../OmnyPayAPI.html">OmnyPayAPI</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OmnyPayAPI.html">OmnyPayAPI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OmnyPayEventListener.html">OmnyPayEventListener</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../OmnyPayAPI-Protocols.html">OmnyPayAPI-Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/OmnyPayEventDelegate.html">OmnyPayEventDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../OmnyPayAPI-Store.html">OmnyPayAPI-Store</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Store.html">Store</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../OmnyPayAPI-Models.html">OmnyPayAPI-Models</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Session.html">Session</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SessionState.html">SessionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Shopper.html">Shopper</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OmnyPayMerchant.html">OmnyPayMerchant</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Basket.html">Basket</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BasketState.html">BasketState</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Item.html">Item</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BasketPreview.html">BasketPreview</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BasketReceipt.html">BasketReceipt</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TotalSummary.html">TotalSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BasketPaymentConfirmation.html">BasketPaymentConfirmation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BasketPaymentConfirmationStatus.html">BasketPaymentConfirmationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PaymentInstrumentInfo.html">PaymentInstrumentInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PaymentInstrumentOffers.html">PaymentInstrumentOffers</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ProductOffer.html">ProductOffer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReconciledTotal.html">ReconciledTotal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Receipt.html">Receipt</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptItem.html">ReceiptItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/PaymentType.html">PaymentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PaymentConfirmation.html">PaymentConfirmation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PaymentTypeOffer.html">PaymentTypeOffer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MerchantOffer.html">MerchantOffer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ProvisionCardParam.html">ProvisionCardParam</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SetDefaultPaymentInstrumentValue.html">SetDefaultPaymentInstrumentValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/CardType.html">CardType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ShopperLoyalty.html">ShopperLoyalty</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Reward.html">Reward</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../OmnyPayAPI-Error.html">OmnyPayAPI-Error</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/OmnyPayError.html">OmnyPayError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/OmnyPayError/RequiredDataNotAvailableReason.html">– RequiredDataNotAvailableReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/OmnyPayError/DataValidationFailedReason.html">– DataValidationFailedReason</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../OmnyPayScan.html">OmnyPayScan</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OmnyPayScan.html">OmnyPayScan</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ScanConfig.html">ScanConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ScanMode.html">ScanMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ScanResult.html">ScanResult</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>OmnyPayAPI</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">OmnyPayAPI</span></code></pre>
+
+                </div>
+              </div>
+            <p>OmnyPayAPI SDK provides a simple way to access OmnyPay Platform APIs. </p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI10initializeERR"></a>
+                    <a name="//apple_ref/swift/Method/initialize(withMerchantId:configuration:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI10initializeERR">initialize(withMerchantId:configuration:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the SDK and registers with OmnyPay Platform using the merchant id.</p>
+
+<p>SDK stores the application context internally and uses this context during each API call.</p>
+
+<p>This API Should typically be called at app startup (Ex. in the app delegate&rsquo;s <code>applicationDidBecomeActive()</code> function).</p>
+
+<p>This method validates the merchant id and the application security artifacts and retrieves relevant information about the merchant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">withMerchantId</span> <span class="nv">merchantId</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span>
+                              <span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                              <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">,</span> <span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>merchantId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The merchant id, obtained form the OmnyPay merchant portal.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary to pass any custom information. Defaults to nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when initialization is complete.</p>
+<p>This completion handler takes the following parameters:</p>
+<p><code>success</code> - A Boolean to indicate whether initialization is successful.</p>
+<p><code>error</code> - An error object that indicates why the initialization failed, or nil if the initialization was successful.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI15getMerchantInfoERR"></a>
+                    <a name="//apple_ref/swift/Method/getMerchantInfo(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI15getMerchantInfoERR">getMerchantInfo(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get details of the merchant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getMerchantInfo</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/OmnyPayMerchant.html">OmnyPayMerchant</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span><span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with Merchant object.</p>
+<p>It takes the following parameters:</p>
+<p><code>merchant</code> - A Merchant object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the merchant was fetched successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI13createSessionERR"></a>
+                    <a name="//apple_ref/swift/Method/createSession(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI13createSessionERR">createSession(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create and establish a session between a shopper’s device and Merchant. <code><a href="../Classes/Session.html">Session</a></code> associates a Device and/or a Shopper with a Merchant and Store. It offers a channel over which the Merchant can message the shopper and track their progress from an unauthenticated state, to authenticated state and subsequently through a checkout workflow.</p>
+
+<p>When a new session is created, it&rsquo;s state is <code>new</code>.
+If there already exists a session that is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
+
+<p>On completion of a transaction in a session, the session is closed or reset. Any new transaction will require  a new session to be created.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This API just creates a <code><a href="../Classes/Session.html">Session</a></code>. But before any meaningful transactional interaction is initiated with OmnyPay system, the shopper’s session should be authenticated. See <code><a href="../Classes/OmnyPayAPI.html#/s:ZFC7OmnyPay10OmnyPayAPI19authenticateShopperERR">authenticateShopper(shopperId:authToken:completion:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">createSession</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/Session.html">Session</a></span><span class="p">?,</span> <span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Merchant</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>session</code> - A <code>Session</code> object. State of the session can be <code>new</code> or <code>authenticated</code>.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the session was created successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI17getCurrentSessionERR"></a>
+                    <a name="//apple_ref/swift/Method/getCurrentSession(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI17getCurrentSessionERR">getCurrentSession(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the current transaction <code><a href="../Classes/Session.html">Session</a></code> between shopper and Merchant.</p>
+
+<p>If this session is not authenticated, it&rsquo;s state is <code>new</code>.
+If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
+
+<p>On completion of a transaction in a session, the session is closed or reset. Any new transaction will require  a new session to be created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getCurrentSession</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/Session.html">Session</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Merchant</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>session</code> - A <code>Session</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the session was fetched successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI19authenticateShopperERR"></a>
+                    <a name="//apple_ref/swift/Method/authenticateShopper(shopperId:authToken:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI19authenticateShopperERR">authenticateShopper(shopperId:authToken:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Authenticates the shopper with the Identity service associated with the Retailer/Merchant.</p>
+
+<p>Any transactional API calls with OmnyPay system will require a session to be in authenticated state. Only a session that has been authenticated through this function will accept transactional API calls that follow.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>When the application refreshes the auth token from Identity service, it should call this function to reauthenticate the shopper else calls to OmnyPay will fail. It is also important that once a transaction is complete (typically when payment is done or transaction is explicitly cancelled), you call this method again.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">authenticateShopper</span><span class="p">(</span><span class="n">shopperId</span> <span class="nv">merchantShopperId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                        <span class="n">authToken</span> <span class="nv">merchantAuthToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                        <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/Session.html">Session</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Session</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>session</code> - A <code>Session</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the shopper was authenticated successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI12createBasketERR"></a>
+                    <a name="//apple_ref/swift/Method/createBasket(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI12createBasketERR">createBasket(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a Basket for the current <em>authenticated</em> transaction Session. This function is idempotent i.e it returns the basket for an existing session and if none exists, it creates and returns a new basket.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">createBasket</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/Basket.html">Basket</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Basket</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>basket</code> - A <code>Basket</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the Basket is created successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI10getShopperERR"></a>
+                    <a name="//apple_ref/swift/Method/getShopper(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI10getShopperERR">getShopper(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a <code><a href="../Classes/Shopper.html">Shopper</a></code> object that represents the details associated with a shopper.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getShopper</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/Shopper.html">Shopper</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Shopper</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>shopper</code> - A <code>Shopper</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the Shopper is fetched successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI21getPaymentInstrumentsERR"></a>
+                    <a name="//apple_ref/swift/Method/getPaymentInstruments(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI21getPaymentInstrumentsERR">getPaymentInstruments(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all the payment intruments associated with the current shopper.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getPaymentInstruments</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">([</span><span class="kt"><a href="../Classes/PaymentInstrumentOffers.html">PaymentInstrumentOffers</a></span><span class="p">]?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with an array of <code>PaymentInstrumentOffers</code> objects.</p>
+<p>It takes the following parameters:</p>
+<p><code>paymentInstrumentOffers</code> - An array of <code>PaymentInstrumentOffers</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the PaymentInstrumentOffers are fetched successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI10setDefaultERR"></a>
+                    <a name="//apple_ref/swift/Method/setDefault(paymentInstrument:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI10setDefaultERR">setDefault(paymentInstrument:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set default payment instrument for current shopper.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">setDefault</span><span class="p">(</span><span class="n">paymentInstrument</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                              <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/SetDefaultPaymentInstrumentValue.html">SetDefaultPaymentInstrumentValue</a></span><span class="p">?,</span> <span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>SetDefaultPaymentInstrumentValue</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>paymentInstrument</code> - A <code>SetDefaultPaymentInstrumentValue</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the PaymentInstrument was set as default successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI7checkinERR"></a>
+                    <a name="//apple_ref/swift/Method/checkin(onPointOfSale:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI7checkinERR">checkin(onPointOfSale:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Checkin the shopper associated with the session with the Point of Sale.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">checkin</span><span class="p">(</span><span class="n">onPointOfSale</span> <span class="nv">posId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                           <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>posId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Point of Sale terminal id.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Boolean</code> value.</p>
+<p>It takes the following parameters:</p>
+<p><code>success</code> - A Boolean to indicate whether checkin is successful.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the checkin is successful.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI9getBasketERR"></a>
+                    <a name="//apple_ref/swift/Method/getBasket(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI9getBasketERR">getBasket(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the basket associated with current shopper session.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getBasket</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/Basket.html">Basket</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Basket</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>basket</code> - A complete <code>Basket</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the <code>Basket</code> is fetched successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI17getPaymentReceiptERR"></a>
+                    <a name="//apple_ref/swift/Method/getPaymentReceipt(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI17getPaymentReceiptERR">getPaymentReceipt(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the payment receipt for a <code><a href="../Classes/Basket.html">Basket</a></code> associated with the current shopper session.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getPaymentReceipt</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/BasketReceipt.html">BasketReceipt</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Receipt</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>receipt</code> - A payment receipt (<code>BasketReceipt</code>) for the Basket.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the <code>PaymentReceipt</code> is fetched successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI13redeemLoyaltyERR"></a>
+                    <a name="//apple_ref/swift/Method/redeemLoyalty(points:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI13redeemLoyaltyERR">redeemLoyalty(points:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Redeem loyalty points for current shopper.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">redeemLoyalty</span><span class="p">(</span><span class="n">points</span> <span class="nv">points</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">,</span>
+                                  <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/Basket.html">Basket</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>points</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Loyalty points to be redeemed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>Basket</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>basket</code> - A <code>Basket</code> with redeemed loyalty points.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the Loyalty points are redeemed successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI12startPaymentERR"></a>
+                    <a name="//apple_ref/swift/Method/startPayment(withPaymentInstrument:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI12startPaymentERR">startPayment(withPaymentInstrument:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start payment for basket with selected payment instrument.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">startPayment</span><span class="p">(</span><span class="n">withPaymentInstrument</span> <span class="nv">paymentInstrumentId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                 <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/BasketPaymentConfirmation.html">BasketPaymentConfirmation</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentInstrumentId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of selected payment instrument.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>BasketPaymentConfirmation</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>paymentConfirmation</code> - A <code>BasketPaymentConfirmation</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the payment was successful.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI7previewERR"></a>
+                    <a name="//apple_ref/swift/Method/preview(forPaymentInstrument:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI7previewERR">preview(forPaymentInstrument:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Preview the basket with selected payment instrument. </p>
+
+<p>A basket preview contains:</p>
+
+<ul>
+<li>Itemized basket object with associated product discounts due to offers</li>
+<li>selected points for redemption</li>
+<li><p>subtotal, card linked offers, tax and total</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">preview</span><span class="p">(</span><span class="n">forPaymentInstrument</span> <span class="nv">paymentInstrumentId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                            <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/BasketPreview.html">BasketPreview</a></span><span class="p">?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentInstrumentId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of selected payment instrument.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with <code>BasketPaymentConfirmation</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>paymentConfirmation</code> - A <code>BasketPaymentConfirmation</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the payment was successful.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI11getReceiptsERR"></a>
+                    <a name="//apple_ref/swift/Method/getReceipts(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI11getReceiptsERR">getReceipts(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all receipts for current shopper.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getReceipts</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">([</span><span class="kt"><a href="../Classes/Receipt.html">Receipt</a></span><span class="p">]?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with an array of <code>Receipt</code> objects.</p>
+<p>It takes the following parameters:</p>
+<p><code>receipts</code> - An array of  <code>Receipt</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if Receipts were fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI26getPaymentInstrumentOffersERR"></a>
+                    <a name="//apple_ref/swift/Method/getPaymentInstrumentOffers(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI26getPaymentInstrumentOffersERR">getPaymentInstrumentOffers(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get offers related to all payment types for a merchant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getPaymentInstrumentOffers</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span>
+                                          <span class="p">([</span><span class="kt"><a href="../Classes/PaymentTypeOffer.html">PaymentTypeOffer</a></span><span class="p">]?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with an array of <code>PaymentTypeOffer</code> objects.</p>
+<p>It takes the following parameters:</p>
+<p><code>receipts</code> - An array of <code>PaymentTypeOffer</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if PaymentTypeOffers were fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI16getProductOffersERR"></a>
+                    <a name="//apple_ref/swift/Method/getProductOffers(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI16getProductOffersERR">getProductOffers(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get offers related to all products for a merchant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getProductOffers</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">([</span><span class="kt"><a href="../Classes/ProductOffer.html">ProductOffer</a></span><span class="p">]?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with an array of <code>ProductOffer</code> objects.</p>
+<p>It takes the following parameters:</p>
+<p><code>productOffers</code> - An array of  <code>ProductOffer</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if ProductOffers were fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI10getRewardsERR"></a>
+                    <a name="//apple_ref/swift/Method/getRewards(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI10getRewardsERR">getRewards(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get rewards for a merchant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getRewards</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">([</span><span class="kt"><a href="../Classes/Reward.html">Reward</a></span><span class="p">]?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with an array of <code>Reward</code> objects.</p>
+<p>It takes the following parameters:</p>
+<p><code>rewards</code> - An array of  <code>Reward</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if Rewards were fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI16getMerchantOfferERR"></a>
+                    <a name="//apple_ref/swift/Method/getMerchantOffer(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI16getMerchantOfferERR">getMerchantOffer(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get merchant specific offers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getMerchantOffer</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">([</span><span class="kt"><a href="../Classes/MerchantOffer.html">MerchantOffer</a></span><span class="p">]?,</span><span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with an array of <code>MerchantOffer</code> objects.</p>
+<p>It takes the following parameters:</p>
+<p><code>merchantOffers</code> - An array of  <code>MerchantOffer</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if MerchantOffers were fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI9provisionERR"></a>
+                    <a name="//apple_ref/swift/Method/provision(paymentInstrument:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI9provisionERR">provision(paymentInstrument:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provision a new payment instrument to the vault registered for the merchant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">provision</span><span class="p">(</span><span class="n">paymentInstrument</span> <span class="nv">param</span><span class="p">:</span> <span class="kt"><a href="../Classes/ProvisionCardParam.html">ProvisionCardParam</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/PaymentInstrumentInfo.html">PaymentInstrumentInfo</a></span><span class="p">?,</span> <span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>param</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>ProvisionCardParam object</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with a <code>PaymentInstrumentInfo</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>paymentInstrumentInfo</code> - A  <code>PaymentInstrumentInfo</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if PaymentInstrument was provisioned.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI13updateLoyaltyERR"></a>
+                    <a name="//apple_ref/swift/Method/updateLoyalty(loyaltyPoints:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI13updateLoyaltyERR">updateLoyalty(loyaltyPoints:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update loyalty points for shopper.</p>
+
+<p>It takes the following parameters:</p>
+
+<p><code>shopperLoyalty</code> - A  <code><a href="../Classes/ShopperLoyalty.html">ShopperLoyalty</a></code> object.</p>
+
+<p><code>error</code> - An error object that indicates why the call failed, or nil if updated ShopperLoyalty was received.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">updateLoyalty</span><span class="p">(</span><span class="n">loyaltyPoints</span> <span class="nv">points</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/ShopperLoyalty.html">ShopperLoyalty</a></span><span class="p">?,</span> <span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>points</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Total loyalty points for shopper</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with a <code>ShopperLoyalty</code> object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI10getLoyaltyERR"></a>
+                    <a name="//apple_ref/swift/Method/getLoyalty(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI10getLoyaltyERR">getLoyalty(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get loyalty points for shopper.</p>
+
+<p>It takes the following parameters:</p>
+
+<p><code>shopperLoyalty</code> - A <code><a href="../Classes/ShopperLoyalty.html">ShopperLoyalty</a></code> object.</p>
+
+<p><code>error</code> - An error object that indicates why the call failed, or nil if ShopperLoyalty was received.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getLoyalty</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/ShopperLoyalty.html">ShopperLoyalty</a></span><span class="p">?,</span> <span class="kt">ErrorType</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with a <code>ShopperLoyalty</code> object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2016 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2016-12-08)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

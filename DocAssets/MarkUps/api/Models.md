@@ -1,0 +1,1 @@
+Model classes consists of classes that are either used as OmnyPay API parameters or returned as response to these APIs.
