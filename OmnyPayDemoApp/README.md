@@ -3,7 +3,10 @@
 ## Requirements
 Follow below steps to import demoapp in your workspace:
 - Clone/Download the repository placed at https://github.com/omnypay/omnypay-sdk-ios/tree/master/OmnyPayDemoApp
-- Manually add OmnyPayAPI, OmnyPayScan aars placed at https://github.com/omnypay/omnypay-sdk-ios
+- Manually add OmnyPayAPI, OmnyPayScan framework placed at https://github.com/omnypay/omnypay-sdk-ios
+
+ ---- NAME the class for following 
+ 
 - Replace merchantId with YOUR MERCHANT ID.
 - Replace username with YOUR USERNAME.
 - Replace password with YOUR PASSWORD.
