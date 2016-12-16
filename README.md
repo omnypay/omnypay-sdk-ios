@@ -355,7 +355,7 @@ An example flow can be created as below:
     ```
 
 ### Sample app
-Checkout our sample app <a href="https://github.com/omnypay/omnypay-sdk-ios/tree/master/OmnyPayDemoApp">here</a>.
+Checkout our sample app <a href="https://github.com/omnypay/omnypay-sdk-ios/tree/master/OmnyPayExampleApp">here</a>.
 
 ## License
    ```
