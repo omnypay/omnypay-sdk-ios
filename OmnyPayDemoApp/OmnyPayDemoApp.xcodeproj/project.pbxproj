@@ -27,10 +27,9 @@
 		3E05D6EE1DFFEAFD00194B6D /* ReceiptItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05D6ED1DFFEAFD00194B6D /* ReceiptItemTableViewCell.swift */; };
 		3E05D6F01DFFEF8400194B6D /* ReceiptSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05D6EF1DFFEF8400194B6D /* ReceiptSummaryTableViewCell.swift */; };
 		3E05D6F31E00072800194B6D /* BasketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05D6F21E00072800194B6D /* BasketItem.swift */; };
-		3E5C6DCB1E002E4300332547 /* OmnyPayScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5C6DCA1E002E4300332547 /* OmnyPayScan.framework */; };
-		3E5C6DCC1E002E6000332547 /* OmnyPayScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5C6DCA1E002E4300332547 /* OmnyPayScan.framework */; };
-		3E5C6DCD1E002E6000332547 /* OmnyPayScan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5C6DCA1E002E4300332547 /* OmnyPayScan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E5C6DCF1E01383900332547 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C6DCE1E01383900332547 /* AddCardViewController.swift */; };
+		8DA84BFC1E03CF99005B329C /* OmnyPayScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA84BFB1E03CF99005B329C /* OmnyPayScan.framework */; };
+		8DA84BFD1E03CF99005B329C /* OmnyPayScan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA84BFB1E03CF99005B329C /* OmnyPayScan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,7 +40,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3E05D6CC1DFE95ED00194B6D /* OmnyPayAPI.framework in Embed Frameworks */,
-				3E5C6DCD1E002E6000332547 /* OmnyPayScan.framework in Embed Frameworks */,
+				8DA84BFD1E03CF99005B329C /* OmnyPayScan.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +72,7 @@
 		3E5C6DCA1E002E4300332547 /* OmnyPayScan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OmnyPayScan.framework; sourceTree = "<group>"; };
 		3E5C6DCE1E01383900332547 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		7F713108E4EC0B45E5407498 /* Pods-OmnyPayDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnyPayDemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnyPayDemoApp/Pods-OmnyPayDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8DA84BFB1E03CF99005B329C /* OmnyPayScan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OmnyPayScan.framework; sourceTree = "<group>"; };
 		CE5BF3CB3B21C3734671383D /* Pods_OmnyPayDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnyPayDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,8 +83,7 @@
 			files = (
 				3E05D6CB1DFE95ED00194B6D /* OmnyPayAPI.framework in Frameworks */,
 				0316674E9BA985E2CDDA0930 /* Pods_OmnyPayDemoApp.framework in Frameworks */,
-				3E5C6DCB1E002E4300332547 /* OmnyPayScan.framework in Frameworks */,
-				3E5C6DCC1E002E6000332547 /* OmnyPayScan.framework in Frameworks */,
+				8DA84BFC1E03CF99005B329C /* OmnyPayScan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +93,7 @@
 		3E05D6AA1DFE80C900194B6D = {
 			isa = PBXGroup;
 			children = (
+				8DA84BFB1E03CF99005B329C /* OmnyPayScan.framework */,
 				3E5C6DCA1E002E4300332547 /* OmnyPayScan.framework */,
 				3E05D6C91DFE95DF00194B6D /* OmnyPayAPI.framework */,
 				3E05D6B51DFE80C900194B6D /* OmnyPayDemoApp */,
@@ -466,7 +466,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F713108E4EC0B45E5407498 /* Pods-OmnyPayDemoApp.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D4S9659MD7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -486,7 +485,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 16DB64708CC6F6067BBD0C34 /* Pods-OmnyPayDemoApp.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D4S9659MD7;
 				FRAMEWORK_SEARCH_PATHS = (

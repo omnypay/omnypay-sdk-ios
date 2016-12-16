@@ -21,6 +21,7 @@
 		6F50E25C8F24B2E6F138200FBC203ECD /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F191BCFB5D357DAB66B147BC506CA21 /* GLKit.framework */; };
 		779A73A78E2B7EDAD09C15DEACD53A38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8ECFE76238F870C81C6582194FCE223 /* Foundation.framework */; };
 		8568BDBAC486DE00F403CE1E06072AFA /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DD91FB731128D73D933BB0F93102B /* Starscream-dummy.m */; };
+		8DA84BFF1E03CFCB005B329C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA84BFE1E03CFCB005B329C /* CoreImage.framework */; };
 		913D20100BA370058C9786D5CC99F456 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8ECFE76238F870C81C6582194FCE223 /* Foundation.framework */; };
 		93C95937D8AA0579D7C1C5C09D65ED7A /* KVNRotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0EC3C186967E88CBADEB1BD11D580A /* KVNRotationViewController.m */; };
 		98040D329D86ED21126968FE381C52D3 /* UIImage+KVNEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = F4392237D0096B33B1D5DD5152066350 /* UIImage+KVNEmpty.m */; };
@@ -74,6 +75,7 @@
 		6F191BCFB5D357DAB66B147BC506CA21 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
 		7A4F8289F2A78E60023D86F15B91E633 /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
 		7A5DE60ED4120495F608F3214F3D7886 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA84BFE1E03CFCB005B329C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94F3DB22A8C6B8C50BD98C924B5FF819 /* UIImage+KVNImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+KVNImageEffects.m"; path = "KVNProgress/Categories/UIImage+KVNImageEffects.m"; sourceTree = "<group>"; };
 		9BE8A900A64733844C9B78B74647E042 /* KVNProgress.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KVNProgress.xcconfig; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA84BFF1E03CFCB005B329C /* CoreImage.framework in Frameworks */,
 				913D20100BA370058C9786D5CC99F456 /* Foundation.framework in Frameworks */,
 				6F50E25C8F24B2E6F138200FBC203ECD /* GLKit.framework in Frameworks */,
 				6BEF9CED97091974E222973F3B075691 /* QuartzCore.framework in Frameworks */,
@@ -140,6 +143,7 @@
 		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DA84BFE1E03CFCB005B329C /* CoreImage.framework */,
 				356CAE8572C7C75FCB05E984CEB70677 /* iOS */,
 			);
 			name = Frameworks;
