@@ -1,6 +1,0 @@
-framework module Pods_OmnyPayDemoApp {
-  umbrella header "Pods-OmnyPayDemoApp-umbrella.h"
-
-  export *
-  module * { export * }
-}
