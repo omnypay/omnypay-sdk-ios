@@ -14,6 +14,14 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>See http://www.jumio.com/</string>
+			<key>Title</key>
+			<string>JumioMobileSDK-FAT</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2014 kevin-hirsch

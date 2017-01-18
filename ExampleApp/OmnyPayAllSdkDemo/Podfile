@@ -1,4 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
+source 'http://mobile-sdk.jumio.com/distribution.git'
 
 target 'OmnyPayAllSdkDemo' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -6,6 +7,7 @@ target 'OmnyPayAllSdkDemo' do
 
   pod 'KVNProgress'
   pod 'Starscream', '~> 1.1.4'
+  pod 'JumioMobileSDK-FAT/Netverify', '2.3.1'
 
 end
 

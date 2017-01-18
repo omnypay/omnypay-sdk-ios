@@ -1,0 +1,10 @@
+framework module OmnyPayIdentity {
+  umbrella header "OmnyPayIdentity.h"
+
+  export *
+  module * { export * }
+}
+
+module OmnyPayIdentity.Swift {
+    header "OmnyPayIdentity-Swift.h"
+}

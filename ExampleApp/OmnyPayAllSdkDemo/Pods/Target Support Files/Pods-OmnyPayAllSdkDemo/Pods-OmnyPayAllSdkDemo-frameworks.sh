@@ -84,10 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${PODS_ROOT}/JumioMobileSDK-FAT/JumioMobileSDK-2.3.1-FAT/JumioCore.framework"
+  install_framework "${PODS_ROOT}/JumioMobileSDK-FAT/JumioMobileSDK-2.3.1-FAT/Netverify.framework"
+  install_framework "${PODS_ROOT}/JumioMobileSDK-FAT/JumioMobileSDK-2.3.1-FAT/MicroBlink.framework"
   install_framework "$BUILT_PRODUCTS_DIR/KVNProgress/KVNProgress.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Starscream/Starscream.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${PODS_ROOT}/JumioMobileSDK-FAT/JumioMobileSDK-2.3.1-FAT/JumioCore.framework"
+  install_framework "${PODS_ROOT}/JumioMobileSDK-FAT/JumioMobileSDK-2.3.1-FAT/Netverify.framework"
+  install_framework "${PODS_ROOT}/JumioMobileSDK-FAT/JumioMobileSDK-2.3.1-FAT/MicroBlink.framework"
   install_framework "$BUILT_PRODUCTS_DIR/KVNProgress/KVNProgress.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Starscream/Starscream.framework"
 fi

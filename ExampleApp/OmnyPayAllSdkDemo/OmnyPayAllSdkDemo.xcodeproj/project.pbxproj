@@ -26,6 +26,9 @@
 		3E05D6EE1DFFEAFD00194B6D /* ReceiptItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05D6ED1DFFEAFD00194B6D /* ReceiptItemTableViewCell.swift */; };
 		3E05D6F01DFFEF8400194B6D /* ReceiptSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05D6EF1DFFEF8400194B6D /* ReceiptSummaryTableViewCell.swift */; };
 		3E05D6F31E00072800194B6D /* BasketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05D6F21E00072800194B6D /* BasketItem.swift */; };
+		3E0F0B021E2F942C00531569 /* OmnyPayIdentity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0F0B011E2F942C00531569 /* OmnyPayIdentity.framework */; };
+		3E0F0B031E2F943400531569 /* OmnyPayIdentity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0F0B011E2F942C00531569 /* OmnyPayIdentity.framework */; };
+		3E0F0B041E2F943400531569 /* OmnyPayIdentity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0F0B011E2F942C00531569 /* OmnyPayIdentity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E5C6DCF1E01383900332547 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C6DCE1E01383900332547 /* AddCardViewController.swift */; };
 		3EE829D11E2F74A8008E46F9 /* PIScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE829D01E2F74A8008E46F9 /* PIScanViewController.swift */; };
 		3EE829D31E2F74B7008E46F9 /* DLScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE829D21E2F74B7008E46F9 /* DLScanViewController.swift */; };
@@ -46,6 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3E0F0B041E2F943400531569 /* OmnyPayIdentity.framework in Embed Frameworks */,
 				3EE829DB1E2F7AFE008E46F9 /* OmnyPayAuth.framework in Embed Frameworks */,
 				3E05D6CC1DFE95ED00194B6D /* OmnyPayAPI.framework in Embed Frameworks */,
 				8DA84C021E03FAD5005B329C /* OmnyPayScan.framework in Embed Frameworks */,
@@ -80,6 +84,7 @@
 		3E05D6ED1DFFEAFD00194B6D /* ReceiptItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ReceiptItemTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3E05D6EF1DFFEF8400194B6D /* ReceiptSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ReceiptSummaryTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3E05D6F21E00072800194B6D /* BasketItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BasketItem.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3E0F0B011E2F942C00531569 /* OmnyPayIdentity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OmnyPayIdentity.framework; sourceTree = "<group>"; };
 		3E5C6DCE1E01383900332547 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddCardViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3EE829D01E2F74A8008E46F9 /* PIScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PIScanViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3EE829D21E2F74B7008E46F9 /* DLScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DLScanViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -99,6 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E0F0B021E2F942C00531569 /* OmnyPayIdentity.framework in Frameworks */,
+				3E0F0B031E2F943400531569 /* OmnyPayIdentity.framework in Frameworks */,
 				3EE829D91E2F7A99008E46F9 /* OmnyPayAuth.framework in Frameworks */,
 				3E05D6CB1DFE95ED00194B6D /* OmnyPayAPI.framework in Frameworks */,
 				8DA84C011E03FAD5005B329C /* OmnyPayScan.framework in Frameworks */,
@@ -123,6 +130,7 @@
 		3E05D6AA1DFE80C900194B6D = {
 			isa = PBXGroup;
 			children = (
+				3E0F0B011E2F942C00531569 /* OmnyPayIdentity.framework */,
 				3EE829D81E2F7A99008E46F9 /* OmnyPayAuth.framework */,
 				8DA84C001E03FAD5005B329C /* OmnyPayScan.framework */,
 				3E05D6C91DFE95DF00194B6D /* OmnyPayAPI.framework */,

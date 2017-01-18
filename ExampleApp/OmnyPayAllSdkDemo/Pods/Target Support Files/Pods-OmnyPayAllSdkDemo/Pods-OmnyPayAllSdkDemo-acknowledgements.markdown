@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## JumioMobileSDK-FAT
+
+See http://www.jumio.com/
+
 ## KVNProgress
 
 The MIT License (MIT)

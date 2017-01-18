@@ -1,15 +1,18 @@
 PODS:
+  - JumioMobileSDK-FAT/Netverify (2.3.1)
   - KVNProgress (2.3.1)
   - Starscream (1.1.4)
 
 DEPENDENCIES:
+  - JumioMobileSDK-FAT/Netverify (= 2.3.1)
   - KVNProgress
   - Starscream (~> 1.1.4)
 
 SPEC CHECKSUMS:
+  JumioMobileSDK-FAT: 8dafe6fabfb5dc16e9681c6bc3349e98589157db
   KVNProgress: 8167b1f19e2758290c0b6143020ed9dcbb0477a1
   Starscream: f919aeaf81afca6d5d4d3e5f6dd136ec92af2aa1
 
-PODFILE CHECKSUM: b66f56dbd71f79ed0560835279a7ba3343139a8c
+PODFILE CHECKSUM: 101f09356570c75437ac0f7cd889328f6c00c42d
 
 COCOAPODS: 1.0.1

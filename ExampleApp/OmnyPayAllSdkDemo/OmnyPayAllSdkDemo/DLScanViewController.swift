@@ -15,34 +15,54 @@
  */
 
 import UIKit
+import OmnyPayIdentity
 
 class DLScanViewController: UIViewController {
 
+  var identityScanner: OmnyPayIdentity?
+  
+  @IBOutlet weak var firstName: UILabel!
+  
+  @IBOutlet weak var lastName: UILabel!
+  
+  @IBOutlet weak var postalCode: UILabel!
+  
+  @IBOutlet weak var errorMessage: UILabel!
   
   
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+      super.viewDidLoad()
+      self.errorMessage.hidden = true
+      // Do any additional setup after loading the view.
+  }
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
+  
+  @IBAction func startDLScan(sender: UIButton) {
+    
+    self.errorMessage.hidden = true
+    
+    self.identityScanner!.documentDidScanHandler = {(result:IdentityResult) in
+      dispatch_async(dispatch_get_main_queue()) {
+        guard result.error == nil else {
+          self.errorMessage.text = result.error!.localizedDescription
+          self.errorMessage.hidden = false
+          return
+        }
+        
+        self.firstName.text = result.identitydocument!.firstName
+        self.lastName.text = result.identitydocument!.lastName
+        self.postalCode.text = result.identitydocument!.postCode
+      }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    self.identityScanner!.presentIdentityScanView(over: self, animated: true) { (success, error) in
+      print(success, error)
     }
-    */
-
-  @IBAction func startDLScan(sender: UIButton) {
   }
+  
+  
 }
