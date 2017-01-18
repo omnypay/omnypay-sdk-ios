@@ -17,25 +17,35 @@
 import UIKit
 import OmnyPayAuth
 import OmnyPayIdentity
+import OmnyPayPIScan
 
 class OtherSdksViewController: UIViewController {
   
   var authenticator: OmnyPayAuth?
   var identityScanner: OmnyPayIdentity?
+  var cardScanner: OmnyPayPIScan?
 
   override func viewDidLoad() {
       super.viewDidLoad()
-
+    title = Constants.appTitle
       // Do any additional setup after loading the view.
   }
 
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+  }
+  
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
   }
     
   @IBAction func initializePISdk(sender: UIButton) {
+    let config = PIScanConfig(cvvRequired: true, expiryDateEditable: true, cardHolderNameEditable: true, cardNumberMaskingEnabled: true, userInfo: nil)
     
+    self.cardScanner = OmnyPayPIScan(with: config)
+    self.performSegueWithIdentifier("showPIScan", sender: self)
   }
 
   @IBAction func initializeDLSdk(sender: UIButton) {
@@ -61,6 +71,9 @@ class OtherSdksViewController: UIViewController {
     } else if segue.identifier == "showDLScan" {
       let destinationVC: DLScanViewController = segue.destinationViewController as! DLScanViewController
       destinationVC.identityScanner = self.identityScanner
+    } else if segue.identifier == "showPIScan" {
+      let destinationVC: PIScanViewController = segue.destinationViewController as! PIScanViewController
+      destinationVC.cardScanner = self.cardScanner
     }
   }
 

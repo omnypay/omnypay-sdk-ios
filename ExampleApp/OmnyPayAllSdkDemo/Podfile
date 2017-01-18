@@ -8,6 +8,7 @@ target 'OmnyPayAllSdkDemo' do
   pod 'KVNProgress'
   pod 'Starscream', '~> 1.1.4'
   pod 'JumioMobileSDK-FAT/Netverify', '2.3.1'
+  pod 'JumioMobileSDK-FAT/Netswipe', '2.3.1'
 
 end
 

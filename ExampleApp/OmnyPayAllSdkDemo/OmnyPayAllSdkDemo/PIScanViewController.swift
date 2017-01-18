@@ -15,31 +15,58 @@
  */
 
 import UIKit
+import OmnyPayPIScan
 
 class PIScanViewController: UIViewController {
+  
+  var cardScanner: OmnyPayPIScan?
+  
+  @IBOutlet weak var cardNumber: UILabel!
+  
+  @IBOutlet weak var cardCVV: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  @IBOutlet weak var cardExpiry: UILabel!
+  
+  @IBOutlet weak var errorMessage: UILabel!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.errorMessage.hidden = true
+    title = Constants.appTitle
+      // Do any additional setup after loading the view.
+  }
+  
 
-        // Do any additional setup after loading the view.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
+    
+  @IBAction func startPIScan(sender: UIButton) {
+    self.errorMessage.hidden = true
+    self.cardNumber.text = ""
+    self.cardCVV.text = ""
+    self.cardExpiry.text = ""
+    
+    self.cardScanner!.cardDidScanHandler = { scanResult in
+      dispatch_async(dispatch_get_main_queue()) {
+        guard scanResult.error == nil else {
+          self.errorMessage.text = scanResult.error?.localizedDescription
+          self.errorMessage.hidden = false
+          return
+        }
+        
+        self.cardNumber.text = scanResult.piCard?.cardNumberGrouped
+        self.cardCVV.text = scanResult.piCard?.cardPin
+        self.cardExpiry.text = scanResult.piCard?.cardExpiryDate
+      }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    self.cardScanner!.presentCardScanView(over: self, animated: true){ data, error in
+      print(data, error)
     }
-    */
-
-  @IBAction func startPIScan(sender: UIButton) {
   }
+  
+  
 }

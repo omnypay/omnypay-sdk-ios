@@ -25,7 +25,7 @@ class AuthViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      title = Constants.appTitle
         // Do any additional setup after loading the view.
     }
 
