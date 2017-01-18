@@ -1,0 +1,15 @@
+PODS:
+  - KVNProgress (2.3.1)
+  - Starscream (1.1.4)
+
+DEPENDENCIES:
+  - KVNProgress
+  - Starscream (~> 1.1.4)
+
+SPEC CHECKSUMS:
+  KVNProgress: 8167b1f19e2758290c0b6143020ed9dcbb0477a1
+  Starscream: f919aeaf81afca6d5d4d3e5f6dd136ec92af2aa1
+
+PODFILE CHECKSUM: b66f56dbd71f79ed0560835279a7ba3343139a8c
+
+COCOAPODS: 1.0.1

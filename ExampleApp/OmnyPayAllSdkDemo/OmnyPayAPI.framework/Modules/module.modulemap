@@ -1,0 +1,10 @@
+framework module OmnyPayAPI {
+  umbrella header "OmnyPayAPI.h"
+
+  export *
+  module * { export * }
+}
+
+module OmnyPayAPI.Swift {
+    header "OmnyPayAPI-Swift.h"
+}
