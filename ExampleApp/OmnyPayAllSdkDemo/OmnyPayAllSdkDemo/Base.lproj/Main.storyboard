@@ -15,7 +15,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OmnyPayDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,14 +24,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an example app which will guide the user with integration of OmnyPay SDK" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qq6-Km-QfW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an example app which will guide the user with integration of different OmnyPay SDKs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qq6-Km-QfW">
                                 <rect key="frame" x="16" y="131" width="288" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wR0-mg-0ih">
-                                <rect key="frame" x="16" y="304" width="288" height="36"/>
+                                <rect key="frame" x="16" y="274" width="288" height="36"/>
                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Initialize SDK">
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzx-FK-4XJ">
-                                <rect key="frame" x="16" y="420" width="288" height="36"/>
+                                <rect key="frame" x="16" y="370" width="288" height="36"/>
                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Proceed">
@@ -52,16 +52,30 @@
                                     <action selector="proceedToFetchCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VlQ-0s-ghZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ot-44-vQh">
+                                <rect key="frame" x="16" y="466" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Other SDKs">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iTq-mH-p5Z" kind="show" id="GfB-7N-v93"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="wR0-mg-0ih" secondAttribute="trailing" id="1lQ-nc-FTG"/>
                             <constraint firstItem="Qq6-Km-QfW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7qN-jS-cgo"/>
-                            <constraint firstItem="mzx-FK-4XJ" firstAttribute="top" secondItem="wR0-mg-0ih" secondAttribute="bottom" constant="80" id="Bow-6J-IJA"/>
+                            <constraint firstItem="mzx-FK-4XJ" firstAttribute="top" secondItem="wR0-mg-0ih" secondAttribute="bottom" constant="60" id="Bow-6J-IJA"/>
                             <constraint firstItem="Qq6-Km-QfW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="DXm-9P-O0N"/>
+                            <constraint firstItem="9Ot-44-vQh" firstAttribute="top" secondItem="mzx-FK-4XJ" secondAttribute="bottom" constant="60" id="G8O-7p-xT4"/>
                             <constraint firstItem="mzx-FK-4XJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="UwM-c6-gRT"/>
-                            <constraint firstItem="wR0-mg-0ih" firstAttribute="top" secondItem="Qq6-Km-QfW" secondAttribute="bottom" constant="112" id="bC2-Yf-CAb"/>
+                            <constraint firstItem="wR0-mg-0ih" firstAttribute="top" secondItem="Qq6-Km-QfW" secondAttribute="bottom" constant="82" id="bC2-Yf-CAb"/>
                             <constraint firstItem="Qq6-Km-QfW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cgC-hR-XWg"/>
+                            <constraint firstItem="9Ot-44-vQh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="dkO-uU-npY"/>
+                            <constraint firstItem="9Ot-44-vQh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iyD-gx-f5e"/>
                             <constraint firstItem="wR0-mg-0ih" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kwj-PF-hrZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mzx-FK-4XJ" secondAttribute="trailing" id="t0Z-2R-fYN"/>
                         </constraints>
@@ -78,10 +92,259 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
         </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="lHj-c8-6fK">
+            <objects>
+                <viewController id="Yxy-Kg-XfB" customClass="PIScanViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X2O-ek-Y2P"/>
+                        <viewControllerLayoutGuide type="bottom" id="SqZ-nN-t4M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yHe-iW-GWA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5o-yq-6G5">
+                                <rect key="frame" x="16" y="124" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="PI Scan">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startPIScan:" destination="Yxy-Kg-XfB" eventType="touchUpInside" id="I2f-kK-zkf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxZ-DK-CS8">
+                                <rect key="frame" x="16" y="192" width="92" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card CVV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voy-hg-GRM">
+                                <rect key="frame" x="16" y="230" width="68" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssp-Dy-QHR">
+                                <rect key="frame" x="16" y="268" width="116" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Voy-hg-GRM" firstAttribute="leading" secondItem="yHe-iW-GWA" secondAttribute="leadingMargin" id="5Nh-d1-5g0"/>
+                            <constraint firstItem="Ssp-Dy-QHR" firstAttribute="top" secondItem="Voy-hg-GRM" secondAttribute="bottom" constant="20" id="5UQ-Lh-1Vt"/>
+                            <constraint firstItem="FxZ-DK-CS8" firstAttribute="leading" secondItem="yHe-iW-GWA" secondAttribute="leadingMargin" id="BkM-Z6-fwg"/>
+                            <constraint firstItem="y5o-yq-6G5" firstAttribute="leading" secondItem="yHe-iW-GWA" secondAttribute="leadingMargin" id="DaD-me-aj1"/>
+                            <constraint firstItem="y5o-yq-6G5" firstAttribute="top" secondItem="X2O-ek-Y2P" secondAttribute="bottom" constant="60" id="Zm5-X5-TZL"/>
+                            <constraint firstItem="Voy-hg-GRM" firstAttribute="top" secondItem="FxZ-DK-CS8" secondAttribute="bottom" constant="20" id="dh9-xE-VML"/>
+                            <constraint firstItem="Ssp-Dy-QHR" firstAttribute="leading" secondItem="yHe-iW-GWA" secondAttribute="leadingMargin" id="hKA-Jc-hVJ"/>
+                            <constraint firstItem="FxZ-DK-CS8" firstAttribute="top" secondItem="y5o-yq-6G5" secondAttribute="bottom" constant="32" id="ka2-6s-5Fj"/>
+                            <constraint firstItem="y5o-yq-6G5" firstAttribute="trailing" secondItem="yHe-iW-GWA" secondAttribute="trailingMargin" id="vpE-f2-hM0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOD-QM-5fm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234.375" y="849.29577464788736"/>
+        </scene>
+        <!--Other Sdks View Controller-->
+        <scene sceneID="iPc-Vh-ll1">
+            <objects>
+                <viewController id="iTq-mH-p5Z" customClass="OtherSdksViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eZ6-ig-T0G"/>
+                        <viewControllerLayoutGuide type="bottom" id="PCD-w1-DZ4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MxT-TS-V9e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an example app which will guide the user with integration of different OmnyPay SDKs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug4-xC-N8W">
+                                <rect key="frame" x="16" y="131" width="288" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8f-dy-qlq">
+                                <rect key="frame" x="16" y="274" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Initialize OmnyPay PI SDK">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="initializePISdk:" destination="iTq-mH-p5Z" eventType="touchUpInside" id="ZxC-uk-ewr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1C-az-THo">
+                                <rect key="frame" x="16" y="370" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Initialize OmnyPay DL SDK">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="initializeDLSdk:" destination="iTq-mH-p5Z" eventType="touchUpInside" id="E7M-te-zYH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtW-OS-lEW">
+                                <rect key="frame" x="16" y="466" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Initialize OmnyPay Auth SDK">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="initializeAuthSdk:" destination="iTq-mH-p5Z" eventType="touchUpInside" id="XEY-gO-1Y4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EtW-OS-lEW" firstAttribute="trailing" secondItem="MxT-TS-V9e" secondAttribute="trailingMargin" id="4BP-dE-tKF"/>
+                            <constraint firstItem="EtW-OS-lEW" firstAttribute="top" secondItem="N1C-az-THo" secondAttribute="bottom" constant="60" id="F8C-NG-1Yc"/>
+                            <constraint firstItem="N8f-dy-qlq" firstAttribute="trailing" secondItem="MxT-TS-V9e" secondAttribute="trailingMargin" id="Hyi-Gk-EyL"/>
+                            <constraint firstItem="N8f-dy-qlq" firstAttribute="top" secondItem="Ug4-xC-N8W" secondAttribute="bottom" constant="82" id="Qta-z5-aKk"/>
+                            <constraint firstItem="Ug4-xC-N8W" firstAttribute="leading" secondItem="MxT-TS-V9e" secondAttribute="leadingMargin" id="Vlw-LO-acq"/>
+                            <constraint firstItem="N1C-az-THo" firstAttribute="leading" secondItem="MxT-TS-V9e" secondAttribute="leadingMargin" id="Y13-aR-rKy"/>
+                            <constraint firstItem="N8f-dy-qlq" firstAttribute="leading" secondItem="MxT-TS-V9e" secondAttribute="leadingMargin" id="faR-91-iLH"/>
+                            <constraint firstItem="EtW-OS-lEW" firstAttribute="leading" secondItem="MxT-TS-V9e" secondAttribute="leadingMargin" id="gRs-YX-1b7"/>
+                            <constraint firstItem="N1C-az-THo" firstAttribute="trailing" secondItem="MxT-TS-V9e" secondAttribute="trailingMargin" id="jnQ-Gr-GUX"/>
+                            <constraint firstItem="Ug4-xC-N8W" firstAttribute="trailing" secondItem="MxT-TS-V9e" secondAttribute="trailingMargin" id="lkL-j0-5PQ"/>
+                            <constraint firstItem="N1C-az-THo" firstAttribute="top" secondItem="N8f-dy-qlq" secondAttribute="bottom" constant="60" id="tjH-jw-KTd"/>
+                            <constraint firstItem="Ug4-xC-N8W" firstAttribute="top" secondItem="eZ6-ig-T0G" secondAttribute="bottom" constant="67" id="uh2-jo-Gex"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="CLD-2g-f2h" kind="show" identifier="showDLScan" id="sBS-al-NyS"/>
+                        <segue destination="Yxy-Kg-XfB" kind="show" identifier="showPIScan" id="Xhj-NZ-6dK"/>
+                        <segue destination="iQO-o5-bAA" kind="show" identifier="showAuth" id="30o-LO-Q4z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rRO-jR-nbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="851"/>
+        </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="WSk-fT-W2m">
+            <objects>
+                <viewController id="iQO-o5-bAA" customClass="AuthViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9ot-Bg-T3h"/>
+                        <viewControllerLayoutGuide type="bottom" id="gyi-RD-jzz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bw8-qz-fqy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVl-rX-hjc">
+                                <rect key="frame" x="16" y="124" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Authenticate">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAuthentication:" destination="iQO-o5-bAA" eventType="touchUpInside" id="3uT-u3-S9z"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hl-LH-Ep5">
+                                <rect key="frame" x="16" y="210" width="288" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="yXY-Nl-EQE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LVl-rX-hjc" firstAttribute="leading" secondItem="Bw8-qz-fqy" secondAttribute="leadingMargin" id="6mo-1Z-E3j"/>
+                            <constraint firstItem="9Hl-LH-Ep5" firstAttribute="top" secondItem="LVl-rX-hjc" secondAttribute="bottom" constant="50" id="F2t-gr-vDE"/>
+                            <constraint firstItem="9Hl-LH-Ep5" firstAttribute="leading" secondItem="Bw8-qz-fqy" secondAttribute="leadingMargin" id="IsT-Ql-rY4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Hl-LH-Ep5" secondAttribute="trailing" id="aOL-T3-5Di"/>
+                            <constraint firstItem="LVl-rX-hjc" firstAttribute="top" secondItem="9ot-Bg-T3h" secondAttribute="bottom" constant="60" id="aqx-sy-a8V"/>
+                            <constraint firstItem="LVl-rX-hjc" firstAttribute="trailing" secondItem="Bw8-qz-fqy" secondAttribute="trailingMargin" id="icA-ne-tqe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authenticationMessage" destination="9Hl-LH-Ep5" id="eJn-oH-cDE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bww-m6-3Dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="1619"/>
+        </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="LMF-fc-Ta5">
+            <objects>
+                <viewController id="CLD-2g-f2h" customClass="DLScanViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CtV-av-bW5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zhg-xv-GPB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aLj-1T-IXP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsl-Zy-Y8x">
+                                <rect key="frame" x="16" y="124" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="DL Scan">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startDLScan:" destination="CLD-2g-f2h" eventType="touchUpInside" id="CV9-wA-YsD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXV-y9-tWe">
+                                <rect key="frame" x="16" y="192" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtT-eL-B3X">
+                                <rect key="frame" x="16" y="233" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Postal Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD5-NB-lvy">
+                                <rect key="frame" x="16" y="274" width="92.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WtT-eL-B3X" firstAttribute="leading" secondItem="aLj-1T-IXP" secondAttribute="leadingMargin" id="1BS-VX-OYe"/>
+                            <constraint firstItem="WtT-eL-B3X" firstAttribute="top" secondItem="UXV-y9-tWe" secondAttribute="bottom" constant="20" id="3Vt-FL-qwU"/>
+                            <constraint firstItem="Tsl-Zy-Y8x" firstAttribute="top" secondItem="CtV-av-bW5" secondAttribute="bottom" constant="60" id="KLf-zz-fAw"/>
+                            <constraint firstItem="Tsl-Zy-Y8x" firstAttribute="trailing" secondItem="aLj-1T-IXP" secondAttribute="trailingMargin" id="QLf-LP-eE7"/>
+                            <constraint firstItem="Tsl-Zy-Y8x" firstAttribute="leading" secondItem="aLj-1T-IXP" secondAttribute="leadingMargin" id="W1a-zg-rkU"/>
+                            <constraint firstItem="UXV-y9-tWe" firstAttribute="top" secondItem="Tsl-Zy-Y8x" secondAttribute="bottom" constant="32" id="ZG5-Ir-rSR"/>
+                            <constraint firstItem="UXV-y9-tWe" firstAttribute="leading" secondItem="aLj-1T-IXP" secondAttribute="leadingMargin" id="p9m-mK-reS"/>
+                            <constraint firstItem="tD5-NB-lvy" firstAttribute="top" secondItem="WtT-eL-B3X" secondAttribute="bottom" constant="20" id="slo-Vq-BBI"/>
+                            <constraint firstItem="tD5-NB-lvy" firstAttribute="leading" secondItem="aLj-1T-IXP" secondAttribute="leadingMargin" id="wsH-Uz-U1v"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sUU-XR-HNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="850"/>
+        </scene>
         <!--Fetch Cards View Controller-->
         <scene sceneID="oc0-r5-G1h">
             <objects>
-                <viewController id="tSt-F7-WwY" customClass="FetchCardsViewController" customModule="OmnyPayDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tSt-F7-WwY" customClass="FetchCardsViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Msc-7E-OX6"/>
                         <viewControllerLayoutGuide type="bottom" id="fsl-RV-u58"/>
@@ -111,7 +374,7 @@
                                 <rect key="frame" x="0.0" y="117" width="320" height="358"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cardDetailsTableViewCell" id="JLp-IH-6IQ" customClass="CardDetailsTableViewCell" customModule="OmnyPayDemoApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cardDetailsTableViewCell" id="JLp-IH-6IQ" customClass="CardDetailsTableViewCell" customModule="OmnyPayAllSdkDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JLp-IH-6IQ" id="DWL-xO-qQi">
@@ -217,7 +480,7 @@
         <!--Add Card View Controller-->
         <scene sceneID="9PS-R6-M4G">
             <objects>
-                <viewController id="ywT-9K-wTc" customClass="AddCardViewController" customModule="OmnyPayDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ywT-9K-wTc" customClass="AddCardViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cl6-Gg-g59"/>
                         <viewControllerLayoutGuide type="bottom" id="spe-45-2eI"/>
@@ -390,12 +653,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2v-HN-blp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JhE-hP-O5E" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1835.625" y="822.88732394366195"/>
+            <point key="canvasLocation" x="1836" y="-562"/>
         </scene>
         <!--Basket View Controller-->
         <scene sceneID="337-dZ-BkA">
             <objects>
-                <viewController id="2ye-0d-EeE" customClass="BasketViewController" customModule="OmnyPayDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2ye-0d-EeE" customClass="BasketViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F4W-2R-fc9"/>
                         <viewControllerLayoutGuide type="bottom" id="DiP-Qr-yVK"/>
@@ -419,7 +682,7 @@
                                 <rect key="frame" x="0.0" y="94" width="320" height="409"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basketLineItem" rowHeight="60" id="DyS-dh-0Sr" customClass="BasketItemTableViewCell" customModule="OmnyPayDemoApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basketLineItem" rowHeight="60" id="DyS-dh-0Sr" customClass="BasketItemTableViewCell" customModule="OmnyPayAllSdkDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DyS-dh-0Sr" id="sjc-aX-nf3">
@@ -590,7 +853,7 @@
         <!--Receipt View Controller-->
         <scene sceneID="Pnh-LX-Esq">
             <objects>
-                <viewController id="xJW-zl-deo" customClass="ReceiptViewController" customModule="OmnyPayDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xJW-zl-deo" customClass="ReceiptViewController" customModule="OmnyPayAllSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bLo-5n-h8J"/>
                         <viewControllerLayoutGuide type="bottom" id="PoF-4p-pnz"/>
@@ -694,7 +957,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="238"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="receiptItemCell" rowHeight="50" id="18w-E0-SX8" customClass="ReceiptItemTableViewCell" customModule="OmnyPayDemoApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="receiptItemCell" rowHeight="50" id="18w-E0-SX8" customClass="ReceiptItemTableViewCell" customModule="OmnyPayAllSdkDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="18w-E0-SX8" id="LXo-1J-ghx">
@@ -884,7 +1147,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEq-Tb-fhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="238" y="130"/>
         </scene>
     </scenes>
 </document>
