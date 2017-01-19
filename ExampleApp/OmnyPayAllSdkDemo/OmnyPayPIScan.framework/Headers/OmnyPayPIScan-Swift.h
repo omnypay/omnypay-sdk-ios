@@ -126,6 +126,8 @@ SWIFT_CLASS("_TtC13OmnyPayPIScan13OmnyPayPIScan")
 /// \returns  An instance of <code>OmnyPayPIScan
 /// </code>
 - (nonnull instancetype)initWith:(PIScanConfig * _Nonnull)configuration OBJC_DESIGNATED_INITIALIZER;
+
+/// Creates an instance of OmnyPayPIScan
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 
 /// Present a card scan view modally over provided viewcontroller
@@ -217,11 +219,17 @@ SWIFT_CLASS("_TtC13OmnyPayPIScan12PIScanConfig")
 
 /// A boolean value to specify whether CVV is required or not.
 @property (nonatomic, readonly) BOOL cvvRequired;
+
+/// A boolean value to specify whether expiry date is editable or not.
 @property (nonatomic, readonly) BOOL expiryDateEditable;
+
+/// A boolean value to specify whether card holder name is editable or not.
 @property (nonatomic, readonly) BOOL cardHolderNameEditable;
+
+/// A boolean value to specify whether card number should be masked or not while editing card details.
 @property (nonatomic, readonly) BOOL cardNumberMaskingEnabled;
 
-/// A convenience initializer that initialize PIScanConfig from another pIScanConfig object
+/// A convenience initializer that initialize PIScanConfig from another PIScanConfig object
 ///
 /// \param config A <code>PIScanConfig
 /// </code> object

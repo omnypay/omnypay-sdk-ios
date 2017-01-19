@@ -65,8 +65,20 @@
 			"children": ["OmnyPayError"]
 		},
     {
-    "name": "OmnyPayScan",
-    "children": ["OmnyPayScan","ScanConfig","ScanMode","ScanResult"]
+    	"name": "OmnyPayScan",
+    	"children": ["OmnyPayScan","ScanConfig","ScanMode","ScanResult"]
+    },
+    {
+    	"name": "OmnyPayAuth",
+    	"children": ["OmnyPayAuth","AuthConfig","AuthResult","AuthenticationError","AuthenticationLevel"]
+    },
+    {
+    	"name": "OmnyPayIdentity",
+    	"children": ["OmnyPayIdentity","IdentityConfig","IdentityResult","IdentityDocument","IdentityDocumentType"]
+    },
+    {
+    	"name": "OmnyPayPIScan",
+    	"children": ["OmnyPayPIScan","PIScanConfig","PIScanResult","PICard"]
     }
 	]
 }

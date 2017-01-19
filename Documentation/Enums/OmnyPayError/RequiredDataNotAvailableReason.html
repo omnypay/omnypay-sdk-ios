@@ -193,6 +193,63 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../../OmnyPayAuth.html">OmnyPayAuth</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/OmnyPayAuth.html">OmnyPayAuth</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/AuthConfig.html">AuthConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/AuthResult.html">AuthResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Enums/AuthenticationError.html">AuthenticationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Enums/AuthenticationLevel.html">AuthenticationLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../../OmnyPayIdentity.html">OmnyPayIdentity</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/OmnyPayIdentity.html">OmnyPayIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/IdentityConfig.html">IdentityConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/IdentityResult.html">IdentityResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/IdentityDocument.html">IdentityDocument</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Enums/IdentityDocumentType.html">IdentityDocumentType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../../OmnyPayPIScan.html">OmnyPayPIScan</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/OmnyPayPIScan.html">OmnyPayPIScan</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/PIScanConfig.html">PIScanConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/PIScanResult.html">PIScanResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../../Classes/PICard.html">PICard</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -209,9 +266,12 @@
             <p>The underlying reason when the <code><a href="../../Enums/OmnyPayError.html#/s:FO7OmnyPay12OmnyPayError24requiredDataNotAvailableFMS0_FT6reasonOS0_30RequiredDataNotAvailableReason_S0_">requiredDataNotAvailable</a></code> error occurred.</p>
 
 <ul>
-<li>merchantIdNotAvailable: MerchantId is not provided.</li>
-<li>sessionNotAvailable: A transaction session is not available.</li>
-<li>authenticatedSessionNotAvailable: An authenticated session is not available.</li>
+<li>merchantIdNotAvailable: MerchantId not provided.</li>
+<li>sessionNotAvailable: A transaction session not available.</li>
+<li>authenticatedSessionNotAvailable: An authenticated session not available.</li>
+<li>basketIdNotAvailable: A basket not available.</li>
+<li>shopperIdNotAvailable: Shopper id not available.</li>
+<li>posIdNotAvailable: Point of Sale id not available.</li>
 </ul>
 
           </div>
@@ -374,14 +434,45 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOO7OmnyPay12OmnyPayError30RequiredDataNotAvailableReason17posIdNotAvailableFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/posIdNotAvailable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOO7OmnyPay12OmnyPayError30RequiredDataNotAvailableReason17posIdNotAvailableFMS1_S1_">posIdNotAvailable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RequiredDataNotAvailableReason</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2016-12-08)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-01-19)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
