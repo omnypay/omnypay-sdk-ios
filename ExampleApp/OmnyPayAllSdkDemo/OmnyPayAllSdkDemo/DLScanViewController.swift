@@ -25,10 +25,10 @@ class DLScanViewController: UIViewController {
   
   @IBOutlet weak var lastName: UILabel!
   
-  @IBOutlet weak var postalCode: UILabel!
-  
   @IBOutlet weak var errorMessage: UILabel!
+  @IBOutlet weak var documentId: UILabel!
   
+  @IBOutlet weak var city: UILabel!
   
   override func viewDidLoad() {
       super.viewDidLoad()
@@ -47,7 +47,8 @@ class DLScanViewController: UIViewController {
     self.errorMessage.hidden = true
     self.firstName.text = ""
     self.lastName.text = ""
-    self.postalCode.text = ""
+    self.documentId.text = ""
+    self.city.text = ""
     
     self.identityScanner!.documentDidScanHandler = {(result:IdentityResult) in
       dispatch_async(dispatch_get_main_queue()) {
@@ -59,7 +60,8 @@ class DLScanViewController: UIViewController {
         
         self.firstName.text = result.identitydocument!.firstName
         self.lastName.text = result.identitydocument!.lastName
-        self.postalCode.text = result.identitydocument!.postCode
+        self.documentId.text = result.identitydocument!.idNumber
+        self.city.text = result.identitydocument!.city
       }
     }
     
