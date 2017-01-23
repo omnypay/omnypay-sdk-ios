@@ -25,17 +25,17 @@ struct Helpers {
     return urlString
   }
   
-  static func serialize(urlResponse:NSURLResponse?, data:NSData?, error:NSError?) -> AnyObject? {
+  static func serialize(urlResponse:URLResponse?, data:Data?, error:Error?) -> Any? {
     guard error == nil else { return nil }
     
-    if let urlResponse = urlResponse as? NSHTTPURLResponse where urlResponse.statusCode == 204 { return NSNull() }
+    if let urlResponse = urlResponse as? HTTPURLResponse, urlResponse.statusCode == 204 { return NSNull() }
     
-    guard let validData = data where validData.length > 0 else {
+    guard let validData = data, validData.count > 0 else {
       return nil
     }
     
     do {
-      let JSON = try NSJSONSerialization.JSONObjectWithData(validData, options: .AllowFragments)
+      let JSON = try JSONSerialization.jsonObject(with: validData as Data, options: .allowFragments)
       return JSON
     } catch {
       return nil
@@ -44,30 +44,30 @@ struct Helpers {
   
   static func extract(qrString:String)->String?{
     var qrString = qrString
-    var index = qrString.rangeOfString(";", options: .BackwardsSearch)
+    var index = qrString.range(of: ";", options: .backwards)
     guard index != nil else{return nil}
     
-    if index!.endIndex == qrString.rangeOfString(qrString)?.endIndex {
-      qrString = qrString.substringToIndex(index!.startIndex)
-      index = qrString.rangeOfString(";", options: .BackwardsSearch)
+    if index!.upperBound == qrString.range(of: qrString)?.upperBound {
+      qrString = qrString.substring(to: index!.lowerBound)
+      index = qrString.range(of: ";", options: .backwards)
       guard index != nil else{return nil}
     }
     
-    qrString = qrString.substringToIndex(index!.startIndex)
+    qrString = qrString.substring(to: index!.lowerBound)
     
-    index = qrString.rangeOfString(";", options: .BackwardsSearch)
+    index = qrString.range(of: ";", options: .backwards)
     guard index != nil else{return nil}
-    return qrString.substringFromIndex(index!.endIndex)
+    return qrString.substring(from: index!.upperBound)
   }
   
   static func makeButtonEnabled(button: UIButton) {
-    button.enabled = true
-    button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+    button.isEnabled = true
+    button.setTitleColor(UIColor.black, for: .normal)
   }
   
   static func makeButtonDisabled(button: UIButton) {
-    button.enabled = false
-    button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+    button.isEnabled = false
+    button.setTitleColor(UIColor.white, for: .normal)
   }
   
 }

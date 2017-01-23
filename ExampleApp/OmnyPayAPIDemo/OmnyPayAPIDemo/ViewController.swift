@@ -33,13 +33,13 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    btnProceed.hidden = true
+    btnProceed.isHidden = true
     title = Constants.appTitle
   }
 
-  @IBAction func initializeApp(sender: UIButton) {
+  @IBAction func initializeApp(_ sender: UIButton) {
 
-    KVNProgress.showWithStatus("Initializing SDK")
+    KVNProgress.show(withStatus: "Initializing SDK")
     
     /**
      * The initializeSDK method initializes merchantId. If merchantId exists in OmnyPay system,
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         
           if data?["error"] != nil {
             print("shopper could not be created")
-            KVNProgress.showErrorWithStatus("Shopper could not be created")
+            KVNProgress.showError(withStatus: "Shopper could not be created")
           } else {
           
             /**
@@ -65,25 +65,25 @@ class ViewController: UIViewController {
             ApiWrapper.authenticateMerchantShopper(forMerchantId: Constants.merchantId, username: Constants.shopperUsername, password: Constants.shopperPassword){ data in
               if data?["error"] != nil {
                 print("shopper not authenticated with merchant")
-                KVNProgress.showErrorWithStatus("Invalid shopper")
+                KVNProgress.showError(withStatus: "Invalid shopper")
               } else {
                 self.merchantShopperId = data?["merchant-shopper-id"] as? String
                 self.merchantAuthToken = data?["merchant-auth-token"] as? String
                 KVNProgress.dismiss()
-                self.btnProceed.hidden = false
+                self.btnProceed.isHidden = false
               }
             }
           }
         }
       } else {
         print("Merchant initialization failed")
-        KVNProgress.showErrorWithStatus("Initialization failed")
+        KVNProgress.showError(withStatus: "Initialization failed")
       }
     }
   }
 
   
-  @IBAction func proceedToFetchCards(sender: UIButton) {
+  @IBAction func proceedToFetchCards(_ sender: UIButton) {
     
     /**
      * This method shows how a user is authenticated with current session by passing your
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
      */
     OmnyPayAPI.authenticateShopper(shopperId: self.merchantShopperId!, authToken: self.merchantAuthToken!){ (session, error) in
       if error == nil {
-        self.performSegueWithIdentifier("fetchCards", sender: self)
+        self.performSegue(withIdentifier: "fetchCards", sender: self)
       } else {
         print("Shopper could not be authenticated")
       }
