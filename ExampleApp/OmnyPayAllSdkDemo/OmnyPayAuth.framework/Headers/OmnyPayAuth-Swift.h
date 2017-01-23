@@ -206,6 +206,13 @@ SWIFT_CLASS("_TtC11OmnyPayAuth11OmnyPayAuth")
 /// \returns  An instance of <code>OmnyPayAuth
 /// </code>
 - (nonnull instancetype)initWithConfig:(AuthConfig * _Nonnull)configuration OBJC_DESIGNATED_INITIALIZER;
+
+/// Function to start authentication as per configuration.
+///
+/// \param handler The block to execute after the authentication finishes. It takes one parameter and has no return value.
+/// This completion handler takes the following parameter:<code>AuthResult
+/// </code> - an object of <code>AuthResult
+/// </code> type which contains the status of authentication and the error if there is any.
 - (void)start:(void (^ _Nullable)(AuthResult * _Nonnull))handler;
 @end
 
