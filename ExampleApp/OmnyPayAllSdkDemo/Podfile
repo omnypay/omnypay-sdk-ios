@@ -1,22 +1,29 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
+# Include following line if OmnyPayIdentity SDK or OmnyPayPIScan SDK will be used
 source 'http://mobile-sdk.jumio.com/distribution.git'
+
+# Uncomment this line to define a global platform for your project
+platform :ios, '8.0'
 
 target 'OmnyPayAllSdkDemo' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
   pod 'KVNProgress'
-  pod 'Starscream', '~> 1.1.4'
+  
+  # Mandatory pod while using OmnyPayAPI SDK
+  pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'swift3'
+  
+  # Mandatory if using OmnyPayIdentity SDK
   pod 'JumioMobileSDK-FAT/Netverify', '2.3.1'
+  
+  # Mandatory if using OmnyPayPIScan SDK
   pod 'JumioMobileSDK-FAT/Netswipe', '2.3.1'
 
 end
 
 
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '2.3' # or '3.0'
-    end
-  end
-end
+
+
+
