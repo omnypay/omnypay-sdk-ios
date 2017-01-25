@@ -32,7 +32,7 @@ class DLScanViewController: UIViewController {
   
   override func viewDidLoad() {
       super.viewDidLoad()
-      self.errorMessage.hidden = true
+      self.errorMessage.isHidden = true
       title = Constants.appTitle
       // Do any additional setup after loading the view.
   }
@@ -42,19 +42,19 @@ class DLScanViewController: UIViewController {
       // Dispose of any resources that can be recreated.
   }
   
-  @IBAction func startDLScan(sender: UIButton) {
+  @IBAction func startDLScan(_ sender: UIButton) {
     
-    self.errorMessage.hidden = true
+    self.errorMessage.isHidden = true
     self.firstName.text = ""
     self.lastName.text = ""
     self.documentId.text = ""
     self.city.text = ""
     
     self.identityScanner!.documentDidScanHandler = {(result:IdentityResult) in
-      dispatch_async(dispatch_get_main_queue()) {
+      DispatchQueue.main.async {
         guard result.error == nil else {
           self.errorMessage.text = result.error!.localizedDescription
-          self.errorMessage.hidden = false
+          self.errorMessage.isHidden = false
           return
         }
         

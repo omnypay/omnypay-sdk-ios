@@ -13,7 +13,11 @@ target 'OmnyPayAllSdkDemo' do
   pod 'KVNProgress'
   
   # Mandatory pod while using OmnyPayAPI SDK
+<<<<<<< HEAD
   pod 'Starscream', '~> 1.1.4'
+=======
+  pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'swift3'
+>>>>>>> swift-3.0
   
   # Mandatory if using OmnyPayIdentity SDK
   pod 'JumioMobileSDK-FAT/Netverify', '2.3.1'
@@ -24,6 +28,7 @@ target 'OmnyPayAllSdkDemo' do
 end
 
 
+<<<<<<< HEAD
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
@@ -32,6 +37,8 @@ post_install do |installer|
   end
 end
 
+=======
+>>>>>>> swift-3.0
 
 
 

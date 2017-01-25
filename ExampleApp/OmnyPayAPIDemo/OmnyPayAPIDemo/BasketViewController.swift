@@ -34,9 +34,9 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
     super.viewDidLoad()
     self.tableView.delegate = self
     self.tableView.dataSource = self
-    Helpers.makeButtonDisabled(self.btnPay)
+    Helpers.makeButtonDisabled(button: self.btnPay)
     self.tableView.allowsSelection = false
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
     OmnyPayEventListener.shared.delegate = self
     title = Constants.appTitle
     self.navigationItem.hidesBackButton = true
@@ -48,10 +48,10 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
    */
   func didCancelTransaction() {
     KVNProgress.configuration().minimumErrorDisplayTime = 2
-    KVNProgress.showErrorWithStatus("Transaction is cancelled")
+    KVNProgress.showError(withStatus: "Transaction is cancelled")
     print("cancellation received")
-    self.dismissViewControllerAnimated(true, completion: {})
-    self.navigationController?.popToRootViewControllerAnimated(true)
+    self.dismiss(animated: true, completion: {})
+    self.navigationController?.popToRootViewController(animated: true)
   }
   
   /**
@@ -61,11 +61,11 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
     KVNProgress.dismiss()
     print("basket update received")
     if basket.state == BasketState.CompleteScan {
-      Helpers.makeButtonEnabled(self.btnPay)
+      Helpers.makeButtonEnabled(button: self.btnPay)
       return
     }
-    self.cartItems = self.parseBasket(basket)
-    dispatch_async(dispatch_get_main_queue()) {
+    self.cartItems = self.parseBasket(basket: basket)
+    DispatchQueue.main.async {
       self.tableView.reloadData()
     }
   }
@@ -76,12 +76,12 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   func didReceiveReceipt(receipt: BasketReceipt) {
     KVNProgress.dismiss()
     self.receipt = receipt
-    self.performSegueWithIdentifier("receiptSegue", sender: self)
+    self.performSegue(withIdentifier: "receiptSegue", sender: self)
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "receiptSegue" {
-      let destinationVC: ReceiptViewController = segue.destinationViewController as! ReceiptViewController
+      let destinationVC: ReceiptViewController = segue.destination as! ReceiptViewController
       destinationVC.receipt = self.receipt
     }
   }
@@ -121,45 +121,45 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
     return allBasketItems
   }
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let count = self.cartItems.count
     if count == 0{
-      let emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+      let emptyLabel = UILabel(frame: CGRect(x: 0, y:0, width:self.view.bounds.size.width, height:self.view.bounds.size.height))
       emptyLabel.text = "Waiting for items"
-      emptyLabel.textAlignment = NSTextAlignment.Center
+      emptyLabel.textAlignment = NSTextAlignment.center
       self.tableView.backgroundView = emptyLabel
-      self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+      self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
       return 0
     }
     return count
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = self.tableView.dequeueReusableCellWithIdentifier("basketLineItem") as! BasketItemTableViewCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = self.tableView.dequeueReusableCell(withIdentifier: "basketLineItem") as! BasketItemTableViewCell
       let index = indexPath.row
       cell.lblItemDescription.text = self.cartItems[index].productDescription
       cell.lblItemQuantity.text = String(self.cartItems[index].productQuantity!)
-      cell.lblItemCost.text = "$" + (Double(self.cartItems[index].productPrice ?? 0)/100.0).format("%03.2f")
-      if self.cartItems[index].offerDescription != nil &&  self.cartItems[index].offerAmount > 0 {
+      cell.lblItemCost.text = "$" + (Double(self.cartItems[index].productPrice ?? 0)/100.0).format(f: "%03.2f")
+      if self.cartItems[index].offerDescription != nil &&  self.cartItems[index].offerAmount! > 0 {
         cell.lblProductOfferDescription.text = self.cartItems[index].offerDescription
-        cell.lblItemDiscount.text = "-$" + (Double(self.cartItems[index].offerAmount ?? 0)/100.0).format("%03.2f")
-        cell.lblItemDiscount.hidden = false
-        cell.lblProductOfferDescription.hidden = false
+        cell.lblItemDiscount.text = "-$" + (Double(self.cartItems[index].offerAmount ?? 0)/100.0).format(f: "%03.2f")
+        cell.lblItemDiscount.isHidden = false
+        cell.lblProductOfferDescription.isHidden = false
       } else {
-        cell.lblItemDiscount.hidden = true
-        cell.lblProductOfferDescription.hidden = true
+        cell.lblItemDiscount.isHidden = true
+        cell.lblProductOfferDescription.isHidden = true
       }
     
     return cell
   }
   
-  @IBAction func makePayment(sender: UIButton) {
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    KVNProgress.showWithStatus("Payment initiated")
+  @IBAction func makePayment(_ sender: UIButton) {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    KVNProgress.show(withStatus: "Payment initiated")
     /**
      * OmnyPayAPI.startPayment is used for initiating the Payment. The payment is done using
      * selected payment instrument. In this sample app,  if no payment instrument is
@@ -168,7 +168,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
     OmnyPayAPI.startPayment(withPaymentInstrument: appDelegate.selectedPaymentInstrumentId!){ (basketConfirmation, error) in
       if error != nil {
         print("Unable to make payment")
-        KVNProgress.showErrorWithStatus("Unable to make payment")
+        KVNProgress.showError(withStatus: "Unable to make payment")
       }
     }
   }

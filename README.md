@@ -18,8 +18,13 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 |   **SDK**   | **Description**                                                               | **Version** | **Release Date** |
 |:-----------:|-------------------------------------------------------------------------------|:-----------:|:----------------:|
+<<<<<<< HEAD
 | OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     1.0     |    08-Dec-2016   |
 | OmnyPayScan | Provides an easy way to scan machine readable codes like QRCode, Barcode etc. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    08-Dec-2016   |
+=======
+| OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     1.0     |    24-Jan-2017   |
+| OmnyPayScan | Provides an easy way to scan machine readable codes like QRCode, Barcode etc. **Privacy - Camera Usage Description** should be provided in info.plist |     1.0     |    24-Jan-2017   |
+>>>>>>> swift-3.0
 | OmnyPayAuth | Provides an easy way to authenticate user by Touch Id or using Passcode |     1.0     |    24-Jan-2017   |
 | OmnyPayIdentity | Provides an easy way to scan an identity document e.g. driver license, and get details regarding the document. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    24-Jan-2017   |
 | OmnyPayPIScan | Provides an easy way to scan a credit/debit card and get card details. **Privacy - Camera Usage Description** should be provided in info.plist |     1.0     |    24-Jan-2017   |
@@ -29,7 +34,11 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 - iOS 8.0+
 - Xcode 8.0+
+<<<<<<< HEAD
 - Swift 2.3 or Objective C 
+=======
+- Swift 3.0.1
+>>>>>>> swift-3.0
 
 
 # Installation
@@ -70,6 +79,7 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
     # Uncomment this line to define a global platform for your project
     platform :ios, '8.0'
     
+<<<<<<< HEAD
     target 'OmnyPayAllSdkDemo' do
         # Comment this line if you're not using Swift and don't want to use dynamic frameworks
         use_frameworks!
@@ -91,6 +101,21 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
                 config.build_settings['SWIFT_VERSION'] = '2.3'
             end
         end
+=======
+    target 'project name' do
+      # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+      use_frameworks!
+      
+      # Mandatory pod while using OmnyPayAPI SDK
+      pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'swift3'
+      
+      # Mandatory if using OmnyPayIdentity SDK
+      pod 'JumioMobileSDK-FAT/Netverify', '2.3.1'
+      
+      # Mandatory if using OmnyPayPIScan SDK
+      pod 'JumioMobileSDK-FAT/Netswipe', '2.3.1'
+      
+>>>>>>> swift-3.0
     end
     ```
 
@@ -140,7 +165,7 @@ An example flow can be created as below:
     ```swift
     import OmnyPayAPI
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     // .....
     
     // Call Initialize with merchantId received as a part of registration process
@@ -228,7 +253,7 @@ An example flow can be created as below:
       private lazy var omnyPayScanner: OmnyPayScan? = OmnyPayScan.sharedInstance
       private var posId: String?
 
-      @IBAction func presentScanView(sender: UIButton) {
+      @IBAction func presentScanView(_ sender: UIButton) {
 
         let didDismissHandler = {
           print("OmnyPay scan view did dismiss")
@@ -301,7 +326,6 @@ An example flow can be created as below:
     - Eligible loyalty points redeemed
     - Subtotal, tax and total amounts
     
-
     **Prerequisite:**
     - AutenticatedShopper
     - Basket Created 

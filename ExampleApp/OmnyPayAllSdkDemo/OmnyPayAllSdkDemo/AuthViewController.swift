@@ -36,10 +36,10 @@ class AuthViewController: UIViewController {
   
   
   
-  @IBAction func startAuthentication(sender: UIButton) {
+  @IBAction func startAuthentication(_ sender: UIButton) {
     
     self.authenticator!.start { (result:AuthResult) in
-      dispatch_async(dispatch_get_main_queue()) {
+      DispatchQueue.main.async {
         if let error = result.error {
             self.authenticationMessage.text = error.nsError.localizedDescription
           return

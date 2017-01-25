@@ -48,21 +48,21 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
       self.fetchPaymentMethods()
       self.refreshCardFetch = false
     }
-    Helpers.makeButtonDisabled(self.btnProceed)
-    self.lblSelectCard.hidden = false
+    Helpers.makeButtonDisabled(button: self.btnProceed)
+    self.lblSelectCard.isHidden = false
     
   }
   
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     if self.refreshCardFetch {
       self.fetchPaymentMethods()
       self.refreshCardFetch = false
     }
-    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
   }
   
   func fetchPaymentMethods() {
-    KVNProgress.showWithStatus("Getting cards for shopper")
+    KVNProgress.show(withStatus: "Getting cards for shopper")
     
     /**
      * OmnyPayAPI has a method getPaymentInstrument which can be used to get all the payment
@@ -73,46 +73,46 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
       if error == nil {
         KVNProgress.dismiss()
         print(cards!.count)
-        if cards?.count > 0 {
+        if (cards?.count)! > 0 {
           print(cards)
           self.cardList = cards!
-          dispatch_async(dispatch_get_main_queue()) {
+          DispatchQueue.main.async {
             self.tableView.reloadData()
             self.lblSelectCard.text = "Please select a card."
-            self.lblSelectCard.hidden = false
-            Helpers.makeButtonDisabled(self.btnProceed)
+            self.lblSelectCard.isHidden = false
+            Helpers.makeButtonDisabled(button: self.btnProceed)
           }
         } else {
           self.lblSelectCard.text = "No cards available."
-          self.lblSelectCard.hidden = false
-          Helpers.makeButtonDisabled(self.btnProceed)
+          self.lblSelectCard.isHidden = false
+          Helpers.makeButtonDisabled(button: self.btnProceed)
         }
       } else {
-        KVNProgress.showErrorWithStatus("Could not get cards for shopper")
+        KVNProgress.showError(withStatus: "Could not get cards for shopper")
       }
     }
   }
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     print("cardlist=" + String(self.cardList.count))
     return self.cardList.count
   }
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("selected" + String(indexPath.row))
     self.selectedCard = indexPath.row
-    Helpers.makeButtonEnabled(self.btnProceed)
-    self.lblSelectCard.hidden = true
+    Helpers.makeButtonEnabled(button: self.btnProceed)
+    self.lblSelectCard.isHidden = true
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let tableCell = self.tableView.dequeueReusableCellWithIdentifier("cardDetailsTableViewCell") as! CardDetailsTableViewCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let tableCell = self.tableView.dequeueReusableCell(withIdentifier: "cardDetailsTableViewCell") as! CardDetailsTableViewCell
     tableCell.lblCardNumber.text = self.cardList[indexPath.row].cardNumber //"hell-hell-hell-hell"
-    tableCell.lblCardType.text = self.getCardType(self.cardList[indexPath.row].cardType!)
+    tableCell.lblCardType.text = self.getCardType(cardType: self.cardList[indexPath.row].cardType!)
     return tableCell
   }
   
@@ -130,13 +130,13 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
   }
   
   
-  @IBAction func scanQR(sender: UIButton) {
+  @IBAction func scanQR(_ sender: UIButton) {
     if self.selectedCard != nil {
-      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
       appDelegate.selectedPaymentInstrumentId = self.cardList[self.selectedCard!].paymentInstrumentId
       self.scanPOSQR()
     } else {
-      KVNProgress.showErrorWithStatus("Please select a card")
+      KVNProgress.showError(withStatus: "Please select a card")
     }
     
   }
@@ -154,10 +154,10 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self?.stringQR = qrString
         
-        self?.stringQR = Helpers.extract(qrString)
+        self?.stringQR = Helpers.extract(qrString: qrString)
         print("pos id from qrString : \(self?.stringQR)")
         
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
 
           /**
            * Every OmnyPay transaction should have a basket object. The basket object is used to store
@@ -176,14 +176,14 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
                 if error == nil {
                   KVNProgress.dismiss()
                   print("check in successful")
-                  self?.performSegueWithIdentifier("displayBasket", sender: self)
+                  self?.performSegue(withIdentifier: "displayBasket", sender: self)
                 } else {
                   print("unable to check in", error)
-                  KVNProgress.showErrorWithStatus("Check in to POS failed")
+                  KVNProgress.showError(withStatus: "Check in to POS failed")
                 }
               }
             } else {
-              KVNProgress.showErrorWithStatus("Basket creation failed")
+              KVNProgress.showError(withStatus: "Basket creation failed")
               print("Basket creation failed")
             }
           }

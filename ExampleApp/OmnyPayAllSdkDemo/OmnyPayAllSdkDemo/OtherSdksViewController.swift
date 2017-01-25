@@ -31,9 +31,9 @@ class OtherSdksViewController: UIViewController {
       // Do any additional setup after loading the view.
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
   }
   
   override func didReceiveMemoryWarning() {
@@ -41,19 +41,19 @@ class OtherSdksViewController: UIViewController {
       // Dispose of any resources that can be recreated.
   }
     
-  @IBAction func initializePISdk(sender: UIButton) {
+  @IBAction func initializePISdk(_ sender: UIButton) {
     let config = PIScanConfig(cvvRequired: true, expiryDateEditable: true, cardHolderNameEditable: true, cardNumberMaskingEnabled: true, userInfo: nil)
     
     self.cardScanner = OmnyPayPIScan(with: config)
-    self.performSegueWithIdentifier("showPIScan", sender: self)
+    self.performSegue(withIdentifier: "showPIScan", sender: self)
   }
 
-  @IBAction func initializeDLSdk(sender: UIButton) {
+  @IBAction func initializeDLSdk(_ sender: UIButton) {
     self.identityScanner = OmnyPayIdentity.shared
-    self.performSegueWithIdentifier("showDLScan", sender: self)
+    self.performSegue(withIdentifier: "showDLScan", sender: self)
   }
   
-  @IBAction func initializeAuthSdk(sender: UIButton) {
+  @IBAction func initializeAuthSdk(_ sender: UIButton) {
     /*
      *  Initializing OmnyPayAuth SDK using AuthConfig
      *  reason: Reason or message why authentication is required
@@ -61,22 +61,23 @@ class OtherSdksViewController: UIViewController {
      */
     let config = AuthConfig(reason: "Authentication Required", authenticationLevel: .BiometricOrPasscode, userInfo: nil)
     self.authenticator = OmnyPayAuth(withConfig: config)
-    self.performSegueWithIdentifier("showAuth", sender: self)
+    self.performSegue(withIdentifier: "showAuth", sender: self)
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showAuth" {
-      let destinationVC: AuthViewController = segue.destinationViewController as! AuthViewController
+      let destinationVC: AuthViewController = segue.destination as! AuthViewController
       destinationVC.authenticator = self.authenticator
     } else if segue.identifier == "showDLScan" {
-      let destinationVC: DLScanViewController = segue.destinationViewController as! DLScanViewController
+      let destinationVC: DLScanViewController = segue.destination as! DLScanViewController
       destinationVC.identityScanner = self.identityScanner
     } else if segue.identifier == "showPIScan" {
-      let destinationVC: PIScanViewController = segue.destinationViewController as! PIScanViewController
+      let destinationVC: PIScanViewController = segue.destination as! PIScanViewController
       destinationVC.cardScanner = self.cardScanner
     }
   }
 
+  
 }
 
 

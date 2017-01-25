@@ -61,7 +61,7 @@ class AddCardViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     view.addGestureRecognizer(tap)
   }
   
-  func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+  func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
     if let previousController = viewController as? FetchCardsViewController {
       if self.newCardAdded {
         previousController.refreshCardFetch = true
@@ -69,32 +69,32 @@ class AddCardViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
   }
   
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
   
-  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     return self.cardTypePickerDataSource.count
   }
   
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     return self.cardTypePickerDataSource[row]
   }
   
-  func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     self.pickerValueIndex = row
   }
   
-  @IBAction func addCard(sender: UIButton) {
+  @IBAction func addCard(_ sender: UIButton) {
     
     let validationMessage = self.allFieldsEntered()
     if validationMessage != nil {
       KVNProgress.configuration().minimumErrorDisplayTime = 2
-      KVNProgress.showErrorWithStatus(validationMessage)
+      KVNProgress.showError(withStatus: validationMessage)
       return
     }
     
-    KVNProgress.showWithStatus("Adding your card")
+    KVNProgress.show(withStatus: "Adding your card")
     
     let card = ProvisionCardParam()
     card.cardAlias = self.tfCardAlias.text
@@ -115,9 +115,9 @@ class AddCardViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
       if error == nil {
         KVNProgress.dismiss()
         self.newCardAdded = true
-        self.performSegueWithIdentifier("returnToFetchCards", sender: self)
+        self.performSegue(withIdentifier: "returnToFetchCards", sender: self)
       } else {
-        KVNProgress.showErrorWithStatus("Card could not be added")
+        KVNProgress.showError(withStatus: "Card could not be added")
         print("card addition error: ", error)
       }
     }
@@ -125,17 +125,17 @@ class AddCardViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   
   func allFieldsEntered() -> String? {
     var message: String? = nil
-    if self.tfCardNumber.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+    if self.tfCardNumber.text!.trimmingCharacters(in: NSCharacterSet.whitespaces).isEmpty {
       message = "Please enter card number"
-    } else if self.tfCardAlias.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+    } else if self.tfCardAlias.text!.trimmingCharacters(in: NSCharacterSet.whitespaces).isEmpty {
       message = "Please enter card alias"
-    } else if self.tfCardIssuer.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+    } else if self.tfCardIssuer.text!.trimmingCharacters(in: NSCharacterSet.whitespaces).isEmpty {
       message = "Please enter card issuer"
-    } else if self.tfCardExpiry.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+    } else if self.tfCardExpiry.text!.trimmingCharacters(in: NSCharacterSet.whitespaces).isEmpty {
       message = "Please enter card expiry date"
-    } else if self.tfZip.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+    } else if self.tfZip.text!.trimmingCharacters(in: NSCharacterSet.whitespaces).isEmpty {
       message = "Please enter card holder zip"
-    } else if self.tfHolderName.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+    } else if self.tfHolderName.text!.trimmingCharacters(in: NSCharacterSet.whitespaces).isEmpty {
       message = "Please enter card holder name"
     }
     return message
@@ -155,7 +155,7 @@ class AddCardViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   }
   
   
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     if textField == self.tfCardNumber {
       self.tfCardAlias.becomeFirstResponder()
     } else if textField == self.tfCardAlias {
