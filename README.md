@@ -18,13 +18,8 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 |   **SDK**   | **Description**                                                               | **Version** | **Release Date** |
 |:-----------:|-------------------------------------------------------------------------------|:-----------:|:----------------:|
-<<<<<<< HEAD
-| OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     1.0     |    08-Dec-2016   |
-| OmnyPayScan | Provides an easy way to scan machine readable codes like QRCode, Barcode etc. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    08-Dec-2016   |
-=======
 | OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     1.0     |    24-Jan-2017   |
 | OmnyPayScan | Provides an easy way to scan machine readable codes like QRCode, Barcode etc. **Privacy - Camera Usage Description** should be provided in info.plist |     1.0     |    24-Jan-2017   |
->>>>>>> swift-3.0
 | OmnyPayAuth | Provides an easy way to authenticate user by Touch Id or using Passcode |     1.0     |    24-Jan-2017   |
 | OmnyPayIdentity | Provides an easy way to scan an identity document e.g. driver license, and get details regarding the document. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    24-Jan-2017   |
 | OmnyPayPIScan | Provides an easy way to scan a credit/debit card and get card details. **Privacy - Camera Usage Description** should be provided in info.plist |     1.0     |    24-Jan-2017   |
@@ -34,11 +29,7 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 - iOS 8.0+
 - Xcode 8.0+
-<<<<<<< HEAD
-- Swift 2.3 or Objective C 
-=======
 - Swift 3.0.1
->>>>>>> swift-3.0
 
 
 # Installation
@@ -79,29 +70,6 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
     # Uncomment this line to define a global platform for your project
     platform :ios, '8.0'
     
-<<<<<<< HEAD
-    target 'OmnyPayAllSdkDemo' do
-        # Comment this line if you're not using Swift and don't want to use dynamic frameworks
-        use_frameworks!
-    
-        # Mandatory pod while using OmnyPayAPI SDK
-        pod 'Starscream', '~> 1.1.4'
-    
-        # Mandatory if using OmnyPayIdentity SDK
-        pod 'JumioMobileSDK-FAT/Netverify', '2.3.1'
-    
-        # Mandatory if using OmnyPayPIScan SDK
-        pod 'JumioMobileSDK-FAT/Netswipe', '2.3.1'
-    
-    end
-    
-    post_install do |installer|
-        installer.pods_project.targets.each do |target|
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '2.3'
-            end
-        end
-=======
     target 'project name' do
       # Comment this line if you're not using Swift and don't want to use dynamic frameworks
       use_frameworks!
@@ -115,7 +83,6 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
       # Mandatory if using OmnyPayPIScan SDK
       pod 'JumioMobileSDK-FAT/Netswipe', '2.3.1'
       
->>>>>>> swift-3.0
     end
     ```
 
