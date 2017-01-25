@@ -31,7 +31,7 @@ class PIScanViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.errorMessage.hidden = true
+    self.errorMessage.isHidden = true
     title = Constants.appTitle
       // Do any additional setup after loading the view.
   }
@@ -43,17 +43,17 @@ class PIScanViewController: UIViewController {
       // Dispose of any resources that can be recreated.
   }
     
-  @IBAction func startPIScan(sender: UIButton) {
-    self.errorMessage.hidden = true
+  @IBAction func startPIScan(_ sender: UIButton) {
+    self.errorMessage.isHidden = true
     self.cardNumber.text = ""
     self.cardCVV.text = ""
     self.cardExpiry.text = ""
     
     self.cardScanner!.cardDidScanHandler = { scanResult in
-      dispatch_async(dispatch_get_main_queue()) {
+      DispatchQueue.main.async {
         guard scanResult.error == nil else {
           self.errorMessage.text = scanResult.error?.localizedDescription
-          self.errorMessage.hidden = false
+          self.errorMessage.isHidden = false
           return
         }
         
