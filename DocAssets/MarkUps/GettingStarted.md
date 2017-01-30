@@ -35,7 +35,7 @@ An example flow can be created as below:
     ```swift
     import OmnyPayAPI
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     // .....
     
     // Call Initialize with merchantId received as a part of registration process
@@ -123,7 +123,7 @@ An example flow can be created as below:
       private lazy var omnyPayScanner: OmnyPayScan? = OmnyPayScan.sharedInstance
       private var posId: String?
 
-      @IBAction func presentScanView(sender: UIButton) {
+      @IBAction func presentScanView(_ sender: UIButton) {
 
         let didDismissHandler = {
           print("OmnyPay scan view did dismiss")
