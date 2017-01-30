@@ -29,6 +29,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   var cartItems = [BasketItem]()
   @IBOutlet weak var btnPay: UIButton!
   var receipt: BasketReceipt?
+  var emptyBasketLabel: UILabel?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -133,8 +134,11 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
       emptyLabel.textAlignment = NSTextAlignment.center
       self.tableView.backgroundView = emptyLabel
       self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+      self.emptyBasketLabel = emptyLabel
+      self.emptyBasketLabel?.isHidden = false
       return 0
     }
+    self.emptyBasketLabel?.isHidden = true
     return count
   }
   

@@ -27,8 +27,8 @@ struct Constants {
   static let hostPort: String = "8080"
   static let createShopper: String = "/identity/account"
   static let authenticateMerchantShopper: String = "/identity/authentication"
-  static let merchantId: String = "6ec80cb8-7c45-4c40-b45d-79a7a363fbac"
-  static let shopperUsername: String = "user"
-  static let shopperPassword: String = "pass"
+  static let merchantId: String = "your merchant id"
+  static let shopperUsername: String = "your username"
+  static let shopperPassword: String = "your password"
 }
 

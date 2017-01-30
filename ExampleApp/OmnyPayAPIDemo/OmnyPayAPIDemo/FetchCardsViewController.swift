@@ -93,7 +93,7 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
   }
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
@@ -200,6 +200,6 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
   }
   
-  @IBAction func unwindToFetchCards(segue: UIStoryboardSegue) {}
+  @IBAction func unwindToFetchCards(_ segue: UIStoryboardSegue) {}
   
 }
