@@ -247,15 +247,15 @@ An example flow can be created as below:
 
 - **Get payment receipt**
 
-	Fetches the payment receipt for the current transaction.
-	
-	**Prerequisite:**
-	- AutenticatedShopper
-	- Basket Created
-	- Sucessful CheckIn
-	- Basket with a non-zero subtotal value.
+  Fetches the payment receipt for the current transaction.
+  
+  **Prerequisite:**
+  - AutenticatedShopper
+  - Basket Created
+  - Sucessful CheckIn
+  - Basket with a non-zero subtotal value.
 
-    ```swift
+  ```swift
     OmnyPayAPI.getPaymentReceipt() { (paymentReceipt,error) in 
     
       guard error != nil else {
@@ -265,5 +265,67 @@ An example flow can be created as below:
       
       /// Extract properties and show on UI.
     }
-    ```
+  ```
 
+
+
+## Using supporting OmnyPay frameworks
+### OmnyPayAuth
+This framework is for authenticating user with device using Touch Id or device Passcode. To use this in your app, just add **OmnyPayAuth** framework as embedded framework.
+
+```swift
+    let config = AuthConfig(reason: "Authentication Required", authenticationLevel: .BiometricOrPasscode, userInfo: nil)
+    
+    let authenticator = OmnyPayAuth(withConfig: config)
+    
+    authenticator.start{ (result:AuthResult) in
+        if let error = result.error {
+            print("Authentication failed: ", error.nsError.localizedDescription)
+        } else {
+            print("Authentication successful")
+        }
+    }
+```
+
+### OmnyPayPIScan
+This framework helps in retrieving credit / debit card or payment instrument information from device camera scan. To use this framework in your app, just add **OmnyPayPIScan** framework as embedded framework.
+
+```swift
+    let config = PIScanConfig(cvvRequired: true, expiryDateEditable: true, cardHolderNameEditable: true, cardNumberMaskingEnabled: true, userInfo: nil)
+    
+    let cardScanner = OmnyPayPIScan(with: config)
+    
+    cardScanner.cardDidScanHandler = { scanResult in
+        guard scanResult.error == nil else {
+          print("Scan failed: ", scanResult.error?.localizedDescription)
+          return
+        }
+        
+        let cardNumber = scanResult.piCard?.cardNumberGrouped
+        ...
+    }
+    
+    cardScanner.presentCardScanView(over: self, animated: true){ status, error in
+      ...
+    }
+```
+
+### OmnyPayIdentity
+This framework helps in retrieving Driving licence information from device camera using scan. To use this framework just add **OmnyPayIdentity** framework as embedded framework.
+
+```swift
+    let identityScanner = OmnyPayIdentity.shared
+    identityScanner.documentDidScanHandler = {(result:IdentityResult) in
+        guard result.error == nil else {
+          print("Scan failed: ", result.error!.localizedDescription)
+          return
+        }
+        
+        let firstName = result.identitydocument!.firstName
+        ...
+    }
+    
+    identityScanner.presentIdentityScanView(over: self, animated: true) { (status, error) in
+      ...
+    }
+```

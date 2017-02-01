@@ -486,29 +486,81 @@
   <span class="c1">/// Payment successful.</span>
 <span class="p">}</span>
 </code></pre></li>
-<li><p><strong>Get payment receipt</strong></p>
+<li><p><strong>Get payment receipt</strong></p></li>
+</ul>
 
 <p>Fetches the payment receipt for the current transaction.</p>
 
-<p><strong>Prerequisite:</strong></p>
+<p><strong>Prerequisite:</strong>
+  - AutenticatedShopper
+  - Basket Created
+  - Sucessful CheckIn
+  - Basket with a non-zero subtotal value.</p>
+<pre class="highlight swift"><code>    <span class="kt">OmnyPayAPI</span><span class="o">.</span><span class="nf">getPaymentReceipt</span><span class="p">()</span> <span class="p">{</span> <span class="p">(</span><span class="n">paymentReceipt</span><span class="p">,</span><span class="n">error</span><span class="p">)</span> <span class="k">in</span> 
 
-<ul>
-<li>AutenticatedShopper</li>
-<li>Basket Created</li>
-<li>Sucessful CheckIn</li>
-<li>Basket with a non-zero subtotal value.</li>
-</ul>
-<pre class="highlight swift"><code><span class="kt">OmnyPayAPI</span><span class="o">.</span><span class="nf">getPaymentReceipt</span><span class="p">()</span> <span class="p">{</span> <span class="p">(</span><span class="n">paymentReceipt</span><span class="p">,</span><span class="n">error</span><span class="p">)</span> <span class="k">in</span> 
+      <span class="k">guard</span> <span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nf">print</span><span class="p">(</span><span class="s">"Could not get payment receipt."</span><span class="p">)</span>
+          <span class="k">return</span>
+      <span class="p">}</span>
 
-  <span class="k">guard</span> <span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nf">print</span><span class="p">(</span><span class="s">"Could not get payment receipt."</span><span class="p">)</span>
-      <span class="k">return</span>
-  <span class="p">}</span>
+      <span class="c1">/// Extract properties and show on UI.</span>
+    <span class="p">}</span>
+</code></pre>
+<a href='#using-supporting-omnypay-frameworks' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='using-supporting-omnypay-frameworks'>Using supporting OmnyPay frameworks</h2>
+<a href='#omnypayauth' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='omnypayauth'>OmnyPayAuth</h3>
 
-  <span class="c1">/// Extract properties and show on UI.</span>
-<span class="p">}</span>
-</code></pre></li>
-</ul>
+<p>This framework is for authenticating user with device using Touch Id or device Passcode. To use this in your app, just add <strong>OmnyPayAuth</strong> framework as embedded framework.</p>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">AuthConfig</span><span class="p">(</span><span class="nv">reason</span><span class="p">:</span> <span class="s">"Authentication Required"</span><span class="p">,</span> <span class="nv">authenticationLevel</span><span class="p">:</span> <span class="o">.</span><span class="kt">BiometricOrPasscode</span><span class="p">,</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+
+    <span class="k">let</span> <span class="nv">authenticator</span> <span class="o">=</span> <span class="kt">OmnyPayAuth</span><span class="p">(</span><span class="nv">withConfig</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="n">authenticator</span><span class="o">.</span><span class="n">start</span><span class="p">{</span> <span class="p">(</span><span class="nv">result</span><span class="p">:</span><span class="kt">AuthResult</span><span class="p">)</span> <span class="k">in</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">error</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"Authentication failed: "</span><span class="p">,</span> <span class="n">error</span><span class="o">.</span><span class="n">nsError</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"Authentication successful"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+<a href='#omnypaypiscan' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='omnypaypiscan'>OmnyPayPIScan</h3>
+
+<p>This framework helps in retrieving credit / debit card or payment instrument information from device camera scan. To use this framework in your app, just add <strong>OmnyPayPIScan</strong> framework as embedded framework.</p>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">PIScanConfig</span><span class="p">(</span><span class="nv">cvvRequired</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">expiryDateEditable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">cardHolderNameEditable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">cardNumberMaskingEnabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+
+    <span class="k">let</span> <span class="nv">cardScanner</span> <span class="o">=</span> <span class="kt">OmnyPayPIScan</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="n">cardScanner</span><span class="o">.</span><span class="n">cardDidScanHandler</span> <span class="o">=</span> <span class="p">{</span> <span class="n">scanResult</span> <span class="k">in</span>
+        <span class="k">guard</span> <span class="n">scanResult</span><span class="o">.</span><span class="n">error</span> <span class="o">==</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nf">print</span><span class="p">(</span><span class="s">"Scan failed: "</span><span class="p">,</span> <span class="n">scanResult</span><span class="o">.</span><span class="n">error</span><span class="p">?</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">)</span>
+          <span class="k">return</span>
+        <span class="p">}</span>
+
+        <span class="k">let</span> <span class="nv">cardNumber</span> <span class="o">=</span> <span class="n">scanResult</span><span class="o">.</span><span class="n">piCard</span><span class="p">?</span><span class="o">.</span><span class="n">cardNumberGrouped</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+
+    <span class="n">cardScanner</span><span class="o">.</span><span class="nf">presentCardScanView</span><span class="p">(</span><span class="nv">over</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">){</span> <span class="n">status</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+      <span class="o">...</span>
+    <span class="p">}</span>
+</code></pre>
+<a href='#omnypayidentity' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='omnypayidentity'>OmnyPayIdentity</h3>
+
+<p>This framework helps in retrieving Driving licence information from device camera using scan. To use this framework just add <strong>OmnyPayIdentity</strong> framework as embedded framework.</p>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">identityScanner</span> <span class="o">=</span> <span class="kt">OmnyPayIdentity</span><span class="o">.</span><span class="n">shared</span>
+    <span class="n">identityScanner</span><span class="o">.</span><span class="n">documentDidScanHandler</span> <span class="o">=</span> <span class="p">{(</span><span class="nv">result</span><span class="p">:</span><span class="kt">IdentityResult</span><span class="p">)</span> <span class="k">in</span>
+        <span class="k">guard</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span> <span class="o">==</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nf">print</span><span class="p">(</span><span class="s">"Scan failed: "</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span><span class="o">!.</span><span class="n">localizedDescription</span><span class="p">)</span>
+          <span class="k">return</span>
+        <span class="p">}</span>
+
+        <span class="k">let</span> <span class="nv">firstName</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">identitydocument</span><span class="o">!.</span><span class="n">firstName</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+
+    <span class="n">identityScanner</span><span class="o">.</span><span class="nf">presentIdentityScanView</span><span class="p">(</span><span class="nv">over</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+      <span class="o">...</span>
+    <span class="p">}</span>
+</code></pre>
 
           </div>
         </section>
@@ -517,7 +569,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-01-24)</p>
+      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-02-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
