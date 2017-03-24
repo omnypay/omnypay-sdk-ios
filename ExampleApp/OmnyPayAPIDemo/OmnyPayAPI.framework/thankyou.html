@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="title" content="KOHLS"/>
+          <meta name="description" content="">
+            <meta name="author" content="KOHLS">
+              <!--OpenSans font-->
+              <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+                <link href=" https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
+                  <!--Using bootstrap-->
+                  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+                    <!--All page custom css-->
+                    <link rel="stylesheet" type="text/css" href="style.css">
+                      <!--Responsiveness handles for mobile/tablet/desktop css-->
+                      <link rel="stylesheet" type="text/css" href="responsive.css">
+                        <!--general css-->
+                        <link rel="stylesheet" type="text/css" href="general.css">
+                          
+                          <title>KOHL'S</title>
+                          <script>
+                            var ib_receipt;
+                            </script>
+                          <style>
+                            /* Center the loader */
+                            #loader {
+                              position: absolute;
+                              left: 50%;
+                              top: 50%;
+                              z-index: 1;
+                              width: 150px;
+                              height: 150px;
+                              margin: -75px 0 0 -75px;
+                              border: 16px solid #f3f3f3;
+                              border-radius: 50%;
+                              border-top: 16px solid #3498db;
+                              width: 120px;
+                              height: 120px;
+                              -webkit-animation: spin 2s linear infinite;
+                              animation: spin 2s linear infinite;
+                            }
+                          
+                          @-webkit-keyframes spin {
+                            0% { -webkit-transform: rotate(0deg); }
+                            100% { -webkit-transform: rotate(360deg); }
+                          }
+                          
+                          @keyframes spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                          }
+                          
+                          /* Add animation to "page content" */
+                          .animate-bottom {
+                            position: relative;
+                            -webkit-animation-name: animatebottom;
+                            -webkit-animation-duration: 1s;
+                            animation-name: animatebottom;
+                            animation-duration: 1s
+                          }
+                          
+                          @-webkit-keyframes animatebottom {
+                            from { bottom:-100px; opacity:0 }
+                            to { bottom:0px; opacity:1 }
+                          }
+                          
+                          @keyframes animatebottom {
+                            from{ bottom:-100px; opacity:0 }
+                            to{ bottom:0; opacity:1 }
+                          }
+                          
+                          #receipt_wrapper {
+                            display: none
+                          }
+                          
+                            </style>
+  </head>
+  <body>
+    <!--header-->
+    <!--
+     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+     <div class="container-fluid">
+     <div class="navbar-header">
+     <a class="navbar-brand" href="#">KOHL'S</a>
+     </div>
+     </div>
+     </nav>-->
+    <div class="page-wrapper" id="receipt_wrapper">
+      <div class="container-fluid well text-center">
+        <section class=" payment-complete well">
+          <i class="fa fa-check-circle color--green"></i>
+          <p>Thank you</p>
+          
+        </section>
+      </div>
+      <div class="container-fluid text-center font17">
+        <section class="transaction-details">
+          <p>Transaction ID <span id="receiptId"></span></p>
+          <p class="color--lightgrey" id="currentDateTime"></p>
+          
+        </section>
+        <section class="m-t-10">
+          <p id="productName"></p>
+          
+        </section>
+        
+        
+        
+      </div>
+      <div class="container-fluid payment-method">
+        <section class="panel panel-default m-b-0">
+          <div class="panel-heading">
+            PAYMENT METHOD
+          </div>
+          <div class="panel-body cash-promo m-t-0">
+            <div class="media">
+              <div class="media-left">
+                <img src="xs-icon3.jpg" class="media-object" style="width:38px">
+                  </div>
+              <div class="media-body">
+                <h3 class="media-heading" id="cardName"></b></h3>
+                <h2 id="cardNumber"></h2>
+              </div>
+              <div class="media-right" id="finalAmount">
+                <b></b>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+      <div class="container-fluid">
+        <ul class="list-group subtotal">
+          <li><span>Subtotal</span><span id="subtotal"></span></li>
+          <li><span>Cash Rewards</span><span id="cashRewards"></span></li>
+          <li><span>Promo</span><span id="promo"></span></li>
+          <li><span>Tax</span><span id="tax"></span></li>
+          <li class="last"><span style="color:black;">Total Payable</span><span id="payable" style="color:black;"></span></li>
+          <li class="last"><span style="color:black;">Total Savings</span><span id="totalSavings" style="color:black;"></span></li>
+        </ul>
+        
+      </div>
+      
+      <div style="height: 50px; width: 100%;">
+        <img src="barcode.jpg" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px; width: 100%;">
+      </div>
+      
+    </div>
+    <div id="loader"></div>
+    <footer class="footer">
+      <a class="btn btn-success" href="goToHome" id="doneButton">DONE</a>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+  </body>
+  <script type="text/javascript">
+    $('.carousel').carousel()
+    </script>
+  <script>
+    $(document).ready(function() {
+                      $("#doneButton").hide()
+                      });
+                      
+                      function setValues() {
+                        var ltrimmedReceiptId = ib_receipt["receiptId"]
+                        ltrimmedReceiptId = ltrimmedReceiptId.slice(-8)
+                        $("#receiptId").text(ltrimmedReceiptId)
+                        
+                        var month_names = new Array("January", "February", "March",
+                                                    "April", "May", "June", "July", "August", "September",
+                                                    "October", "November", "December");
+                                                    var currentDate = new Date();
+                                                    var currentMonth = currentDate.getMonth();
+                                                    var currentDay = currentDate.getDate();
+                                                    var currentHour = currentDate.getHours();
+                                                    var displayHours = currentHour >= 12 ? currentHour-12 : currentHour;
+                                                    var currentMinutes = currentDate.getMinutes();
+                                                    var receiptDate = month_names[currentMonth] + ' ' + ((''+currentDay).length<2 ? '0' : '') + currentDay + ', '
+                                                    + currentDate.getFullYear() + ', ' + ((''+displayHours).length<2 ? '0' : '') + displayHours
+                                                    + ':' + ((''+currentMinutes).length<2 ? '0' : '') + currentMinutes + ' ' + (currentHour>=12?'pm':'am');
+                                                    
+                                                    $("#currentDateTime").text(receiptDate)
+                                                    $("#productName").html(ib_receipt["productName"])
+                                                    $("#cardName").text(ib_receipt["cardName"])
+                                                    $("#cardNumber").text(ib_receipt["cardNumber"])
+                                                    var lfinalAmt = parseInt(ib_receipt["finalAmount"])/100
+                                                    $("#finalAmount").text("$" + lfinalAmt.toFixed(2))
+                                                    var lsubtotal = parseInt(ib_receipt["subtotal"])/100.0
+                                                    $("#subtotal").text("$" + lsubtotal.toFixed(2))
+                                                    var lcashRewards = parseInt(ib_receipt["cashRewards"])/100.0
+                                                    $("#cashRewards").text("($" + lcashRewards.toFixed(2)+ ")")
+                                                    var lpromo = parseInt(ib_receipt["promo"])/100.0
+                                                    $("#promo").text("($" + lpromo.toFixed(2)+ ")")
+                                                    var ltax = parseInt(ib_receipt["tax"])/100
+                                                    $("#tax").text("$"+ltax.toFixed(2))
+                                                    var lpayable = parseInt(ib_receipt["payable"])/100
+                                                    $("#payable").text("$" + lpayable.toFixed(2))
+                                                    var lsavings = parseInt(ib_receipt["totalSavings"])/100
+                                                    $("#totalSavings").text("$"+lsavings.toFixed(2))
+                                                    
+                                                    
+                                                    document.getElementById("loader").style.display = "none";
+                                                    document.getElementById("receipt_wrapper").style.display = "inline";
+                      }
+  </script>
+</html>

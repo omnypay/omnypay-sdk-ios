@@ -104,6 +104,9 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS("_TtC10OmnyPayAPI6Basket")
 @interface Basket : NSObject
 
+/// Enumerated Basket Tags
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable tags;
+
 /// UUID basket identifier
 @property (nonatomic, copy) NSString * _Nullable id;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -121,6 +124,9 @@ SWIFT_CLASS("_TtC10OmnyPayAPI13BasketReceipt")
 
 /// UUID payment-instrument identifier
 @property (nonatomic, copy) NSString * _Nullable paymentInstrumentId;
+
+/// Enumerated Basket Tags
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable tags;
 
 /// UUID basket identifier
 @property (nonatomic, copy) NSString * _Nullable id;

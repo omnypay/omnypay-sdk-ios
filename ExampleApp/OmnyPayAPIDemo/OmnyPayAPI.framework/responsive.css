@@ -1,0 +1,62 @@
+/*Kohl's Responsive CSS by Gitanjali*/
+/*@media (min-width: 1200px) {
+
+}
+@media screen and (min-width: 992px){
+
+}
+*//*ipad*//*
+@media screen and (width: 768px){
+
+}
+@media screen and (width: 1024px){
+
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+
+}
+*//*mobile*//*
+@media screen and (min-width: 767px){
+
+}
+@media screen and (max-width: 767px){
+
+}
+
+@media screen and (max-width: 320px){
+
+}*/
+@media (min-width: 1200px) {
+    .selectpicker{
+
+        width: 24%;
+    }
+
+}
+/*desktop*/
+@media only screen and (min-width: 768px){
+
+
+}
+/*tablet*/
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+
+
+}
+/*smartphones*/
+@media only screen and (max-width: 767px){
+    .hideinMobile{
+        display: none;
+    }
+
+    .well{
+        padding:14px 20px;
+    }
+}
+@media screen and (max-width: 480px){
+
+
+}
+
+
+

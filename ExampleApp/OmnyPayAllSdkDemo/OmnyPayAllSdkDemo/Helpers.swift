@@ -21,7 +21,12 @@ import UIKit
 
 struct Helpers {
   static func getUrl(forType url: String) -> String {
-    let urlString = "http://" + Constants.hostUrl + ":" + Constants.hostPort + url
+    var urlString: String = Constants.hostScheme
+    urlString = urlString + "://"
+    urlString = urlString + Constants.hostUrl
+    urlString = urlString + ":"
+    urlString = urlString + String(Constants.hostPort)
+    urlString = urlString + url
     return urlString
   }
   

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="title" content="KOHLS"/>
+      <meta name="description" content="">
+      <meta name="author" content="KOHLS">
+      <!--OpenSans font-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+      <link href=" https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
+      <!--Using bootstrap-->
+      <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <!--All page custom css-->
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <!--Responsiveness handles for mobile/tablet/desktop css-->
+      <link rel="stylesheet" type="text/css" href="responsive.css">
+      <!--general css-->
+      <link rel="stylesheet" type="text/css" href="general.css">
+      <!--carousel css-->
+      <link rel="stylesheet" type="text/css" href="swiper.css">
+      <title>KOHL'S</title>
+<!--      <style>
+        /* Center the loader */
+        #pageLoader {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 1;
+          width: 150px;
+          height: 150px;
+          margin: -75px 0 0 -75px;
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+        }
+        
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        /* Add animation to "page content" */
+        .animate-bottom {
+          position: relative;
+          -webkit-animation-name: animatebottom;
+          -webkit-animation-duration: 1s;
+          animation-name: animatebottom;
+          animation-duration: 1s
+        }
+        
+        @-webkit-keyframes animatebottom {
+          from { bottom:-100px; opacity:0 }
+          to { bottom:0px; opacity:1 }
+        }
+        
+        @keyframes animatebottom {
+          from{ bottom:-100px; opacity:0 }
+          to{ bottom:0; opacity:1 }
+        }
+        
+        #mainContentDiv {
+          display: none
+        }
+
+        #buyNowDiv {
+          display: none
+        }
+      </style>
+-->
+  </head>
+  <body>
+
+  <div class="page-wrapper" id="mainContentDiv">
+    <div class="container">
+
+    </div>
+
+    <div class="container">
+      <div class="starter-template text-center">
+          <div class="swiper-container">
+              <div class="swiper-wrapper" id="swiper">
+
+              </div>
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+          </div>
+
+      </div>
+      <div class="starter-template text-left">
+          <h2 class="font-weight--regular font22" id="name"></h2>
+          <p class="color--red font22 font-weight--bold"><span>SALE:</span> <span id="price"></span></p>
+          <p class="light-gray font17"><span>Original:</span> <span id="regular_price"></span> </p>
+          <p class="light-gray font17 m-t-10"><span class="color--lightgrey">Color:</span><span id="colortext"></span> </p>
+
+          <div class="btn-group select-color" data-toggle="buttons" id="color">
+
+
+
+
+          </div>
+      </div>
+
+      <hr>
+
+      <div class="dropdown selectpicker">
+        <button class="btn dropdown-toggle text-center" type="button" data-toggle="dropdown" aria-expanded="false"><span id="selected_size"></span>
+          <i class="fa fa-angle-down"></i></button>
+        <ul class="dropdown-menu text-center" id="size" style="width: 100%" >
+
+        </ul>
+      </div>
+    
+      <div class="cash-promo">
+          <div class="media" id="loyaltySelectionDiv" onclick="changeLoyaltySelection()">
+              <div class="media-left" id="promo_image_holder">
+              </div>
+              <div class="media-body">
+                  <h3 class="media-heading"><span id="promo_cash"><b></b> </span></h3>
+                  <p><span>03/24/2017</span></p>
+              </div>
+              <div class="media-right">
+                  <i class="fa fa-check-circle color--green"></i>
+              </div>
+          </div>
+
+      </div>
+      <div class="shipment">
+          <div id="exTab2" class="container">
+              <ul class="nav nav-tabs">
+                  <li class="active">
+                      <a  href="#1" data-toggle="tab"><span class="color--green">Free</span> Shipping</a>
+                  </li>
+                  <li><a href="#2" data-toggle="tab"><span class="color--green">Free</span> Pick Up</a>
+                  </li>
+
+              </ul>
+
+              <div class="tab-content ">
+                  <div class="tab-pane active" id="1">
+                      <div class="delivery-address">
+
+                          <h2 id="shopper_name"><b></b></h2><p class="color--lightgrey" id="shipping_address"> <span></span></p>
+
+                          <p class="delivery-by m-t-10"><span class="color--lightgrey">Delivery By </span> -<span id="delivery_date"> 24 March 2017</span></p>
+                      </div>
+
+                  </div>
+                  <div class="tab-pane" id="2">
+                      <div class="freepick">
+                          <div id="carousel-example-generic" class="carousel slide" data-interval="false">
+
+                              <ol class="carousel-indicators">
+                                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                              </ol>
+
+
+                              <div class="carousel-inner" role="listbox" id="store_display">
+                              </div>
+
+                              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                  <span class="fa fa-angle-left" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                  <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                              </a>
+                          </div>
+                          <div>
+                              <p class="delivery-by m-t-10"><span class="color--lightgrey" style="padding-left: 1cm">Available at store</span></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <ul class="list-group subtotal">
+              <li><span>Subtotal</span><span id="ib_subtotal"></span></li>
+              <li><span>Cash Rewards</span><span id="ib_loyalty"></span></li>
+              <li><span>Promo</span><span id="ib_promo"></span></li>
+              <li><span>Tax</span><span id="ib_tax"></span></li>
+              <li class="last"><span style="color:black;">Total Payable</span><span id="ib_payable" style="color:black;"></span></li>
+              <li class="last"><span style="color:black;">Total Savings</span><span id="ib_total_savings" style="color:black;"></span></li>
+          </ul>
+
+          <div>
+            <center><h1 id="footer_card_alias"></h1></center>
+            <center><h2 id="footer_reward_alias">YES2YOU REWARDS 1234567890</h2></center>
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer" id="buyNowDiv">
+      <a class="btn btn-success" href="javascript:buyNowAction();">BUY NOW</a>
+  </footer>
+  
+  <div id="newPageLoader" style="display:none">
+    <img src="ajax_loader_gray.gif" />
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="jquery.blockui.js"></script>
+  <script type="text/javascript" src="swiper.min.js"></script>
+  <script type="text/javascript" src="mustache.js"></script>
+
+
+  </body>
+  <script id="swiper-template" type="x-tmpl-mustache">
+  {{#img_src}}
+  <div class="swiper-slide">
+  <img src="{{.}}" alt="...">
+  </div>
+  {{/img_src}}
+  </script>
+  <script id="size-template" type="x-tmpl-mustache">
+  {{#sizeArr}}
+  <li><a href="javascript:setSelectedSize('{{size}}');">{{size}}</a></li>
+  {{/sizeArr}}
+  </script>
+  <script id="color-template" type="x-tmpl-mustache">
+  {{#colorArr}}
+  
+  {{{getHTMLWithTag}}}
+  
+  {{/colorArr}}
+  </script>
+  <script id="address-template" type="x-tmpl-mustache">
+  {{#storeAddress12}}
+  <div class="item">
+      <div class="delivery-address">
+          <h2><b>{{name}}</b></h2> <p class="color--lightgrey"> <span>{{address}}</span></p>
+      </div>
+  </div>
+  {{/storeAddress12}}
+  </script>
+  <script>
+    var ib_products;
+    var ib_userProfile;
+    var ib_paymentSummary;
+    var loyaltySelected = true;
+    var ib_stores;
+     function getBuyNow() {
+       return JSON.stringify(ib_buyNow)
+     }
+  
+    function getPaymentSummary() {
+      return JSON.stringify(ib_paymentSummary)
+    }
+  
+    function changeLoyaltySelection() {
+      debugger;
+      loyaltySelected = !loyaltySelected;
+      if (loyaltySelected) {
+        //apply all loyalty points
+        $("#loyaltySelectionDiv i").attr("style", "")
+        $.blockUI({ message: $('#newPageLoader'), css: {backgroundColor: "", border: "0px"} })
+        window.location = "zapbuyurl://applyLoyalty"
+      } else {
+        //redeem 0 points
+        $("#loyaltySelectionDiv i").attr("style", "color: lightgray")
+        $.blockUI({ message: $('#newPageLoader'), css: {backgroundColor: "", border: "0px"} })
+        window.location = "zapbuyurl://removeLoyalty"
+      }
+    }
+  
+
+    function setUpdatedPaymentSummary() {
+      $("#ib_subtotal").html("$" + (parseInt(ib_paymentSummary.subtotal)/100).toFixed(2));
+      $("#ib_tax").html("$" + (parseInt(ib_paymentSummary.tax)/100).toFixed(2));
+      $("#ib_payable").html("$" + (parseInt(ib_paymentSummary.payable)/100).toFixed(2));
+      $("#ib_total_savings").html("$" + (parseInt(ib_paymentSummary.totalSavings)/100).toFixed(2));
+      $("#ib_loyalty").html("($" + (parseInt(ib_paymentSummary.cashRewards)/100).toFixed(2) + ")");
+      $("#ib_promo").html("($" + (parseInt(ib_paymentSummary.promo)/100).toFixed(2) + ")");
+      $("#price").html("$" + (parseInt(ib_paymentSummary.value)/100).toFixed(2));
+      $.unblockUI()
+    }
+  
+  </script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper;
+  	var jsonData;
+  	var colorMap = {};
+    var ib_buyNow = {"size":null, "sku":null, "color":null, "price": 0, "name": null};
+    $(function(){
+      $.blockUI({ message: $('#newPageLoader'), css: {backgroundColor: "", border: "0px"} })
+      var img_src = new Array();
+      var sizeArr = new Array();
+      var colorArr = new Array();
+
+      $.each(ib_products, function(index2, item){
+        if($.inArray(item["image-url"], img_src) < 0){
+          img_src.push(item["image-url"]);
+        }
+        if($.inArray(item["product-features"]["size"],sizeArr) == -1)
+          sizeArr.push(item["product-features"]["size"]);
+        if($.inArray(item["product-features"]["color"], colorArr.map(function(a){return a.color})) == -1)
+          colorArr.push({"color":item["product-features"]["color"],
+          "swatchURL":item["swatch-image-url"],
+          "getHTMLWithTag": function(){
+              if(this.swatchURL != null && this.swatchURL != ""){
+                var htmlString = '<label class="btn">';
+                htmlString = htmlString + '<input type="radio" name="options" id="' + this.color + '" value="' + this.color + '" autocomplete="off" checked="">';
+                htmlString = htmlString + "<img src='"+this.swatchURL+"' alt = '...' style='position:absolute;width:100%;margin-left:-22px'/>";
+                htmlString = htmlString + '</label>';
+                return htmlString;
+              } else {
+                var htmlString = '<label class="btn" style="background-color:' + this.color + '">';
+                htmlString = htmlString + "<input type='radio' name='options' id='"+this.color+"' value='"+this.color+"' autocomplete='off' checked=''>";
+                htmlString = htmlString + '</label>';
+                return htmlString;
+              }
+            }
+        });
+        if(item["product-features"]["color"] in colorMap) {
+          colorMap[item["product-features"]["color"]]["sizes"].push({"size":item["product-features"]["size"], "sku": item["sku"], "price": item["price"], "name":item["name"]});
+        } else {
+          colorMap[item["product-features"]["color"]] = {};
+          colorMap[item["product-features"]["color"]]["sizes"] = new Array();
+          colorMap[item["product-features"]["color"]]["sizes"].push({"size":item["product-features"]["size"], "sku": item["sku"], "price": item["price"], "name":item["name"]});
+          colorMap[item["product-features"]["color"]]["price"] = item["price"];
+          colorMap[item["product-features"]["color"]]["name"] = item["name"];
+          colorMap[item["product-features"]["color"]]["swatch-image-url"] = item["swatch-image-url"];
+        }
+      });
+      var template = $('#swiper-template').html();
+      Mustache.parse(template);   // optional, speeds up future uses
+      var rendered = Mustache.render(template, {"img_src": img_src});
+      $('#swiper').html(rendered);
+
+      loadColors(colorArr);
+
+      $('input[type=radio][name=options]').change(function() {
+        var color = this.value;
+        ib_buyNow.color = color;
+        ib_buyNow.sku = null;
+        var sizes = colorMap[color]["sizes"];
+        loadSizes(sizes);
+        loadName(colorMap[color]["name"]);
+        loadPrice(colorMap[color]["price"]);
+        loadColor(color);
+      });
+      $('input:radio[name="options"]').filter("[value='"+colorArr[0]["color"]+"']").attr("checked",true);
+      $('input:radio[name="options"]').filter("[value='"+colorArr[0]["color"]+"']").parent().addClass('active');
+      $('input:radio[name="options"]').filter("[value='"+colorArr[0]["color"]+"']").trigger("change");
+
+      swiper =  new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+      });
+        $(".selectpicker .dropdown-menu li a").click(function(){
+        $(".selectpicker .btn span").text($(this).text());
+        $(".selectpicker .btn span").val($(this).text());
+      });
+      
+     // Load shopper name
+     var rendered_shopper_name = Mustache.render("{{shopper_name}}", {"shopper_name": ib_userProfile.fullName});
+     $('#shopper_name').html("<b>"+rendered_shopper_name+"</b>");
+     // Ends
+
+     // Load Shipping address
+     var rendered_shipping_address = Mustache.render("{{shipping_address}}", {"shipping_address": ib_userProfile.shippingAddress});
+     $('#shipping_address').html("<span>"+rendered_shipping_address+"</span>");
+     // Ends
+
+     // Load delivery and pick up date
+     var month_names = new Array("January", "February", "March",
+       "April", "May", "June", "July", "August", "September",
+       "October", "November", "December");
+
+     var currentDate = new Date();
+     var currentMonth = currentDate.getMonth();
+     var deliveryDay = currentDate.getDate()+3;
+     var deliveryDate = ((''+deliveryDay).length<2 ? '0' : '') + deliveryDay + ' ' +
+         month_names[currentMonth] + ' ' + currentDate.getFullYear();
+
+     var rendered_delivery_date = Mustache.render("{{delivery_date}}", {"delivery_date": deliveryDate});
+     // since both dates are 3 days from current date setting the same variable
+     $('#delivery_date').html(rendered_delivery_date);
+     //$('#pickup_date').html(rendered_delivery_date);
+     // Ends
+
+     // set payable and taxes
+     var rendered_subtotal = Mustache.render("{{ib_subtotal}}", {"ib_subtotal": "$"+(parseInt(ib_paymentSummary.subtotal)/100).toFixed(2)});
+
+     var rendered_tax = Mustache.render("{{tax}}", {"tax": "$"+(parseInt(ib_paymentSummary.tax)/100).toFixed(2)});
+     var rendered_total_savings = Mustache.render("{{savings}}", {"savings": "$"+(parseInt(ib_paymentSummary.totalSavings)/100).toFixed(2)});
+     var rendered_sub_promo = Mustache.render("{{sub_promo}}", {"sub_promo": "($"+(parseInt(ib_paymentSummary.promo)/100).toFixed(2)+')'});
+     var rendered_loyalty = Mustache.render("{{loyalty}}", {"loyalty": "($"+(parseInt(ib_paymentSummary.cashRewards)/100).toFixed(2)+')'});
+     var rendered_payable = Mustache.render("{{payable}}", {"payable": "$"+(parseInt(ib_paymentSummary.payable)/100).toFixed(2)});
+     var rendered_sale_price = Mustache.render("{{sale_price}}", {"sale_price": "$"+(parseInt(ib_paymentSummary.value)/100).toFixed(2)});
+     $('#ib_subtotal').html(rendered_subtotal);
+     $('#ib_tax').html(rendered_tax);
+     $('#ib_total_savings').html(rendered_total_savings);
+     $('#ib_loyalty').html(rendered_loyalty);
+     $('#ib_promo').html(rendered_sub_promo);
+     $('#ib_payable').html(rendered_payable);
+     $('#price').html(rendered_sale_price);
+     // regular_price
+     // Ends
+
+     // Setting promo cash / loyalty
+
+     var isKohlsMerchant = ib_userProfile.merchantName.toUpperCase().includes("KOHL");
+     var ibCashRewards = (parseInt(ib_paymentSummary.cashRewards)/100).toFixed(2);
+     var rendered_promo_cash = Mustache.render("{{promo_cash}}", {"promo_cash": "$" + ibCashRewards});
+      var promo_image_rendered = Mustache.render('<img src="{{promo_image}}" class="media-object" style="width:38px" id="promo_image">', {"promo_image": (isKohlsMerchant ? "xs-icon2.jpg" : "coolcash.png") });
+      $('#promo_image_holder').html(promo_image_rendered);
+     $('#promo_cash').html('<b>'+rendered_promo_cash+' </b>' + (isKohlsMerchant ? "Kohl's cash" : "Cool cash"));
+     // Ends
+     var promo_image_url = isKohlsMerchant ? "xs-icon2.jpg" : "coolcash.png"
+     $("#promo_image").src = promo_image_url
+
+     var rendered_footer_card = Mustache.render("{{rendered_footer_card}}", {"rendered_footer_card": ib_paymentSummary.cardAlias + " " + ib_paymentSummary.cardNumber});
+     $('#footer_card_alias').html(rendered_footer_card);
+      
+      var rewardAlias = isKohlsMerchant ? "YES2YOU REWARDS 1234567890" : "COOL REWARDS 1234567890";
+      $('#footer_reward_alias').html(rewardAlias);
+
+     // Load store addresses
+     var template = $('#address-template').html();
+     Mustache.parse(template);   // optional, speeds up future uses
+     var rendered_adresses = Mustache.render(template, {"storeAddress12": ib_stores});
+     $('#store_display').html(rendered_adresses);
+     // Ends
+     // select the first store on first load
+     var firstStoreItem = document.getElementById("store_display").firstElementChild;
+     firstStoreItem.className = "item active";
+     // Ends
+
+     //stop loader and display product page
+      /*document.getElementById("pageLoader").style.display = "none";
+      document.getElementById("mainContentDiv").style.display = "inline";
+      document.getElementById("buyNowDiv").style.display = "inline";*/
+      
+      $.unblockUI()
+    });
+
+    function setSelectedSize(selSize){
+      $('#selected_size').html(selSize);
+      ib_buyNow.size = selSize;
+
+      const sizeSkuArr = colorMap[ib_buyNow.color]["sizes"];
+
+      $.each(sizeSkuArr, function(skuIndex, item){
+        if(item.size == selSize){
+          ib_buyNow.sku = item.sku;
+          ib_buyNow.name = item.name;
+          ib_buyNow.price = item.price;
+          loadPrice(ib_buyNow.price);
+          loadName(ib_buyNow.name);
+          return false;
+        }
+      });
+
+      $.blockUI({ message: $('#newPageLoader'), css: {backgroundColor: "", border: "0px"} })
+      window.location = "zapbuyurl://sku/" + ib_buyNow.sku
+    }
+
+  	function loadSizes(sizeArray) {
+  		var template = $('#size-template').html();
+  		Mustache.parse(template);   // optional, speeds up future uses
+  		var rendered = Mustache.render(template, {"sizeArr": sizeArray});
+  		$('#size').html(rendered);
+      setSelectedSize(sizeArray[0].size);
+  	}
+
+  	function loadColors(colorArray) {
+  		var template = $('#color-template').html();
+  		Mustache.parse(template);   // optional, speeds up future uses
+  		var rendered = Mustache.render(template, {"colorArr": colorArray});
+  		$('#color').html(rendered);
+  	}
+
+  	function loadName(name) {
+  		$('#name').html(name);
+  	}
+
+  	function loadPrice(price) {
+  		var rendered = Mustache.render("${{price}}", {"price": (price/100).toFixed(2)});
+  		$('#regular_price').html(rendered);
+  	}
+
+  	function loadColor(color) {
+  		var rendered = Mustache.render("{{color}}", {"color": color});
+  		$('#colortext').html(rendered);
+  	}
+
+    function buyNowAction(){
+      if(ib_buyNow.sku){
+        window.open("thankyou.html");
+      } else {
+        $("<div title='Alert!'>Please select size to continue</div>").dialog({ width:250,height: 100,resizable: false, draggable:false, modal: true})
+      }
+    }
+  
+  </script>
+</html>

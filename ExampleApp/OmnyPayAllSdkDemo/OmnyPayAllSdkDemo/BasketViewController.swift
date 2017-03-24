@@ -29,6 +29,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   var cartItems = [BasketItem]()
   @IBOutlet weak var btnPay: UIButton!
   var receipt: BasketReceipt?
+  var emptyLabel: UILabel?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -60,7 +61,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   func didUpdateBasket(basket: Basket) {
     KVNProgress.dismiss()
     print("basket update received")
-    if basket.state == BasketState.CompleteScan {
+    if basket.state == BasketStateInternal.CompleteScan {
       Helpers.makeButtonEnabled(self.btnPay)
       return
     }
@@ -128,9 +129,9 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let count = self.cartItems.count
     if count == 0{
-      let emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
-      emptyLabel.text = "Waiting for items"
-      emptyLabel.textAlignment = NSTextAlignment.Center
+      self.emptyLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+      self.emptyLabel!.text = "Waiting for items"
+      self.emptyLabel!.textAlignment = NSTextAlignment.Center
       self.tableView.backgroundView = emptyLabel
       self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
       return 0
@@ -141,6 +142,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = self.tableView.dequeueReusableCellWithIdentifier("basketLineItem") as! BasketItemTableViewCell
       let index = indexPath.row
+      self.emptyLabel?.hidden = true
       cell.lblItemDescription.text = self.cartItems[index].productDescription
       cell.lblItemQuantity.text = String(self.cartItems[index].productQuantity!)
       cell.lblItemCost.text = "$" + (Double(self.cartItems[index].productPrice ?? 0)/100.0).format("%03.2f")
