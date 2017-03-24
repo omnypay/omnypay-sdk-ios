@@ -1680,7 +1680,7 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The view in which the product details page should be loaded.</p>
+                                  <p>The view in which the product details page should be loaded. This will be a webview. The SDK handles the user interaction with page.</p>
 
                                 </div>
                               </td>
@@ -1694,22 +1694,6 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                               <td>
                                 <div>
                                   <p>The scanned product QR code.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The completion handler to be called.</p>
-<p>It takes the following parameters:</p>
-<p><code>status</code> - A boolean to represent whether all the product details were fetched.</p>
-<p><code>error</code> - An error object that indicates why the call failed, or nil if product details page is created successfully.</p>
 
                                 </div>
                               </td>
