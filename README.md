@@ -18,7 +18,7 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 |   **SDK**   | **Description**                                                               | **Version** | **Release Date** |
 |:-----------:|-------------------------------------------------------------------------------|:-----------:|:----------------:|
-| OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     1.0     |    08-Dec-2016   |
+| OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     2.0     |    24-Mar-2017   |
 | OmnyPayScan | Provides an easy way to scan machine readable codes like QRCode, Barcode etc. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    08-Dec-2016   |
 | OmnyPayAuth | Provides an easy way to authenticate user by Touch Id or using Passcode |     1.0     |    24-Jan-2017   |
 | OmnyPayIdentity | Provides an easy way to scan an identity document e.g. driver license, and get details regarding the document. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    24-Jan-2017   |
@@ -29,7 +29,7 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 - iOS 8.0+
 - Xcode 8.0+
-- Swift 2.3 or Objective C 
+- Swift 2.3
 
 
 # Installation
@@ -452,3 +452,4 @@ Checkout our sample app <a href="https://github.com/omnypay/omnypay-sdk-ios/tree
    See the License for the specific language governing permissions and
    limitations under the License.
    ```
+
