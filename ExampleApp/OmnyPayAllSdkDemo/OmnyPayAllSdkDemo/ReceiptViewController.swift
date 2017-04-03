@@ -39,10 +39,10 @@ class ReceiptViewController: UIViewController, UITableViewDataSource, UITableVie
     self.itemsTableView.separatorStyle = UITableViewCellSeparatorStyle.none
     title = Constants.appTitle
     self.navigationItem.hidesBackButton = true
-    self.lblSubTotal.text = "$" + (Double(self.receipt!.totalSummary?.total ?? 0)/100.0).format(f: "%03.2f")
-    self.lblTax.text = "$" + (Double(self.receipt!.totalSummary?.tax ?? 0)/100.0).format(f: "%03.2f")
-    self.lblDiscount.text = "-$" + (Double(self.receipt!.totalSummary?.discountCents ?? 0)/100.0).format(f: "%03.2f")
-    self.lblTotal.text = "$" + (Double(self.receipt!.totalSummary?.paymentTotal ?? 0)/100.0).format(f: "%03.2f")
+    self.lblSubTotal.text = "$" + (Double(self.receipt!.summary?.total ?? 0)/100.0).format(f: "%03.2f")
+    self.lblTax.text = "$" + (Double(self.receipt!.summary?.tax ?? 0)/100.0).format(f: "%03.2f")
+    self.lblDiscount.text = "-$" + (Double(self.receipt!.summary?.discountCents ?? 0)/100.0).format(f: "%03.2f")
+    self.lblTotal.text = "$" + (Double(self.receipt!.summary?.paymentTotal ?? 0)/100.0).format(f: "%03.2f")
     self.automaticallyAdjustsScrollViewInsets = false
   }
   

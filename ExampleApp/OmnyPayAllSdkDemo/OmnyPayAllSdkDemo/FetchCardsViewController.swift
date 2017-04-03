@@ -33,7 +33,7 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
   
   @IBOutlet weak var btnProceed: UIButton!
   @IBOutlet weak var tableView: UITableView!
-  var cardList = [PaymentInstrumentOffers]()
+  var cardList = [PaymentInstrumentOffer]()
   var selectedCard: Int?
   private lazy var qrScanner = OmnyPayScan.sharedInstance
   var stringQR:String?

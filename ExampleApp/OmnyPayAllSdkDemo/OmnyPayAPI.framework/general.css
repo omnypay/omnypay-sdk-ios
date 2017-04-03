@@ -1,0 +1,249 @@
+/*Kohl's General CSS by Gitanjali*/
+
+body,html{ height: 100%;}
+body{
+    font-family: 'Helvetica Neue Light', Helvetica, 'Open Sans','Arial', sans-serif;
+    line-height:1.8;
+    font-size: 13.99px;
+    color: #666666;
+}
+article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+    display: block;
+}
+audio, canvas, video {
+    display: inline-block;
+}
+a {
+    color: #aaaaaa;
+    text-decoration: none;
+}
+a:focus {
+    outline: 0 none;
+    text-decoration: none;
+}
+a:active, a:hover {
+    color: #f26900;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+}
+b, strong {
+    font-weight: 700;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+img {
+    border: 0 none;
+    max-width: 100%;
+}
+
+/*elements*/
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+button, input {
+    line-height: normal;
+}
+button, select {
+    text-transform: none;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+}
+button[disabled], html input[disabled] {
+    cursor: default;
+}
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+input[type="search"] {
+    box-sizing: content-box;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0 none;
+    padding: 0;
+}
+
+/*radio*/
+.radio input[type="radio"]:focus + label::before{
+    outline: 0;
+}
+.radio {
+    padding-left: 20px; }
+.radio label {
+    display: inline-block;
+    position: relative;
+    padding-left: 13px; }
+.radio label::before {
+    content: "";
+    margin-top: 5px;
+    display: inline-block;
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    left: 0;
+    margin-left: -20px;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out; }
+.radio label::after {
+    display: inline-block;
+    position: absolute;
+    content: " ";
+    width: 11px;
+    height: 11px;
+    left: 6px;
+    top: 11px;
+    margin-left: -20px;
+    border-radius: 50%;
+    background-color: #555555;
+    -webkit-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+    transform: scale(0, 0);
+    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
+.radio input[type="radio"] {
+    opacity: 0; }
+.radio input[type="radio"]:focus + label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px; }
+.radio input[type="radio"]:checked + label::after {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1); }
+.radio input[type="radio"]:disabled + label {
+    opacity: 0.65; }
+.radio input[type="radio"]:disabled + label::before {
+    cursor: not-allowed; }
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+/*table*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*ul li*/
+ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin: 0;
+    padding: 0;
+    font-size: 15.99px;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+.clearfix {
+}
+.clearfix::after, .clearfix::before {
+    content: " ";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.clearfix::after {
+    clear: both;
+}
+/*heading*/
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue Light', Helvetica, 'Open Sans', Arial, sans-serif;
+    line-height: 1.5;
+}
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 16px;
+    color: #444444;
+}
+
+h3 {
+    font-size: 16px;
+    color: #444444;
+}
+h4{
+
+}/*font size*/
+.font17{
+    font-size: 17px;
+}
+.font18{
+    font-size: 18px;
+}
+.font22{
+    font-size: 22px;
+}
+.font22{
+    font-size: 22px;
+}
+/* font weight */
+.font-weight--light {
+    font-weight: 300;
+}
+
+.font-weight--regular {
+    font-weight: 400;
+}
+
+.font-weight--semi-bold {
+    font-weight:600;
+}
+
+.font-weight--bold {
+    font-weight:800;
+}
+
+/*font colors*/
+.color--white {
+    color: #ffffff;
+}
+
+.color--blue{
+    color: #28b1e6;
+}
+.color--red{
+    color: #fd1314;
+}
+.color--green{
+    color: #46ba55;
+}
+.color--lightgrey{
+    color:#a6a6a6;
+}
+
+
+/*width*/
+.width--full {
+    width:  100%;
+}
+
+/*margin and padding*/
+.m-t-10{margin-top: 10px;}
+.m-b-10{margin-bottom: 10px;}
+.m-t-0{margin-top: 0;}
+.m-b-0{margin-bottom: 0;}

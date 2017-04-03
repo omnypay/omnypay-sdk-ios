@@ -24,7 +24,8 @@ import Foundation
 struct Constants {
   static let appTitle: String = "OmnyPay"
   static let hostUrl: String = "pantheon.demo0.omnypay.net"
-  static let hostPort: String = "8080"
+  static let hostPort: Int = 8080
+  static let hostScheme: String = "http"
   static let createShopper: String = "/identity/account"
   static let authenticateMerchantShopper: String = "/identity/authentication"
   static let merchantId: String = "your merchant id"
