@@ -8,6 +8,9 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
@@ -21,6 +24,12 @@
           OmnyPay Docs
         </a>
         
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
     
@@ -95,9 +104,6 @@
                 <a class="nav-group-task-link" href="../Classes/Basket.html">Basket</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/BasketState.html">BasketState</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Item.html">Item</a>
               </li>
               <li class="nav-group-task">
@@ -117,9 +123,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/PaymentInstrumentInfo.html">PaymentInstrumentInfo</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/PaymentInstrumentOffers.html">PaymentInstrumentOffers</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/ProductOffer.html">ProductOffer</a>
@@ -150,9 +153,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/SetDefaultPaymentInstrumentValue.html">SetDefaultPaymentInstrumentValue</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/CardType.html">CardType</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/ShopperLoyalty.html">ShopperLoyalty</a>
@@ -250,6 +250,23 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Enums.html">Other Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BasketStateInternal.html">BasketStateInternal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Channel.html">Channel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ModelType.html">ModelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Tags.html">Tags</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -257,13 +274,9 @@
         <section class="section">
           <div class="section-content">
             <h1>OmnyPayAPI</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">OmnyPayAPI</span></code></pre>
-
-                </div>
-              </div>
             <p>OmnyPayAPI SDK provides a simple way to access OmnyPay Platform APIs. </p>
+
+<p>Undocumented</p>
 
           </div>
         </section>
@@ -685,9 +698,9 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI21getPaymentInstrumentsFT10completionFTGSqGSaCS_23PaymentInstrumentOffers__GSqPs5Error___T__T_"></a>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI21getPaymentInstrumentsERR"></a>
                     <a name="//apple_ref/swift/Method/getPaymentInstruments(completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI21getPaymentInstrumentsFT10completionFTGSqGSaCS_23PaymentInstrumentOffers__GSqPs5Error___T__T_">getPaymentInstruments(completion:)</a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI21getPaymentInstrumentsERR">getPaymentInstruments(completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -702,7 +715,7 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getPaymentInstruments</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/PaymentInstrumentOffers.html">PaymentInstrumentOffers</a></span><span class="p">]?,</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getPaymentInstruments</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">PaymentInstrumentOffer</span><span class="p">]?,</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -718,10 +731,10 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The completion handler to call with an array of <code>PaymentInstrumentOffers</code> objects.</p>
+                                  <p>The completion handler to call with an array of <code>PaymentInstrumentOffer</code> objects.</p>
 <p>It takes the following parameters:</p>
-<p><code>paymentInstrumentOffers</code> - An array of <code>PaymentInstrumentOffers</code> objects.</p>
-<p><code>error</code> - An error object that indicates why the call failed, or nil if the PaymentInstrumentOffers are fetched successfully.</p>
+<p><code>paymentInstrumentOffers</code> - An array of <code>PaymentInstrumentOffer</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if the PaymentInstrumentOffer are fetched successfully.</p>
 
                                 </div>
                               </td>
@@ -761,6 +774,19 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                         <h4>Parameters</h4>
                         <table class="graybox">
                           <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentInstrument</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of selected payment instrument to be used as default.</p>
+
+                                </div>
+                              </td>
+                            </tr>
                             <tr>
                               <td>
                                 <code>
@@ -815,7 +841,7 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>posId</em>
+                                <em>onPointOfSale</em>
                                 </code>
                               </td>
                               <td>
@@ -900,9 +926,9 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI12updateBasketFT9withItemsGSaCS_4Item_10completionFTGSqCS_6Basket_GSqPs5Error___T__T_"></a>
-                    <a name="//apple_ref/swift/Method/updateBasket(withItems:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI12updateBasketFT9withItemsGSaCS_4Item_10completionFTGSqCS_6Basket_GSqPs5Error___T__T_">updateBasket(withItems:completion:)</a>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI12updateBasketERR"></a>
+                    <a name="//apple_ref/swift/Method/updateBasket(withBasket:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI12updateBasketERR">updateBasket(withBasket:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -917,7 +943,7 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">updateBasket</span><span class="p">(</span><span class="n">withItems</span> <span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Item.html">Item</a></span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Classes/Basket.html">Basket</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">updateBasket</span><span class="p">(</span><span class="n">withBasket</span> <span class="nv">basket</span><span class="p">:</span> <span class="kt">BasketUpdateParam</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Classes/Basket.html">Basket</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -928,12 +954,12 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>basketItems</em>
+                                <em>withItems</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>BasketItems object</p>
+                                  <p>[BasketLineItem] object containing items to update basket with.</p>
 
                                 </div>
                               </td>
@@ -1030,7 +1056,7 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">redeemLoyalty</span><span class="p">(</span><span class="n">points</span> <span class="nv">points</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">,</span>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">redeemLoyalty</span><span class="p">(</span><span class="n">points</span> <span class="nv">loyaltyPoints</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">,</span>
                                   <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Basket.html">Basket</a></span><span class="p">?,</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -1106,7 +1132,7 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>paymentInstrumentId</em>
+                                <em>withPaymentInstrument</em>
                                 </code>
                               </td>
                               <td>
@@ -1178,7 +1204,7 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>paymentInstrumentId</em>
+                                <em>forPaymentInstrument</em>
                                 </code>
                               </td>
                               <td>
@@ -1347,10 +1373,63 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The completion handler to call with an array of <code>ProductOffer</code> objects.</p>
+                                  <p>The completion handler to call with an array of <code>SkuOffer</code> objects.</p>
 <p>It takes the following parameters:</p>
-<p><code>productOffers</code> - An array of  <code>ProductOffer</code> objects.</p>
+<p><code>[SkuOffer]</code> - An array of  <code>SkuOffer</code> objects.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if product offers were fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI12getSkuOffersERR"></a>
+                    <a name="//apple_ref/swift/Method/getSkuOffers(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI12getSkuOffersERR">getSkuOffers(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get offers related to all skus for a merchant.</p>
+
+<p>It takes the following parameters:</p>
+
+<p><code>skuOffers</code> - An array of <code>SkuOffer</code> objects.</p>
+
 <p><code>error</code> - An error object that indicates why the call failed, or nil if ProductOffers were fetched.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getSkuOffers</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">SkuOffer</span><span class="p">]?,</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with an array of <code>SkuOffer</code> objects.</p>
 
                                 </div>
                               </td>
@@ -1442,7 +1521,7 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>param</em>
+                                <em>paymentInstrument</em>
                                 </code>
                               </td>
                               <td>
@@ -1587,6 +1666,126 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI17getShopperProfileERR"></a>
+                    <a name="//apple_ref/swift/Method/getShopperProfile(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI17getShopperProfileERR">getShopperProfile(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get shopper profile.</p>
+
+<p>It takes the following parameters:</p>
+
+<p><code>shopperProfile</code> - A <code>ShopperProfile</code> object.</p>
+
+<p><code>error</code> - An error object that indicates why the call failed, or nil if ShopperProfile was received.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getShopperProfile</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">ShopperProfile</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call with a <code>ShopperProfile</code> object.</p>
+<p>It takes the following parameters:</p>
+<p><code>shopperProfile</code> - A <code>ShopperProfile</code> object.</p>
+<p><code>error</code> - An error object that indicates why the call failed, or nil if ShopperProfile was received.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7OmnyPay10OmnyPayAPI18displayProductPageFT6inViewCSo6UIView9usingCodeSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/displayProductPage(inView:usingCode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7OmnyPay10OmnyPayAPI18displayProductPageFT6inViewCSo6UIView9usingCodeSS_T_">displayProductPage(inView:usingCode:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get product details page using scanned QR code. This method can be called after following successful calls:
+1. get merchant info
+2. authenticate shopper
+3. get payment instruments
+4. get shopper profile</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">displayProductPage</span><span class="p">(</span><span class="n">inView</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="n">usingCode</span> <span class="nv">scannedCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view in which the product details page should be loaded. This will be a webview. The SDK handles the user interaction with page.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>usingCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The scanned product QR code.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -1595,8 +1794,8 @@ If it is authenticated, it&rsquo;s state is <code>authenticated</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-02-01)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-04-04)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
