@@ -25,7 +25,8 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 | OmnyPayPIScan | Provides an easy way to scan a credit/debit card and get card details. **Privacy - Camera Usage Description** should be provided in info.plist |     1.0     |    Apr-04-2017   |
 
 
-**Revisions** 
+**Revisions**
+
 |   **SDK**   | **Change log**                                                                | **Version** | **Release Date** |
 |:-----------:|-------------------------------------------------------------------------------|:-----------:|:----------------:|
 
