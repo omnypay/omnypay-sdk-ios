@@ -12,7 +12,7 @@
       <link href=" https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
       <!--Using bootstrap-->
       <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" type="text/css" href="jqueryUi.css">
       <!--All page custom css-->
       <link rel="stylesheet" type="text/css" href="style.css">
       <!--Responsiveness handles for mobile/tablet/desktop css-->
@@ -207,7 +207,7 @@
 
   </div>
 
-  <footer class="footer" id="buyNowDiv">
+  <footer class="footer" id="buyNowDiv" style="z-index:3;">
       <a class="btn btn-success" href="javascript:buyNowAction();">BUY NOW</a>
   </footer>
   
@@ -215,9 +215,9 @@
     <img src="ajax_loader_gray.gif" />
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.min.js"></script>
   <script type="text/javascript" src="bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="jquery-ui.js"></script>
   <script type="text/javascript" src="jquery.blockui.js"></script>
   <script type="text/javascript" src="swiper.min.js"></script>
   <script type="text/javascript" src="mustache.js"></script>
@@ -258,6 +258,7 @@
     var ib_paymentSummary;
     var loyaltySelected = true;
     var ib_stores;
+    var firstTimeLoading = true;
      function getBuyNow() {
        return JSON.stringify(ib_buyNow)
      }
@@ -267,7 +268,6 @@
     }
   
     function changeLoyaltySelection() {
-      debugger;
       loyaltySelected = !loyaltySelected;
       if (loyaltySelected) {
         //apply all loyalty points
@@ -359,7 +359,8 @@
         loadPrice(colorMap[color]["price"]);
         loadColor(color);
       });
-      $('input:radio[name="options"]').filter("[value='"+colorArr[0]["color"]+"']").attr("checked",true);
+      
+      $('input:radio[name="options"]').filter("[value='"+colorArr[0]["color"]+"']").prop("checked",true);
       $('input:radio[name="options"]').filter("[value='"+colorArr[0]["color"]+"']").parent().addClass('active');
       $('input:radio[name="options"]').filter("[value='"+colorArr[0]["color"]+"']").trigger("change");
 
@@ -388,8 +389,9 @@
        "October", "November", "December");
 
      var currentDate = new Date();
+     currentDate.setDate(currentDate.getDate() + 3)
      var currentMonth = currentDate.getMonth();
-     var deliveryDay = currentDate.getDate()+3;
+     var deliveryDay = currentDate.getDate();
      var deliveryDate = ((''+deliveryDay).length<2 ? '0' : '') + deliveryDay + ' ' +
          month_names[currentMonth] + ' ' + currentDate.getFullYear();
 
@@ -452,13 +454,14 @@
       document.getElementById("mainContentDiv").style.display = "inline";
       document.getElementById("buyNowDiv").style.display = "inline";*/
       
+      //$($("input[name='options']")[0]).prop("checked", true)
+      
       $.unblockUI()
     });
 
     function setSelectedSize(selSize){
       $('#selected_size').html(selSize);
       ib_buyNow.size = selSize;
-
       const sizeSkuArr = colorMap[ib_buyNow.color]["sizes"];
 
       $.each(sizeSkuArr, function(skuIndex, item){
@@ -472,12 +475,17 @@
         }
       });
 
-      $.blockUI({ message: $('#newPageLoader'), css: {backgroundColor: "", border: "0px"} })
-      window.location = "zapbuyurl://sku/" + ib_buyNow.sku
+      if (firstTimeLoading) {
+        firstTimeLoading = false;
+      } else {
+        $.blockUI({ message: $('#newPageLoader'), css: {backgroundColor: "", border: "0px"} });
+        window.location = "zapbuyurl://sku/" + ib_buyNow.sku;
+      }
+
     }
 
   	function loadSizes(sizeArray) {
-  		var template = $('#size-template').html();
+      var template = $('#size-template').html();
   		Mustache.parse(template);   // optional, speeds up future uses
   		var rendered = Mustache.render(template, {"sizeArr": sizeArray});
   		$('#size').html(rendered);

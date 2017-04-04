@@ -18,11 +18,17 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 |   **SDK**   | **Description**                                                               | **Version** | **Release Date** |
 |:-----------:|-------------------------------------------------------------------------------|:-----------:|:----------------:|
-| OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     2.0     |    24-Mar-2017   |
-| OmnyPayScan | Provides an easy way to scan machine readable codes like QRCode, Barcode etc. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    08-Dec-2016   |
-| OmnyPayAuth | Provides an easy way to authenticate user by Touch Id or using Passcode |     1.0     |    24-Jan-2017   |
-| OmnyPayIdentity | Provides an easy way to scan an identity document e.g. driver license, and get details regarding the document. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    24-Jan-2017   |
-| OmnyPayPIScan | Provides an easy way to scan a credit/debit card and get card details. **Privacy - Camera Usage Description** should be provided in info.plist |     1.0     |    24-Jan-2017   |
+| OmnyPayAPI  | Provides access to OmnyPay Platform API                                       |     1.0     |    Apr-04-2017  |
+| OmnyPayScan | Provides an easy way to scan machine readable codes like QRCode, Barcode etc. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    Apr-04-2017   |
+| OmnyPayAuth | Provides an easy way to authenticate user by Touch Id or using Passcode |     1.0     |    Apr-04-2017   |
+| OmnyPayIdentity | Provides an easy way to scan an identity document e.g. driver license, and get details regarding the document. **Privacy - Camera Usage Description** should be provided in info.plist|     1.0     |    Apr-04-2017   |
+| OmnyPayPIScan | Provides an easy way to scan a credit/debit card and get card details. **Privacy - Camera Usage Description** should be provided in info.plist |     1.0     |    Apr-04-2017   |
+
+
+**Revisions** 
+|   **SDK**   | **Change log**                                                                | **Version** | **Release Date** |
+|:-----------:|-------------------------------------------------------------------------------|:-----------:|:----------------:|
+
 
 
 ### Requirements

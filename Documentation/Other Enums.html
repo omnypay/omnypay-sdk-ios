@@ -291,12 +291,14 @@
                         <p>An enum representing the state of current basket.</p>
 
 <ul>
-<li><code>New</code>: A state of a new or already existing active basket.</li>
-<li><code>CompleteScan</code>: A state for basket when Point of Sale terminal finishes adding line items.</li>
-<li><code>InitiatePayment</code>: A state of basket when app starts the payment. See <code>startPayment(withPaymentInstrument:completion:)</code></li>
-<li><code>ReadyForPayment</code>: A state of basket between PoS starts payment process and payment vault responds.</li>
 <li><code>CompleteTransaction</code>: A state of basket when transaction is successfully completed.</li>
+<li><code>New</code>: A state of a new or already existing active basket.</li>
+<li><code>UpdateBasket</code>: A state of basket when the basket is updated.</li>
+<li><code>InitiatePayment</code>: A state of basket when app starts the payment.</li>
+<li><code>CompleteScan</code>: A state for basket when Point of Sale terminal finishes adding line items.</li>
+<li><code>AssociatePos</code>: A state of basket when transaction will be associated with pos.</li>
 <li><code>CancelTransaction</code>: A state of basket when transaction is explicitly cancelled.</li>
+<li><code>ReadyForPayment</code>: A state of basket between PoS starts payment process and payment vault responds.</li>
 </ul>
 
                         <a href="Enums/BasketStateInternal.html" class="slightly-smaller">See more</a>
@@ -325,9 +327,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>An enum representing tags that can be used for various checkout flows.</p>
+
+<ul>
+<li><code>ReserveCollect</code>: Represents support for reserving and collecting coupons.</li>
+</ul>
 
                         <a href="Enums/BasketTags.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketTags</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -349,9 +363,25 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>An enum representing offer channel identifier.</p>
+
+<ul>
+<li><code>Email</code>: Offer channel was email.</li>
+<li><code>Facebook</code>: Offer channel was facebook.</li>
+<li><code>GoogleProductSearch</code>: Offer channel was google search.</li>
+<li><code>Print</code>: Offer channel was printed material.</li>
+<li><code>Display</code>: Offer channel was display.</li>
+</ul>
 
                         <a href="Enums/ProductOfferChannel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ProductOfferChannel</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -369,9 +399,23 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>An enum representing discount type of the offer.</p>
+
+<ul>
+<li><code>SpecialPrice</code>: A special price type of discount.</li>
+<li><code>PercentDiscount</code>: A percent off type of discount.</li>
+<li><code>FixedDiscount</code>: A fixed type of discount.</li>
+</ul>
 
                         <a href="Enums/ProductOfferModelType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ProductOfferModelType</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -384,7 +428,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-03-24)</p>
+      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-04-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

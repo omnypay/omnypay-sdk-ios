@@ -276,12 +276,14 @@
             <p>An enum representing the state of current basket.</p>
 
 <ul>
-<li><code>New</code>: A state of a new or already existing active basket.</li>
-<li><code>CompleteScan</code>: A state for basket when Point of Sale terminal finishes adding line items.</li>
-<li><code>InitiatePayment</code>: A state of basket when app starts the payment. See <code>startPayment(withPaymentInstrument:completion:)</code></li>
-<li><code>ReadyForPayment</code>: A state of basket between PoS starts payment process and payment vault responds.</li>
 <li><code>CompleteTransaction</code>: A state of basket when transaction is successfully completed.</li>
+<li><code>New</code>: A state of a new or already existing active basket.</li>
+<li><code>UpdateBasket</code>: A state of basket when the basket is updated.</li>
+<li><code>InitiatePayment</code>: A state of basket when app starts the payment.</li>
+<li><code>CompleteScan</code>: A state for basket when Point of Sale terminal finishes adding line items.</li>
+<li><code>AssociatePos</code>: A state of basket when transaction will be associated with pos.</li>
 <li><code>CancelTransaction</code>: A state of basket when transaction is explicitly cancelled.</li>
+<li><code>ReadyForPayment</code>: A state of basket between PoS starts payment process and payment vault responds.</li>
 </ul>
 
           </div>
@@ -304,14 +306,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A state of basket when transaction is successfully completed.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketStateInternal</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">CompleteTransaction</span> <span class="o">=</span> <span class="s">"complete-transaction"</span></code></pre>
 
                         </div>
                       </div>
@@ -335,14 +337,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A state of a new or already existing active basket.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketStateInternal</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">New</span> <span class="o">=</span> <span class="s">"new"</span></code></pre>
 
                         </div>
                       </div>
@@ -366,14 +368,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A state of basket when the basket is updated.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketStateInternal</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">UpdateBasket</span> <span class="o">=</span> <span class="s">"update-basket"</span></code></pre>
 
                         </div>
                       </div>
@@ -397,14 +399,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A state of basket when app starts the payment.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketStateInternal</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">InitiatePayment</span> <span class="o">=</span> <span class="s">"initiate-payment"</span></code></pre>
 
                         </div>
                       </div>
@@ -428,14 +430,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A state for basket when Point of Sale terminal finishes adding line items.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketStateInternal</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">CompleteScan</span> <span class="o">=</span> <span class="s">"complete-scan"</span></code></pre>
 
                         </div>
                       </div>
@@ -459,14 +461,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A state of basket when transaction will be associated with pos.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketStateInternal</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">AssociatePos</span> <span class="o">=</span> <span class="s">"associate-pos"</span></code></pre>
 
                         </div>
                       </div>
@@ -490,14 +492,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A state of basket when transaction is explicitly cancelled.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketStateInternal</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">CancelTransaction</span> <span class="o">=</span> <span class="s">"cancel-transaction"</span></code></pre>
 
                         </div>
                       </div>
@@ -521,14 +523,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A state of basket between PoS starts payment process and payment vault responds.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">BasketStateInternal</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">ReadyForPayment</span> <span class="o">=</span> <span class="s">"ready-for-payment"</span></code></pre>
 
                         </div>
                       </div>
@@ -543,7 +545,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-03-24)</p>
+      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-04-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
