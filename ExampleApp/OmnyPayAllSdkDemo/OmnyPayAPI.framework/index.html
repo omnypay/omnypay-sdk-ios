@@ -153,7 +153,7 @@
 
                           <h2 id="shopper_name"><b></b></h2><p class="color--lightgrey" id="shipping_address"> <span></span></p>
 
-                          <p class="delivery-by m-t-10"><span class="color--lightgrey">Delivery By </span> -<span id="delivery_date"> 24 March 2017</span></p>
+                          <p class="delivery-by m-t-10"><span class="color--lightgrey">Delivery By </span> - <span id="delivery_date"> 24 March 2017</span></p>
                       </div>
 
                   </div>
@@ -171,18 +171,18 @@
                               <div class="carousel-inner" role="listbox" id="store_display">
                               </div>
 
-                              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" id="left-carousel-arrow">
                                   <span class="fa fa-angle-left" aria-hidden="true"></span>
                                   <span class="sr-only">Previous</span>
                               </a>
-                              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" id="right-carousel-arrow">
                                   <span class="fa fa-angle-right" aria-hidden="true"></span>
                                   <span class="sr-only">Next</span>
                               </a>
                           </div>
-                          <div>
-                              <p class="delivery-by m-t-10"><span class="color--lightgrey" style="padding-left: 1cm">Available at store</span></p>
-                          </div>
+<!--                          <div>-->
+<!--                              <p class="delivery-by m-t-10"><span class="color--lightgrey" style="padding-left: 1cm">Available at store</span></p>-->
+<!--                          </div>-->
                       </div>
                   </div>
               </div>
@@ -249,6 +249,7 @@
       <div class="delivery-address">
           <h2><b>{{name}}</b></h2> <p class="color--lightgrey"> <span>{{address}}</span></p>
       </div>
+      <p class="delivery-by m-t-10" id="available-at-store"><span class="color--lightgrey">Available at store</span></p>
   </div>
   {{/storeAddress12}}
   </script>
@@ -290,7 +291,30 @@
     }
   
     function setUpdatedStores() {
-    
+      // Load store addresses
+      var template = $('#address-template').html();
+      Mustache.parse(template);   // optional, speeds up future uses
+      var rendered_adresses = Mustache.render(template, {"storeAddress12": ib_stores});
+      $('#store_display').html(rendered_adresses);
+      // Ends
+      // select the first store on first load
+      var firstStoreItem = document.getElementById("store_display").firstElementChild;
+      firstStoreItem.className = "item active";
+      // Ends
+      
+      if (ib_stores[0].name == "Not available at store") {
+        $('#available-at-store').hide();
+      } else {
+        $('#available-at-store').show();
+      }
+      
+      if (ib_stores.length == 1) {
+        $("#left-carousel-arrow").hide();
+        $("#right-carousel-arrow").hide();
+      } else {
+        $("#left-carousel-arrow").show();
+        $("#right-carousel-arrow").show();
+      }
     }
 
     function setUpdatedPaymentSummary() {
@@ -458,6 +482,20 @@
      var firstStoreItem = document.getElementById("store_display").firstElementChild;
      firstStoreItem.className = "item active";
      // Ends
+      
+     if (ib_stores[0].name == "Not available at store") {
+       $('#available-at-store').hide();
+     } else {
+       $('#available-at-store').show();
+     }
+
+     if (ib_stores.length == 1) {
+       $("#left-carousel-arrow").hide();
+       $("#right-carousel-arrow").hide();
+     } else {
+       $("#left-carousel-arrow").show();
+       $("#right-carousel-arrow").show();
+     }
 
      //stop loader and display product page
       /*document.getElementById("pageLoader").style.display = "none";
