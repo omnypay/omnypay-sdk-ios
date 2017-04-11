@@ -22,63 +22,6 @@
       <!--carousel css-->
       <link rel="stylesheet" type="text/css" href="swiper.css">
       <title>KOHL'S</title>
-<!--      <style>
-        /* Center the loader */
-        #pageLoader {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          z-index: 1;
-          width: 150px;
-          height: 150px;
-          margin: -75px 0 0 -75px;
-          border: 16px solid #f3f3f3;
-          border-radius: 50%;
-          border-top: 16px solid #3498db;
-          width: 120px;
-          height: 120px;
-          -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
-        }
-        
-        @-webkit-keyframes spin {
-          0% { -webkit-transform: rotate(0deg); }
-          100% { -webkit-transform: rotate(360deg); }
-        }
-        
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        
-        /* Add animation to "page content" */
-        .animate-bottom {
-          position: relative;
-          -webkit-animation-name: animatebottom;
-          -webkit-animation-duration: 1s;
-          animation-name: animatebottom;
-          animation-duration: 1s
-        }
-        
-        @-webkit-keyframes animatebottom {
-          from { bottom:-100px; opacity:0 }
-          to { bottom:0px; opacity:1 }
-        }
-        
-        @keyframes animatebottom {
-          from{ bottom:-100px; opacity:0 }
-          to{ bottom:0; opacity:1 }
-        }
-        
-        #mainContentDiv {
-          display: none
-        }
-
-        #buyNowDiv {
-          display: none
-        }
-      </style>
--->
   </head>
   <body>
 
@@ -102,7 +45,7 @@
           <h2 class="font-weight--regular font22" id="name"></h2>
           <p class="color--red font22 font-weight--bold"><span>SALE:</span> <span id="price"></span></p>
           <p class="light-gray font17"><span>Original:</span> <span id="regular_price"></span> </p>
-          <p class="light-gray font17 m-t-10"><span class="color--lightgrey">Color:</span><span id="colortext"></span> </p>
+          <p class="light-gray font17 m-t-10"><span class="color--lightgrey">Color: </span><span id="colortext"></span> </p>
 
           <div class="btn-group select-color" data-toggle="buttons" id="color">
 
@@ -180,9 +123,6 @@
                                   <span class="sr-only">Next</span>
                               </a>
                           </div>
-<!--                          <div>-->
-<!--                              <p class="delivery-by m-t-10"><span class="color--lightgrey" style="padding-left: 1cm">Available at store</span></p>-->
-<!--                          </div>-->
                       </div>
                   </div>
               </div>
@@ -248,8 +188,8 @@
   <div class="item">
       <div class="delivery-address">
           <h2><b>{{name}}</b></h2> <p class="color--lightgrey"> <span>{{address}}</span></p>
+          <p class="delivery-by m-t-10" id="available-at-store"><span class="color--lightgrey">Available at store</span></p>
       </div>
-      <p class="delivery-by m-t-10" id="available-at-store"><span class="color--lightgrey">Available at store</span></p>
   </div>
   {{/storeAddress12}}
   </script>
@@ -261,15 +201,9 @@
     var ib_stores;
     var firstTimeLoading = true;
 
-    ib_userProfile = {"merchantName":"kohls-instantbuy","shippingAddress":"1212 Anyplace, , New York, NY, 12345","fullName":"Jane Wilson"};
-    ib_paymentSummary = {"cashRewards":"1000","value":"9500","totalSavings":"2499","promo":"1499","cardNumber":"****1881","payable":"9380","subtotal":"10999","cardAlias":"Kohl\'s Charge Card","tax":"880","savings":"1499"};
-    ib_products = [{"price":10999,"sku":"91969125","swatch-image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Gray_sw?wid=20&hei=20&op_sharpen=1","id":"bd6806d5-eb2e-466a-a647-db81c99f2d49","merchant-id":"29bb0ac2-d8d6-4245-a178-4814152c4d20","description":"<p>This Croft &amp; Barrow sheet set displays your traditional taste.<\\/p>","product-features":{"size":"CALK SET","color":"Gray"},"image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Gray?wid=180&hei=180&op_sharpen=1","merchant-product-id":"1800646","name":"Croft &amp; Barrow&reg; Damask Striped Sheet Set"},{"price":10999,"sku":"91968942","swatch-image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Blue_sw?wid=20&hei=20&op_sharpen=1","id":"550c9f1c-7244-4f26-8d8d-50b6f12c3593","merchant-id":"29bb0ac2-d8d6-4245-a178-4814152c4d20","description":"<p>This Croft &amp; Barrow sheet set displays your traditional taste.<\\/p>","product-features":{"size":"CALK SET","color":"Blue"},"image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Blue?wid=180&hei=180&op_sharpen=1","merchant-product-id":"1800646","name":"Croft &amp; Barrow&reg; Damask Striped Sheet Set"},{"price":10999,"sku":"91969118","swatch-image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Gray_sw?wid=20&hei=20&op_sharpen=1","id":"7ecf79d9-7240-46d3-a769-92fa507701a4","merchant-id":"29bb0ac2-d8d6-4245-a178-4814152c4d20","description":"<p>This Croft &amp; Barrow sheet set displays your traditional taste.<\\/p>","product-features":{"size":"KING SET","color":"Gray"},"image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Gray?wid=180&hei=180&op_sharpen=1","merchant-product-id":"1800646","name":"Croft &amp; Barrow&reg; Damask Striped Sheet Set"},{"price":9999,"sku":"91969108","swatch-image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Gray_sw?wid=20&hei=20&op_sharpen=1","id":"eed4d370-eede-48cd-bdd2-e209680c17de","merchant-id":"29bb0ac2-d8d6-4245-a178-4814152c4d20","description":"<p>This Croft &amp; Barrow sheet set displays your traditional taste.<\\/p>","product-features":{"size":"QUEEN SET","color":"Gray"},"image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Gray?wid=180&hei=180&op_sharpen=1","merchant-product-id":"1800646","name":"Croft &amp; Barrow&reg; Damask Striped Sheet Set"},{"price":9999,"sku":"93895816","swatch-image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Purple_sw?wid=20&hei=20&op_sharpen=1","id":"908839e8-f0d8-4d0f-9b7f-ba16c6adb9ba","merchant-id":"29bb0ac2-d8d6-4245-a178-4814152c4d20","description":"<p>This Croft &amp; Barrow sheet set displays your traditional taste.<\\/p>","product-features":{"size":"QUEEN SET","color":"Purple"},"image-url":"http:\\/\\/media.kohlsimg.com\\/is\\/image\\/kohls\\/1800646_Purple?wid=180&hei=180&op_sharpen=1","merchant-product-id":"1800646","name":"Croft &amp; Barrow&reg; Damask Striped Sheet Set"}];
-    ib_stores = [{"address":"Peninsula Boardwalk, 250 Walnut St, Redwood City, CA 94063","name":"Kohl’s Redwood City"},{"address":"San Antonio Center, 350 Showers Dr, Mountain View, CA 94040","name":"Kohl’s Mountain View"},{"address":"525 E Hamilton Ave, Campbell, CA 95008","name":"Kohls Campbell"}];
-
-
-     function getBuyNow() {
-       return JSON.stringify(ib_buyNow)
-     }
+    function getBuyNow() {
+      return JSON.stringify(ib_buyNow)
+    }
   
     function getPaymentSummary() {
       return JSON.stringify(ib_paymentSummary)
@@ -354,7 +288,7 @@
               if(this.swatchURL != null && this.swatchURL != ""){
                 var htmlString = '<label class="btn">';
                 htmlString = htmlString + '<input type="radio" name="options" id="' + this.color + '" value="' + this.color + '" autocomplete="off" checked="">';
-                htmlString = htmlString + "<img src='"+this.swatchURL+"' alt = '...' style='position:absolute;width:100%;margin-left:-22px'/>";
+                htmlString = htmlString + "<img src='"+this.swatchURL+"' alt = '...' style='position:absolute;width:100%;margin-left:-23px'/>";
                 htmlString = htmlString + '</label>';
                 return htmlString;
               } else {
@@ -496,13 +430,6 @@
        $("#left-carousel-arrow").show();
        $("#right-carousel-arrow").show();
      }
-
-     //stop loader and display product page
-      /*document.getElementById("pageLoader").style.display = "none";
-      document.getElementById("mainContentDiv").style.display = "inline";
-      document.getElementById("buyNowDiv").style.display = "inline";*/
-      
-      //$($("input[name='options']")[0]).prop("checked", true)
       
       $.unblockUI()
     });

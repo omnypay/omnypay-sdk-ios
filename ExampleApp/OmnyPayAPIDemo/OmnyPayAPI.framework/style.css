@@ -216,6 +216,7 @@
   outline-style: solid;
   outline-color: #EC5F00;
   outline-width: 3px;
+  outline-offset: -2px;
 }
 
 .select-color .btn {
