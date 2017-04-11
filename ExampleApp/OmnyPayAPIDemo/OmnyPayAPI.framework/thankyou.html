@@ -2,45 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-          <meta name="title" content="KOHLS"/>
-          <meta name="description" content="">
-            <meta name="author" content="KOHLS">
-              <!--OpenSans font-->
-              <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-                <link href=" https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
-                  <!--Using bootstrap-->
-                  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-                    <!--All page custom css-->
-                    <link rel="stylesheet" type="text/css" href="style.css">
-                      <!--Responsiveness handles for mobile/tablet/desktop css-->
-                      <link rel="stylesheet" type="text/css" href="responsive.css">
-                        <!--general css-->
-                        <link rel="stylesheet" type="text/css" href="general.css">
-                          
-                          <title>KOHL'S</title>
-                          <script>
-                            var ib_receipt;
-                            </script>
-                          <style>
-                          
-                          #receipt_wrapper {
-                            display: none
-                          }
-                          
-                            </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="KOHLS"/>
+    <meta name="description" content="">
+    <meta name="author" content="KOHLS">
+    <!--OpenSans font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href=" https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
+    <!--Using bootstrap-->
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <!--All page custom css-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--Responsiveness handles for mobile/tablet/desktop css-->
+    <link rel="stylesheet" type="text/css" href="responsive.css">
+    <!--general css-->
+    <link rel="stylesheet" type="text/css" href="general.css">
+      
+    <title>KOHL'S</title>
+    <script>
+      var ib_receipt;
+    </script>
+    <style>
+      #receipt_wrapper {
+        display: none
+      }
+    </style>
   </head>
   <body>
-    <!--header-->
-    <!--
-     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-     <div class="container-fluid">
-     <div class="navbar-header">
-     <a class="navbar-brand" href="#">KOHL'S</a>
-     </div>
-     </div>
-     </nav>-->
     <div class="page-wrapper" id="receipt_wrapper">
       <div class="container-fluid well text-center">
         <section class=" payment-complete well">
@@ -116,49 +105,48 @@
     </script>
   <script>
     $(document).ready(function() {
-                      $("#doneButton").hide()
-                      });
-                      
-                      function setValues() {
-                        var ltrimmedReceiptId = ib_receipt["receiptId"]
-                        ltrimmedReceiptId = ltrimmedReceiptId.slice(-8)
-                        $("#receiptId").text(ltrimmedReceiptId)
-                        
-                        var month_names = new Array("January", "February", "March",
-                                                    "April", "May", "June", "July", "August", "September",
-                                                    "October", "November", "December");
-                                                    var currentDate = new Date();
-                                                    var currentMonth = currentDate.getMonth();
-                                                    var currentDay = currentDate.getDate();
-                                                    var currentHour = currentDate.getHours();
-                                                    var displayHours = currentHour >= 12 ? currentHour-12 : currentHour;
-                                                    var currentMinutes = currentDate.getMinutes();
-                                                    var receiptDate = month_names[currentMonth] + ' ' + ((''+currentDay).length<2 ? '0' : '') + currentDay + ', '
-                                                    + currentDate.getFullYear() + ', ' + ((''+displayHours).length<2 ? '0' : '') + displayHours
-                                                    + ':' + ((''+currentMinutes).length<2 ? '0' : '') + currentMinutes + ' ' + (currentHour>=12?'pm':'am');
-                                                    
-                                                    $("#currentDateTime").text(receiptDate)
-                                                    $("#productName").html(ib_receipt["productName"])
-                                                    $("#cardName").text(ib_receipt["cardName"])
-                                                    $("#cardNumber").text(ib_receipt["cardNumber"])
-                                                    var lfinalAmt = parseInt(ib_receipt["finalAmount"])/100
-                                                    $("#finalAmount").text("$" + lfinalAmt.toFixed(2))
-                                                    var lsubtotal = parseInt(ib_receipt["subtotal"])/100.0
-                                                    $("#subtotal").text("$" + lsubtotal.toFixed(2))
-                                                    var lcashRewards = parseInt(ib_receipt["cashRewards"])/100.0
-                                                    $("#cashRewards").text("($" + lcashRewards.toFixed(2)+ ")")
-                                                    var lpromo = parseInt(ib_receipt["promo"])/100.0
-                                                    $("#promo").text("($" + lpromo.toFixed(2)+ ")")
-                                                    var ltax = parseInt(ib_receipt["tax"])/100
-                                                    $("#tax").text("$"+ltax.toFixed(2))
-                                                    var lpayable = parseInt(ib_receipt["payable"])/100
-                                                    $("#payable").text("$" + lpayable.toFixed(2))
-                                                    var lsavings = parseInt(ib_receipt["totalSavings"])/100
-                                                    $("#totalSavings").text("$"+lsavings.toFixed(2))
-                                                    
-                                                    
-                                                    document.getElementById("newPageLoader").style.display = "none";
-                                                    document.getElementById("receipt_wrapper").style.display = "inline";
-                      }
+      $("#doneButton").hide()
+    });
+    
+    function setValues() {
+      var ltrimmedReceiptId = ib_receipt["receiptId"]
+      ltrimmedReceiptId = ltrimmedReceiptId.slice(-8)
+      $("#receiptId").text(ltrimmedReceiptId)
+      
+      var month_names = new Array("January", "February", "March",
+                                  "April", "May", "June", "July", "August", "September",
+                                  "October", "November", "December");
+      var currentDate = new Date();
+      var currentMonth = currentDate.getMonth();
+      var currentDay = currentDate.getDate();
+      var currentHour = currentDate.getHours();
+      var displayHours = currentHour >= 12 ? currentHour-12 : currentHour;
+      var currentMinutes = currentDate.getMinutes();
+      var receiptDate = month_names[currentMonth] + ' ' + ((''+currentDay).length<2 ? '0' : '') + currentDay + ', '
+      + currentDate.getFullYear() + ', ' + ((''+displayHours).length<2 ? '0' : '') + displayHours
+      + ':' + ((''+currentMinutes).length<2 ? '0' : '') + currentMinutes + ' ' + (currentHour>=12?'pm':'am');
+      
+      $("#currentDateTime").text(receiptDate)
+      $("#productName").html(ib_receipt["productName"])
+      $("#cardName").text(ib_receipt["cardName"])
+      $("#cardNumber").text(ib_receipt["cardNumber"])
+      var lfinalAmt = parseInt(ib_receipt["finalAmount"])/100
+      $("#finalAmount").text("$" + lfinalAmt.toFixed(2))
+      var lsubtotal = parseInt(ib_receipt["subtotal"])/100.0
+      $("#subtotal").text("$" + lsubtotal.toFixed(2))
+      var lcashRewards = parseInt(ib_receipt["cashRewards"])/100.0
+      $("#cashRewards").text("($" + lcashRewards.toFixed(2)+ ")")
+      var lpromo = parseInt(ib_receipt["promo"])/100.0
+      $("#promo").text("($" + lpromo.toFixed(2)+ ")")
+      var ltax = parseInt(ib_receipt["tax"])/100
+      $("#tax").text("$"+ltax.toFixed(2))
+      var lpayable = parseInt(ib_receipt["payable"])/100
+      $("#payable").text("$" + lpayable.toFixed(2))
+      var lsavings = parseInt(ib_receipt["totalSavings"])/100
+      $("#totalSavings").text("$"+lsavings.toFixed(2))
+      
+      document.getElementById("newPageLoader").style.display = "none";
+      document.getElementById("receipt_wrapper").style.display = "inline";
+    }
   </script>
 </html>
