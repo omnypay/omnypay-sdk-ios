@@ -102,7 +102,7 @@
           <h2 class="font-weight--regular font22" id="name"></h2>
           <p class="color--red font22 font-weight--bold"><span>SALE:</span> <span id="price"></span></p>
           <p class="light-gray font17"><span>Original:</span> <span id="regular_price"></span> </p>
-          <p class="light-gray font17 m-t-10"><span class="color--lightgrey">Color:</span><span id="colortext"></span> </p>
+          <p class="light-gray font17 m-t-10"><span class="color--lightgrey">Color: </span><span id="colortext"></span> </p>
 
           <div class="btn-group select-color" data-toggle="buttons" id="color">
 
@@ -347,7 +347,7 @@
               if(this.swatchURL != null && this.swatchURL != ""){
                 var htmlString = '<label class="btn">';
                 htmlString = htmlString + '<input type="radio" name="options" id="' + this.color + '" value="' + this.color + '" autocomplete="off" checked="">';
-                htmlString = htmlString + "<img src='"+this.swatchURL+"' alt = '...' style='position:absolute;width:100%;margin-left:-22px'/>";
+                htmlString = htmlString + "<img src='"+this.swatchURL+"' alt = '...' style='position:absolute;width:100%;margin-left:-23px'/>";
                 htmlString = htmlString + '</label>';
                 return htmlString;
               } else {
