@@ -169,7 +169,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
      * selected payment instrument. In this sample app,  if no payment instrument is
      * selected, then payment is done using the first payment instrument added.
      */
-    OmnyPayAPI.startPayment(withPaymentInstrument: appDelegate.selectedPaymentInstrumentId!){ (basketConfirmation, error) in
+    omnypayAPI.startPayment(withPaymentInstrument: appDelegate.selectedPaymentInstrumentId!){ (basketConfirmation, error) in
       if error != nil {
         print("Unable to make payment")
         KVNProgress.showError(withStatus: "Unable to make payment")
