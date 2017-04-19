@@ -111,14 +111,14 @@ class AddCardViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
      * configuration requested during merchant onboarding, OmnyPay SDK will connect to its own vault or
      * a third party vault including that of a retailer.
      */
-    OmnyPayAPI.provision(paymentInstrument: card) { (paymentInstrumentInfo, error) in
+    omnypayAPI.provision(paymentInstrument: card) { (paymentInstrumentInfo, error) in
       if error == nil {
         KVNProgress.dismiss()
         self.newCardAdded = true
         self.performSegue(withIdentifier: "returnToFetchCards", sender: self)
       } else {
         KVNProgress.showError(withStatus: "Card could not be added")
-        print("card addition error: ", error)
+        print("card addition error: ", error ?? "couldn't fetch error")
       }
     }
   }

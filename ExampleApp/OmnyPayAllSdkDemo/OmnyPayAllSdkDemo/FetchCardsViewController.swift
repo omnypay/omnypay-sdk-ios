@@ -69,7 +69,7 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
      * instruments (credit / debit cards) which  has been added for a user account.
      * getAllPaymentInstruments methods retrieves all the cards configured.
      */
-    OmnyPayAPI.getPaymentInstruments{ (cards, error) in
+    omnypayAPI.getPaymentInstruments{ (cards, error) in
       if error == nil {
         KVNProgress.dismiss()
         print(cards!.count)
@@ -166,13 +166,13 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
            * here calls createBasket api and creates a basket. Basket is returned on successful
            * completion.
            */
-          OmnyPayAPI.createBasket { (basket, error) in
+          omnypayAPI.createBasket { (basket, error) in
             if error == nil {
               
               /**
                * OmnyPayAPI has a method checkIn which associates a basket with the POS Terminal.
                */
-              OmnyPayAPI.checkin(onPointOfSale: self?.stringQR ?? ""){(success, error) in
+              omnypayAPI.checkin(onPointOfSale: self?.stringQR ?? ""){(success, error) in
                 if error == nil {
                   KVNProgress.dismiss()
                   print("check in successful")
