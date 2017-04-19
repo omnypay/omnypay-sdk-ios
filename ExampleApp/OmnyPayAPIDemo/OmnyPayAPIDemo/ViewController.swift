@@ -46,7 +46,7 @@ class ViewController: UIViewController {
      * then user is created and authenticated. If not, error is returned back. Replace
      * merchantId with the your merchant_id.
      */
-    OmnyPayAPI.initialize(withMerchantId: Constants.merchantId, configuration: ["host":Constants.hostScheme + "://" + Constants.hostUrl + ":" + String(Constants.hostPort)]){ (status, error) in
+    omnyPayAPI.initialize(withMerchantId: Constants.merchantId, configuration: ["host":Constants.hostScheme + "://" + Constants.hostUrl + ":" + String(Constants.hostPort)]){ (status, error) in
       if status {
         
         ApiWrapper.createMerchantShopper(forMerchantId: Constants.merchantId, username: Constants.shopperUsername, password: Constants.shopperPassword) { data in
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
      * user/shopper id and auth token. authenticateShopper is the method defined is OmnyPayAPI
      * which is responsible for authenticating a shopper with OmnyPay service.
      */
-    OmnyPayAPI.authenticateShopper(shopperId: self.merchantShopperId!, authToken: self.merchantAuthToken!){ (session, error) in
+    omnyPayAPI.authenticateShopper(shopperId: self.merchantShopperId!, authToken: self.merchantAuthToken!){ (session, error) in
       if error == nil {
         self.performSegueWithIdentifier("fetchCards", sender: self)
       } else {

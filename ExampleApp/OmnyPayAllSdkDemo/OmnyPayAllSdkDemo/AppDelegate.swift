@@ -17,6 +17,9 @@
 
 
 import UIKit
+import OmnyPayAPI
+
+var omnyPayAPI = OmnyPayAPI()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
