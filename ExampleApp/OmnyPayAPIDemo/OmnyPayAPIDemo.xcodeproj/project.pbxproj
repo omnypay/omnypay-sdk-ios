@@ -32,6 +32,7 @@
 		3ECC25121E31F1E000D611EA /* OmnyPayScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECC25101E31F1DC00D611EA /* OmnyPayScan.framework */; };
 		3ECC25131E31F1E000D611EA /* OmnyPayScan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECC25101E31F1DC00D611EA /* OmnyPayScan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50A3E059F82DF1B05CC4C3FE /* Pods_OmnyPayAPIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D318B7E96BFC6D4F0038B960 /* Pods_OmnyPayAPIDemo.framework */; };
+		F9FC90FF1EA62F7100857E69 /* OmnyPayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FC90FE1EA62F7100857E69 /* OmnyPayHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +79,7 @@
 		4D80DA5BF40E5EA236FA299B /* Pods-OmnyPayAPIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnyPayAPIDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnyPayAPIDemo/Pods-OmnyPayAPIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B4ACD2EA679A88343DE4A21 /* Pods-OmnyPayAPIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnyPayAPIDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnyPayAPIDemo/Pods-OmnyPayAPIDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D318B7E96BFC6D4F0038B960 /* Pods_OmnyPayAPIDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnyPayAPIDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9FC90FE1EA62F7100857E69 /* OmnyPayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnyPayHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				3E05D6B61DFE80C900194B6D /* AppDelegate.swift */,
 				3E05D6B81DFE80C900194B6D /* ViewController.swift */,
 				3E05D6D01DFEABBD00194B6D /* ApiWrapper.swift */,
+				F9FC90FE1EA62F7100857E69 /* OmnyPayHandler.swift */,
 				3E05D6F11E00071600194B6D /* Models */,
 				3E05D6E61DFF056800194B6D /* Extensions */,
 				3E05D6E31DFEF86C00194B6D /* Util */,
@@ -345,6 +348,7 @@
 				3E05D6B71DFE80C900194B6D /* AppDelegate.swift in Sources */,
 				3E05D6EE1DFFEAFD00194B6D /* ReceiptItemTableViewCell.swift in Sources */,
 				3E05D6D11DFEABBD00194B6D /* ApiWrapper.swift in Sources */,
+				F9FC90FF1EA62F7100857E69 /* OmnyPayHandler.swift in Sources */,
 				3E05D6EC1DFFD8B100194B6D /* ReceiptViewController.swift in Sources */,
 				3E05D6D61DFECF0300194B6D /* CardDetailsTableViewCell.swift in Sources */,
 				3E05D6CF1DFE9B2C00194B6D /* Constants.swift in Sources */,
