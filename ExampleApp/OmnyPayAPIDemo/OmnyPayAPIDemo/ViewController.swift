@@ -94,9 +94,36 @@ class ViewController: UIViewController {
       if error == nil {
         self.performSegue(withIdentifier: "fetchCards", sender: self)
       } else {
+        
+        let nErr = error as NSError?
+        
+        if let infoDict = nErr?.userInfo[NSLocalizedFailureReasonErrorKey] as? [String:AnyObject] {
+            print("localized description: ", error?.localizedDescription ?? "default error")
+            for (key, value) in infoDict {
+                if let value = value as? [AnyObject] {
+                    for singleErr in value {
+                        if let singleErr = singleErr as? Dictionary<String,String> {
+                            for (errKey, errVal) in singleErr {
+                                print("------> \(errKey) : ", "\(errVal)" )
+                            }
+                        }
+                    }
+                } else {
+                    print("\(key) : ", value as? String ?? "no value found for this key")
+                }
+            }
+        }
         print("Shopper could not be authenticated")
       }
     }
+    
+//    omnypayAPI.createSession(){ (session, err) in
+//        if err == nil {
+//            print("Session created")
+//        } else {
+//            print ("Error: ", err ?? "Unable to fetch error")
+//        }
+//    }
   }
 
 }

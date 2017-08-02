@@ -24,7 +24,7 @@ func initializeOmnyPayAPI(withMerchantId merchantId:String,
                           completion: @escaping (Bool, Error?) -> Void) {
     
     
-    omnypayAPI.initialize(withMerchantId: Constants.merchantId, configuration: ["host": Constants.hostScheme + "://" + Constants.hostUrl + ":" + String(Constants.hostPort)]){ (status, error) in
+    omnypayAPI.initialize(withMerchantId: Constants.merchantId, configuration: ["host": Constants.hostScheme + "://" + Constants.hostUrl + ":" + String(Constants.hostPort), "api_key": "bd3d547dfc6adaaa43c562b455004b21", "api_secret": "40e4827157db5f7d7f31b004fb2aab36a38dcf7514721daf56dbe5e23724fca8"]){ (status, error) in
         completion(status, error)
     }
 }

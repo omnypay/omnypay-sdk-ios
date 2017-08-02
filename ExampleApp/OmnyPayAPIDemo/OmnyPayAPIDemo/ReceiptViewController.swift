@@ -53,7 +53,7 @@ class ReceiptViewController: UIViewController, UITableViewDataSource, UITableVie
         let basketItem = BasketItem()
         basketItem.productId = item.sku
         basketItem.productDescription = item.name
-        basketItem.productQuantity = item.qty!
+        basketItem.productQuantity = 1 //item.qty!
         
         if let offers = receipt.offers {
           for offer in offers {

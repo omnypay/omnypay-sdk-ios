@@ -20,6 +20,10 @@ target 'OmnyPayAllSdkDemo' do
   
   # Mandatory if using OmnyPayPIScan SDK
   pod 'JumioMobileSDK-FAT/Netswipe', '2.3.1'
+  
+  # firebase push notifications
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
 end
 

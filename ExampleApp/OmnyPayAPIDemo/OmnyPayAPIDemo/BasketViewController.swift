@@ -61,7 +61,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   func didUpdateBasket(basket: Basket) {
     KVNProgress.dismiss()
     print("basket update received")
-    if basket.state == BasketStateInternal.CompleteScan {
+    if basket.state == BasketStateInternal.completeScan {
       Helpers.makeButtonEnabled(button: self.btnPay)
       return
     }
@@ -74,7 +74,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   /**
    * The didReceiveReceipt delegate method is called once payment is successful and receipt is generated for the transaction.
    */
-  func didReceiveReceipt(receipt: BasketReceipt) {
+  @nonobjc func didReceiveReceipt(receipt: BasketReceipt) {
     KVNProgress.dismiss()
     self.receipt = receipt
     self.performSegue(withIdentifier: "receiptSegue", sender: self)
@@ -94,7 +94,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
         let basketItem = BasketItem()
         basketItem.productId = item.sku
         basketItem.productDescription = item.name
-        basketItem.productQuantity = item.qty!
+        basketItem.productQuantity = 1 //item.qty!
         
         if let offers = basket.offers {
           for offer in offers {

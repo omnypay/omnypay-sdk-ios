@@ -19,6 +19,10 @@
 import UIKit
 import OmnyPayAPI
 import KVNProgress
+import UserNotifications
+import Firebase
+import FirebaseMessaging
+import FirebaseInstanceID
 
 /**
  * This class initializes example app with all the prerequisites for e.g. Merchant Id and User account
@@ -35,6 +39,8 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     btnProceed.isHidden = true
     title = Constants.appTitle
+    
+    Messaging.messaging().subscribe(toTopic: "/topic/news")
   }
 
   @IBAction func initializeApp(_ sender: UIButton) {

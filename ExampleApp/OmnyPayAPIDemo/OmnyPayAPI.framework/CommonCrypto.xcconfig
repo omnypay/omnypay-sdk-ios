@@ -1,0 +1,13 @@
+//
+//  CommonCrypto.xcconfig
+//  OmnyPayAPI
+//
+//  Created by Kaushal Dhruw on 10/07/17.
+//  Copyright © 2017 OmnyPay. All rights reserved.
+//
+MODULEMAP_FILE[sdk=iphoneos*]        = \
+$(SRCROOT)/CommonCrypto/iphoneos.modulemap
+MODULEMAP_FILE[sdk=iphonesimulator*] = \
+$(SRCROOT)/CommonCrypto/iphonesimulator.modulemap
+MODULEMAP_FILE[sdk=macosx*]          = \
+$(SRCROOT)/CommonCrypto/macosx.modulemap

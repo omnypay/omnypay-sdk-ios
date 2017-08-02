@@ -23,13 +23,13 @@ import Foundation
  */
 struct Constants {
   static let appTitle: String = "OmnyPay"
-  static let hostUrl: String = "pantheon.sandbox.omnypay.net"
+  static let hostUrl: String = "pantheon.demo000.omnypay.net"
   static let hostPort: Int = 443
   static let hostScheme: String = "https"
   static let createShopper: String = "/identity/account"
   static let authenticateMerchantShopper: String = "/identity/authentication"
-  static let merchantId: String = "your merchant id"
-  static let shopperUsername: String = "your username"
-  static let shopperPassword: String = "your password"
+  static let merchantId: String = "a6b51d46-06e5-4aae-a622-5d31ae62a5bf"
+  static let shopperUsername: String = "talentica"
+  static let shopperPassword: String = "talentica"
 }
 
