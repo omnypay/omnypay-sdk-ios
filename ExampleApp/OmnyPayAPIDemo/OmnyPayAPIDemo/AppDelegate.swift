@@ -17,6 +17,11 @@
 
 
 import UIKit
+import OmnyPayAPI
+import JavaScriptCore
+
+var omnypayApi = OmnyPayAPI()
+var jsContext = JSContext()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().barTintColor = UIColor(red: 34/255, green: 117/255, blue: 215/255, alpha: 1)
     UINavigationBar.appearance().tintColor = UIColor.white
     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+    
+    initializeJS()
     
     return true
   }
@@ -55,6 +62,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
 
-
+  func initializeJS() {
+    // Specify the path to the jssource.js file.
+    if let jsSourcePath = Bundle.main.path(forResource: "hmac", ofType: "js") {
+      do {
+        // Load its contents to a String variable.
+        let jsSourceContents = try String(contentsOfFile: jsSourcePath)
+        
+        // Add the Javascript code that currently exists in the jsSourceContents to the Javascript Runtime through the jsContext object.
+        let _ = jsContext?.evaluateScript(jsSourceContents)
+      }
+      catch {
+        print(error.localizedDescription)
+      }
+    }
+  }
+  
 }
 

@@ -21,6 +21,6 @@ class BasketItem {
   var offerDescription: String?
   var offerAmount: Int64?
   var productDescription: String?
-  var productQuantity: Int64?
+  var productQuantity: Double?
   var productPrice: Int64?
 }

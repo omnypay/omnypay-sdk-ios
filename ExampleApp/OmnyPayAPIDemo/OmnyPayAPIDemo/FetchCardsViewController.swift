@@ -69,12 +69,11 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
      * instruments (credit / debit cards) which  has been added for a user account.
      * getAllPaymentInstruments methods retrieves all the cards configured.
      */
-    omnypayAPI.getPaymentInstruments{ (cards, error) in
+    omnypayApi.getPaymentInstruments{ (cards, error) in
       if error == nil {
         KVNProgress.dismiss()
         print(cards!.count)
         if (cards?.count)! > 0 {
-          print(cards)
           self.cardList = cards!
           DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -148,14 +147,14 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     qrScanner.didScanHandler = { [weak self] (result: ScanResult?) in
       if let result = result {
-        print("Completion with result: \(result.value) of type \(result.metadataType)")
+        print("Completion with result: \(String(describing: result.value)) of type \(String(describing: result.metadataType))")
         
         let qrString = result.value!
         
         self?.stringQR = qrString
         
         self?.stringQR = Helpers.extract(qrString: qrString)
-        print("pos id from qrString : \(self?.stringQR)")
+        print("pos id from qrString : \(String(describing: self?.stringQR))")
         
         DispatchQueue.main.async {
 
@@ -166,20 +165,28 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
            * here calls createBasket api and creates a basket. Basket is returned on successful
            * completion.
            */
-          omnypayAPI.createBasket { (basket, error) in
+          omnypayApi.createBasket { (basket, error) in
             if error == nil {
-              
-              /**
-               * OmnyPayAPI has a method checkIn which associates a basket with the POS Terminal.
-               */
-              omnypayAPI.checkin(onPointOfSale: self?.stringQR ?? ""){(success, error) in
-                if error == nil {
-                  KVNProgress.dismiss()
-                  print("check in successful")
-                  self?.performSegue(withIdentifier: "displayBasket", sender: self)
+              // get pos id using merchant-id and merchant-pos-id
+              ApiWrapper.getPosIdFromMerchantPos(merchantPosId: (self?.stringQR)!) { posDetails in
+                if posDetails["error"] != nil {
+                  KVNProgress.showError(withStatus: "Invalid QR scanned")
+                  print("Could not get pos-id from merchant-pos-id")
                 } else {
-                  print("unable to check in", error)
-                  KVNProgress.showError(withStatus: "Check in to POS failed")
+                  let posId = (posDetails["id"] ?? "") as! String
+                  /**
+                   * OmnyPayAPI has a method checkIn which associates a basket with the POS Terminal.
+                   */
+                  omnypayApi.checkin(onPointOfSale: posId){(success, error) in
+                    if error == nil {
+                      KVNProgress.dismiss()
+                      print("check in successful")
+                      self?.performSegue(withIdentifier: "displayBasket", sender: self)
+                    } else {
+                      print("unable to check in", error as Any)
+                      KVNProgress.showError(withStatus: "Check in to POS failed")
+                    }
+                  }
                 }
               }
             } else {
@@ -193,9 +200,9 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     self.qrScanner.presentScanView(over: self, animated: true){ (success:Bool, error:NSError?) in
       if success {
-        print("success")
+        print("scanner opened successfully")
       }else{
-        print(error?.description)
+        print("error while opening scanner: ", error?.description as Any)
       }
     }
   }

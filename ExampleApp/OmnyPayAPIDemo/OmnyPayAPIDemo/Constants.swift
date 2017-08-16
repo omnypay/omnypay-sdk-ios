@@ -26,10 +26,19 @@ struct Constants {
   static let hostUrl: String = "pantheon.sandbox.omnypay.net"
   static let hostPort: Int = 443
   static let hostScheme: String = "https"
-  static let createShopper: String = "/identity/account"
-  static let authenticateMerchantShopper: String = "/identity/authentication"
+  static let createShopperUrlPath: String = "/api/management/identity"
+  static let authenticateMerchantShopperUrlPath: String = "/api/identity/authentication"
+  static let getPosIdUrlPath: String = "/api/management/pos-terminal/merchant/{merchant-id}/merchant-pos-id/{merchant-pos-id}"
+  
   static let merchantId: String = "your merchant id"
   static let shopperUsername: String = "your username"
   static let shopperPassword: String = "your password"
+  static let merchantApiKey: String = "your merchant api key"
+  static let merchantApiSecret: String = "your merchant secret key"
+  static let correlationId: String = "your correlation id"
+  
+  struct ErrorMessages {
+    static let jsonSerializationError = "Error in JSON serialization"
+  }
 }
 
