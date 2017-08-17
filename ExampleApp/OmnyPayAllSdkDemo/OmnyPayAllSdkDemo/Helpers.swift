@@ -18,6 +18,7 @@
 
 import Foundation
 import UIKit
+import JavaScriptCore
 
 struct Helpers {
   static func getUrl(forType url: String) -> String {
@@ -68,6 +69,18 @@ struct Helpers {
   static func makeButtonDisabled(button: UIButton) {
     button.isEnabled = false
     button.setTitleColor(UIColor.white, for: .normal)
+  }
+  
+  static func getSignatureForAPI(timeStamp: String, correlationId: String, requestMethod: String, relativePath: String, payload: String) -> String {
+    let stringToEncode = Constants.merchantApiKey + timeStamp + correlationId + requestMethod + relativePath + payload
+    let key = Constants.merchantApiSecret
+    if let functionGenSign = jsContext?.objectForKeyedSubscript("generateAPISignature") {
+      if let signed = functionGenSign.call(withArguments: [stringToEncode, key]) {
+        print("stringToEncode:", stringToEncode, " signature: ", signed.toString())
+        return signed.toString()
+      }
+    }
+    return ""
   }
   
 }

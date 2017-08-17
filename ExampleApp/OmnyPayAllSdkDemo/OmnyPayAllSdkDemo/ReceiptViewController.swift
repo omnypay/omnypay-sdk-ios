@@ -22,7 +22,7 @@ import OmnyPayAPI
 class ReceiptViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
   var receiptItems = [BasketItem]()
-  var receipt: BasketReceipt?
+  var receipt: BasketReceiptNotification?
   
   @IBOutlet weak var itemsTableView: UITableView!
   @IBOutlet weak var lblDiscount: UILabel!
@@ -46,7 +46,7 @@ class ReceiptViewController: UIViewController, UITableViewDataSource, UITableVie
     self.automaticallyAdjustsScrollViewInsets = false
   }
   
-  func parseBasketForItems(receipt: BasketReceipt) -> [BasketItem] {
+  func parseBasketForItems(receipt: BasketReceiptNotification) -> [BasketItem] {
     var allBasketItems = [BasketItem]()
     if let basketItems = receipt.items {
       for item in basketItems {

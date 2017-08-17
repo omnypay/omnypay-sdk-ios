@@ -1,151 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="KOHLS"/>
-    <meta name="description" content="">
-    <meta name="author" content="KOHLS">
-    <!--OpenSans font-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href=" https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
-    <!--Using bootstrap-->
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <!--All page custom css-->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!--Responsiveness handles for mobile/tablet/desktop css-->
-    <link rel="stylesheet" type="text/css" href="responsive.css">
-    <!--general css-->
-    <link rel="stylesheet" type="text/css" href="general.css">
-      
-    <title>KOHL'S</title>
-    <script>
-      var ib_receipt;
-    </script>
-    
-    <style>
-      #receipt_wrapper {
-        display: none
-      }
-    </style>
+    <title>Receipt</title>
   </head>
   <body>
-    <div class="page-wrapper" id="receipt_wrapper">
-      <div class="container-fluid well text-center">
-        <section class=" payment-complete well">
-          <i class="fa fa-check-circle color--green"></i>
-          <p>Thank you</p>
-          
-        </section>
-      </div>
-      <div class="container-fluid text-center font17">
-        <section class="transaction-details">
-          <p>Transaction ID <span id="receiptId"></span></p>
-          <p class="color--lightgrey" id="currentDateTime"></p>
-          
-        </section>
-        <section class="m-t-10">
-          <p id="productName"></p>
-        </section>
-        
-      </div>
-      <div class="container-fluid payment-method">
-        <section class="panel panel-default m-b-0">
-          <div class="panel-heading">
-            PAYMENT METHOD
-          </div>
-          <div class="panel-body cash-promo m-t-0">
-            <div class="media">
-              <div class="media-left">
-                <img src="xs-icon3.jpg" class="media-object" style="width:38px">
-                  </div>
-              <div class="media-body">
-                <h3 class="media-heading" id="cardName"></b></h3>
-                <h2 id="cardNumber"></h2>
-              </div>
-              <div class="media-right" id="finalAmount">
-                <b></b>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-      </div>
-      <div class="container-fluid">
-        <ul class="list-group subtotal">
-          <li><span>Subtotal</span><span id="subtotal"></span></li>
-          <li><span>Cash Rewards</span><span id="cashRewards"></span></li>
-          <li><span>Promo</span><span id="promo"></span></li>
-          <li><span>Tax</span><span id="tax"></span></li>
-          <li class="last"><span style="color:black;">Total Payable</span><span id="payable" style="color:black;"></span></li>
-          <li class="last"><span style="color:black;">Total Savings</span><span id="totalSavings" style="color:black;"></span></li>
-        </ul>
-        
-      </div>
+    <div id="mainContentDiv" style="display:none;">
       
-      <div style="height: 50px; width: 100%;">
-        <img src="barcode.jpg" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px; width: 100%;">
-          </div>
+      <div id="thankYouDiv"></div>
+
+      <div id="receiptDetailsDiv"></div>
+
+      <div id="receiptCardDetailsDiv"></div>
+
+      <div id="receiptPaymentInfoDiv"></div>
+
+      <img src="barcode.jpg" style="padding-left: 20px; padding-right: 20px; padding-bottom: 20px; width: 100%;">
       
     </div>
-    <div id="newPageLoader" style="position: absolute; top: 40%; left: 40%;">
-      <img src="ajax_loader_gray.gif" style="width: 100px;" />
-    </div>
-    <footer class="footer">
-      <a class="btn btn-success" href="goToHome" id="doneButton">DONE</a>
-    </footer>
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="bootstrap.min.js"></script>
-  </body>
-  <script type="text/javascript">
-    $('.carousel').carousel()
-    </script>
-  <script>
-    $(document).ready(function() {
-      $("#doneButton").hide()
-    });
     
-    function setValues() {
-      var ltrimmedReceiptId = ib_receipt["receiptId"]
-      ltrimmedReceiptId = ltrimmedReceiptId.slice(-8)
-      $("#receiptId").text(ltrimmedReceiptId)
-      
-      var month_names = new Array("January", "February", "March",
-                                  "April", "May", "June", "July", "August", "September",
-                                  "October", "November", "December");
-      var currentDate = new Date();
-      var currentMonth = currentDate.getMonth();
-      var currentDay = currentDate.getDate();
-      var currentHour = currentDate.getHours();
-      var displayHours = currentHour >= 12 ? currentHour-12 : currentHour;
-      var currentMinutes = currentDate.getMinutes();
-      var receiptDate = month_names[currentMonth] + ' ' + ((''+currentDay).length<2 ? '0' : '') + currentDay + ', '
-      + currentDate.getFullYear() + ', ' + ((''+displayHours).length<2 ? '0' : '') + displayHours
-      + ':' + ((''+currentMinutes).length<2 ? '0' : '') + currentMinutes + ' ' + (currentHour>=12?'pm':'am');
-      
-      $("#currentDateTime").text(receiptDate)
-      $("#productName").html(ib_receipt["productName"])
-      $("#cardName").text(ib_receipt["cardName"])
-      $("#cardNumber").text(ib_receipt["cardNumber"])
-      var lfinalAmt = parseInt(ib_receipt["finalAmount"])/100
-      $("#finalAmount").text("$" + lfinalAmt.toFixed(2))
-      var lsubtotal = parseInt(ib_receipt["subtotal"])/100.0
-      $("#subtotal").text("$" + lsubtotal.toFixed(2))
-      var lcashRewards = parseInt(ib_receipt["cashRewards"])/100.0
-      $("#cashRewards").text("($" + lcashRewards.toFixed(2)+ ")")
-      var lpromo = parseInt(ib_receipt["promo"])/100.0
-      $("#promo").text("($" + lpromo.toFixed(2)+ ")")
-      var ltax = parseInt(ib_receipt["tax"])/100
-      $("#tax").text("$"+ltax.toFixed(2))
-      var lpayable = parseInt(ib_receipt["payable"])/100
-      $("#payable").text("$" + lpayable.toFixed(2))
-      var lsavings = parseInt(ib_receipt["totalSavings"])/100
-      $("#totalSavings").text("$"+lsavings.toFixed(2))
-      
-      
-      document.getElementById("newPageLoader").style.display = "none";
-      document.getElementById("receipt_wrapper").style.display = "inline";
-    }
-  </script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="omnyway.js"></script>
+  </body>
 </html>

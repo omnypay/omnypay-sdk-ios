@@ -28,7 +28,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   @IBOutlet weak var tableView: UITableView!
   var cartItems = [BasketItem]()
   @IBOutlet weak var btnPay: UIButton!
-  var receipt: BasketReceipt?
+  var receipt: BasketReceiptNotification?
   var emptyBasketLabel: UILabel?
   
   override func viewDidLoad() {
@@ -61,7 +61,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   func didUpdateBasket(basket: Basket) {
     KVNProgress.dismiss()
     print("basket update received")
-    if basket.state == BasketStateInternal.CompleteScan {
+    if basket.state == BasketStateInternal.completeScan {
       Helpers.makeButtonEnabled(button: self.btnPay)
       return
     }
@@ -74,7 +74,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   /**
    * The didReceiveReceipt delegate method is called once payment is successful and receipt is generated for the transaction.
    */
-  func didReceiveReceipt(receipt: BasketReceipt) {
+  func didReceiveReceipt(receipt: BasketReceiptNotification) {
     KVNProgress.dismiss()
     self.receipt = receipt
     self.performSegue(withIdentifier: "receiptSegue", sender: self)
@@ -169,7 +169,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
      * selected payment instrument. In this sample app,  if no payment instrument is
      * selected, then payment is done using the first payment instrument added.
      */
-    omnypayAPI.startPayment(withPaymentInstrument: appDelegate.selectedPaymentInstrumentId!){ (basketConfirmation, error) in
+    omnypayApi.startPayment(withPaymentInstrument: appDelegate.selectedPaymentInstrumentId!){ (basketConfirmation, error) in
       if error != nil {
         print("Unable to make payment")
         KVNProgress.showError(withStatus: "Unable to make payment")

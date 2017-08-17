@@ -1,0 +1,253 @@
+
+<div id="cardDescription-template">
+  <center>
+    <h1 id="footer_card_alias">{{footerCardAlias}}</h1>
+  </center>
+  <center>
+    <h2 id="footer_reward_alias">{{footerRewardAlias}}</h2>
+  </center>
+</div>
+  
+
+<div id="shopperAddress-template">
+    <h2 id="shopper_name"><b>{{shopperFullName}}</b></h2>
+    <p class="color--lightgrey" id="shipping_address"><span>{{shopperShippingAddress}}</span></p>
+    <p class="delivery-by m-t-10"><span class="color--lightgrey">Delivery By - </span> 
+      <span id="delivery_date">{{shopperDeliveryDate}}</span>
+    </p>
+</div> 
+
+
+<div id="paymentInfo-template">
+  <div class="container">
+    <ul class="list-group subtotal">
+      <li><span>Subtotal</span><span id="ib_subtotal">{{subtotal}}</span></li>
+      <li><span>Cash Rewards</span><span id="ib_loyalty">{{cashRewards}}</span></li>
+      <li><span>Promo</span><span id="ib_promo">{{promo}}</span></li>
+      <li><span>Tax</span><span id="ib_tax">{{tax}}</span></li>
+      <li class="last"><span style="color:black;">Total Payable</span><span id="ib_payable" style="color:black;">{{payable}}</span></li>
+      <li class="last"><span style="color:black;">Total Savings</span><span id="ib_total_savings" style="color:black;">{{totalSavings}}</span></li>
+    </ul>          
+  </div>
+</div>
+
+
+
+<div id="address-template">
+    {{#storeAddress12}}
+    <div class="item">
+        <div class="delivery-address">
+            <h2><b>{{name}}</b></h2> <p class="color--lightgrey"> <span>{{address}}</span></p>
+            <p class="delivery-by m-t-10" id="available-at-store"><span class="color--lightgrey">Available at store</span></p>
+        </div>
+    </div>
+    {{/storeAddress12}}
+</div>
+
+
+<div id="swiper-template">
+    <div class="starter-template text-center swiper-container container">
+      <div class="swiper-wrapper">
+        {{#img_src}}
+        <div class="swiper-slide">
+        <img src="{{.}}" alt="...">
+        </div>
+        {{/img_src}}
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+
+<div id="error-template">
+    <div class="page-center-div">
+      <p class="center-align">{{errorMsg}}</p>
+    </div>
+</div>
+
+
+<div id="completeColor-template">
+    <div class="starter-template text-left container">
+      <p class="light-gray font17 m-t-10"><span class="color--lightgrey">Color: </span><span id="colortext"></span> 
+      </p>
+      <div class="btn-group select-color" data-toggle="buttons" id="color" style="margin-top: 0px;">
+        {{#colorArr}}
+          <label class="btn" style="background-color:{{backgroundColor}}">
+          <input type="radio" name="options" id="{{color}}" value="{{color}}" autocomplete="off" checked="">
+          <img src="{{swatchURL}}" alt = '...' style='position:absolute;width:100%;margin-left:-18px;display:{{display}}'/>
+          </label>
+        {{/colorArr}}
+      </div>
+    </div>
+</div>
+
+<div id="size-dropdown-template">
+  <div class="container">
+    <div class="dropdown selectpicker">
+      <button class="btn dropdown-toggle text-center" type="button" data-toggle="dropdown" aria-expanded="false"><span id="selected_size"></span>
+      <i class="fa fa-angle-down"></i></button>
+      <ul class="dropdown-menu text-center" id="size" style="width: 100%" >
+        {{#sizeArr}}
+        <li><a href="javascript:setSelectedSize('{{size}}');">{{size}}</a></li>
+        {{/sizeArr}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="size-single-template">
+  <div class="container">
+    {{#sizeArr}}
+      <button onclick="setSelectedSize('{{size}}')" class="singleSizeSelection" data-id="{{size}}">{{size}}</button>
+    {{/sizeArr}}
+  </div>
+</div>
+
+<div id="size-radio-template">
+  <div class="container">
+    {{#sizeArr}}
+      <label class="sizeSelectionRadioLabel" onclick="setSelectedSize('{{size}}')">
+        <input type="radio" name="sizeSelectionRadioButton" value="{{size}}" />
+        <i></i> {{size}}
+      </label>
+    {{/sizeArr}}
+  </div>
+</div>
+
+<div id="shipping-template">
+    <div class="shipment container">
+      <div id="exTab2" class="container">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a  href="#1" data-toggle="tab"><span class="base-theme-color">Free</span> Shipping</a>
+          </li>
+          <li><a href="#2" data-toggle="tab"><span class="base-theme-color">Free</span> Pick Up</a>
+          </li>
+        </ul>
+        <div class="tab-content ">
+          <div class="tab-pane active" id="1">
+            <div class="delivery-address" id="shopperAddressDiv">
+            </div>
+          </div>
+          <div class="tab-pane" id="2">
+            <div class="freepick">
+              <div id="carousel-example-generic" class="carousel slide" data-interval="false">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox" id="store_display">
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" id="left-carousel-arrow">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" id="right-carousel-arrow">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div id="cashPromo-template">
+    <div class="cash-promo container">
+      <div class="media" id="loyaltySelectionDiv" onclick="changeLoyaltySelection()">
+        <div class="media-left" id="promo_image_holder">
+          <img src="{{promoCashImage}}" class="media-object" style="width:38px" id="promo_image">
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading"><span id="promo_cash"><b>{{promoCashAmout}}</b> {{promoCashDescription}}</span></h3>
+          <p><span>{{promoCashDate}}</span></p>
+        </div>
+        <div class="media-right">
+          <i class="fa fa-check-circle base-theme-color"></i>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div id="receiptHeader-template">
+    <div class="container-fluid text-center font17">
+      <section class="transaction-details">
+        <p>Transaction ID <span id="receiptId">{{receiptId}}</span></p>
+        <p class="color--lightgrey" id="currentDateTime">{{receiptDateTime}}</p>
+      </section>
+      <section class="m-t-10">
+        <p id="productName">{{productName}}</p>
+      </section>
+    </div>
+</div>
+
+<div id="thankYou-template">
+    <div class="container-fluid well text-center">
+      <section class=" payment-complete well">
+        <i class="fa fa-check-circle base-theme-color"></i>
+        <p>Thank you</p>
+      </section>
+    </div>
+</div>
+
+<div id="cardDetails-template">
+    <div class="container-fluid payment-method">
+      <section class="panel panel-default m-b-0">
+        <div class="panel-heading">
+          PAYMENT METHOD
+        </div>
+        <div class="panel-body cash-promo m-t-0" style="margin-top: 0px;">
+          <div class="media">
+            <div class="media-left">
+              <img src="xs-icon3.jpg" class="media-object" style="width:38px">
+            </div>
+            <div class="media-body">
+              <h3 class="media-heading" id="cardName">{{cardName}}</b></h3>
+              <h2 id="cardNumber">{{cardNumber}}</h2>
+            </div>
+            <div class="media-right" id="finalAmount">
+              <b>{{finalAmount}}</b>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+</div>
+
+<div id="singleShipping-template">
+  <section class="panel panel-default m-b-0" style="font-size: 17px;">
+    <div class="panel-heading">
+      {{shippingHeading}}
+    </div>
+    <div class="panel-body cash-promo m-t-0" style="margin-top: 0px; height: 130px; font-size: 15px;">
+      <div class="media" id="singleShippingAddr">
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="onlyPickup-template">
+  <div class="freepick">
+    <div id="carousel-example-generic" class="carousel slide" data-interval="false">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox" id="store_display">
+      </div>
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" id="left-carousel-arrow">
+      <span class="fa fa-angle-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" id="right-carousel-arrow">
+      <span class="fa fa-angle-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>
