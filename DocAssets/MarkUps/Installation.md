@@ -25,7 +25,7 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 ### Requirements
 
-- iOS 8.0+
+- iOS 9.0+
 - Xcode 8.1+
 - Swift 3.1
 
@@ -66,7 +66,7 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
     source 'http://mobile-sdk.jumio.com/distribution.git'
     
     # Uncomment this line to define a global platform for your project
-    platform :ios, '8.0'
+    platform :ios, '9.0'
     
     target 'project name' do
       # Comment this line if you're not using Swift and don't want to use dynamic frameworks
