@@ -181,7 +181,6 @@ SWIFT_CLASS("_TtC10OmnyPayAPI25BasketReceiptNotification")
 
 
 @interface BasketReceiptNotification (SWIFT_EXTENSION(OmnyPayAPI))
-- (id _Nonnull)encodeToJSON SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
