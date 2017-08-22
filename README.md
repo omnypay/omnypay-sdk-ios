@@ -34,7 +34,7 @@ OmnyPay provides various iOS SDKs in Swift that enables retailer/merchant iOS ap
 
 ### Requirements
 
-- iOS 8.0+
+- iOS 9.0+
 - Xcode 8.1+
 - Swift 3.1
 
@@ -75,7 +75,7 @@ Until we support CocoaPods installation, you can integrate OmnyPay into your pro
     source 'http://mobile-sdk.jumio.com/distribution.git'
     
     # Uncomment this line to define a global platform for your project
-    platform :ios, '8.0'
+    platform :ios, '9.0'
     
     target 'project name' do
       # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -139,11 +139,13 @@ An example flow can be created as below:
     ```swift
     import OmnyPayAPI
     
+    var omnyPayAPI = OmnyPayAPI()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     // .....
     
     // Call Initialize with merchantId received as a part of registration process
-    OmnyPayAPI.initialize(withMerchantId: <your mercahntId>, configuration: <[String : Any?]>) {
+    omnyPayAPI.initialize(withMerchantId: <your mercahntId>, configuration: <[String : Any?]>) {
         (result,error) in
        
         guard error != nil else {
@@ -162,7 +164,7 @@ An example flow can be created as below:
 - **Authenticate user (shopper) on OmnyPay platform by passing your user/shopper id and auth token**
 
     ```swift
-    OmnyPayAPI.authenticateShopper(shopperId: "Your Shopper ID", authToken: "Your auth token") {
+    omnyPayAPI.authenticateShopper(shopperId: "Your Shopper ID", authToken: "Your auth token") {
       (session, error) in
       
       guard error != nil else {
@@ -182,13 +184,13 @@ An example flow can be created as below:
     let provisionCardParam = ProvisionCardParam()
     provisionCardParam.cardNumber = "1234567812345678"
     provisionCardParam.cardAlias("mycard");
-    provisionCardParam.cardType = CardType.Debit
+    provisionCardParam.cardType = ProvisionCardParam.CardType.Debit
     provisionCardParam.cardIssuer = "Thomas cook"
     provisionCardParam.cardHolderZip = "90211"
     provisionCardParam.cardExpiryDate = "12/2020"
     provisionCardParam.cardHolderName = "Jane Wilson"
 
-    OmnyPayAPI.provision(paymentInstrument: provisionCardParam) {
+    omnyPayAPI.provision(paymentInstrument: provisionCardParam) {
       (paymentInstrumentInfo, error) in
       guard error != nil else {
         print("Payment instrument could not be added.")
@@ -204,7 +206,7 @@ An example flow can be created as below:
     Every OmnyPay transaction should have a basket object. The basket object is used to store information about the transaction such as association with the retailer’s point of sale, lineitems or products purchased, associated offers, loyalty points, etc. 
 
     ```swift
-    OmnyPayAPI.createBasket() { (basket,error) in
+    omnyPayAPI.createBasket() { (basket,error) in
       guard error != nil else {
         print("Basket could not be created.")
         return
@@ -262,7 +264,7 @@ An example flow can be created as below:
     - AutenticatedShopper
 
     ```swift
-    OmnyPayAPI.checkin(onPointOfSale: "posId") { (result, error) in
+    omnyPayAPI.checkin(onPointOfSale: "posId") { (result, error) in
       guard error != nil else {
         print("Checkin failed.")
         return
@@ -309,7 +311,7 @@ An example flow can be created as below:
     - Optional – Coupons or Offers selected
 
     ```swift
-    OmnyPayAPI.preview(forPaymentInstrument: "paymentInstrumentId") {
+    omnyPayAPI.preview(forPaymentInstrument: "paymentInstrumentId") {
       (basketPreview,error) in
       guard error != nil else {
         print("Preview not available.")
@@ -336,7 +338,7 @@ An example flow can be created as below:
     - Optional – PreviewPayment done to estimate taxes, card linked offers 
 
     ```swift
-    OmnyPayAPI.startPayment(withPaymentInstrument: "paymentInstrumentId") {
+    omnyPayAPI.startPayment(withPaymentInstrument: "paymentInstrumentId") {
       (basketPaymentConfirmation,error) in
       
       guard error != nil else {
@@ -359,7 +361,7 @@ An example flow can be created as below:
   - Basket with a non-zero subtotal value.
 
     ```swift
-    OmnyPayAPI.getPaymentReceipt() { (paymentReceipt,error) in 
+    omnyPayAPI.getPaymentReceipt() { (paymentReceipt,error) in 
     
       guard error != nil else {
           print("Could not get payment receipt.")
