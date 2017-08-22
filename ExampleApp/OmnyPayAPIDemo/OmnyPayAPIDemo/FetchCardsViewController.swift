@@ -115,7 +115,7 @@ class FetchCardsViewController: UIViewController, UITableViewDelegate, UITableVi
     return tableCell
   }
   
-  func getCardType(cardType: PaymentInstrumentOffer.CardType) -> String {
+  func getCardType(cardType: CardType) -> String {
     switch cardType {
     case .ChargeCard:
       return "Charge"

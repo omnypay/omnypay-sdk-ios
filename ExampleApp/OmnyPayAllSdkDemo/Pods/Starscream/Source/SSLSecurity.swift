@@ -4,7 +4,7 @@
 //  Starscream
 //
 //  Created by Dalton Cherry on 5/16/15.
-//  Copyright (c) 2014-2016 Dalton Cherry.
+//  Copyright (c) 2014-2015 Dalton Cherry.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -23,11 +23,7 @@
 import Foundation
 import Security
 
-public protocol SSLTrustValidator {
-    func isValid(_ trust: SecTrust, domain: String?) -> Bool
-}
-
-open class SSLCert {
+public class SSLCert {
     var certData: Data?
     var key: SecKey?
     
@@ -54,7 +50,7 @@ open class SSLCert {
     }
 }
 
-open class SSLSecurity : SSLTrustValidator {
+public class SSLSecurity {
     public var validatedDN = true //should the domain name be validated?
     
     var isReady = false //is the key processing done?
@@ -86,7 +82,7 @@ open class SSLSecurity : SSLTrustValidator {
     /**
     Designated init
     
-    - parameter certs: is the certificates or public keys to use
+    - parameter keys: is the certificates or public keys to use
     - parameter usePublicKeys: is to specific if the publicKeys or certificates should be used for SSL pinning validation
     
     - returns: a representation security object to be used with
@@ -211,6 +207,7 @@ open class SSLSecurity : SSLTrustValidator {
         SecTrustCreateWithCertificates(cert, policy, &possibleTrust)
         
         guard let trust = possibleTrust else { return nil }
+        
         var result: SecTrustResultType = .unspecified
         SecTrustEvaluate(trust, &result)
         return SecTrustCopyPublicKey(trust)

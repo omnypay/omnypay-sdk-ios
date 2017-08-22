@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'http://mobile-sdk.jumio.com/distribution.git'
 
 # Uncomment this line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '8.0'
 
 target 'OmnyPayAllSdkDemo' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -13,7 +13,7 @@ target 'OmnyPayAllSdkDemo' do
   pod 'KVNProgress'
   
   # Mandatory pod while using OmnyPayAPI SDK
-  pod 'Starscream'
+  pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'swift3'
   
   # Mandatory if using OmnyPayIdentity SDK
   pod 'JumioMobileSDK-FAT/Netverify', '2.3.1'
