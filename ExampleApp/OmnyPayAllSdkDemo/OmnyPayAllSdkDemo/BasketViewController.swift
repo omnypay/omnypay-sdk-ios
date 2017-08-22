@@ -61,7 +61,7 @@ class BasketViewController: UIViewController, OmnyPayEventDelegate, UITableViewD
   func didUpdateBasket(basket: Basket) {
     KVNProgress.dismiss()
     print("basket update received")
-    if basket.state == BasketStateInternal.completeScan {
+    if basket.state == Basket.State.completeScan {
       Helpers.makeButtonEnabled(button: self.btnPay)
       return
     }

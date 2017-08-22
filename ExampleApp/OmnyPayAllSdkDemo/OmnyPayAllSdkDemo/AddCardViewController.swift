@@ -141,16 +141,16 @@ class AddCardViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     return message
   }
   
-  func getCardTypeFromPickerValue() -> CardType {
+  func getCardTypeFromPickerValue() -> ProvisionCardParam.CardType {
     switch self.cardTypePickerDataSource[self.pickerValueIndex] {
       case "Credit":
-        return CardType.Credit
+        return ProvisionCardParam.CardType.Credit
       case "Charge-Card":
-        return CardType.ChargeCard
+        return ProvisionCardParam.CardType.ChargeCard
       case "Debit":
-        return CardType.Debit
+        return ProvisionCardParam.CardType.Debit
       default:
-        return CardType.Credit
+        return ProvisionCardParam.CardType.Credit
     }
   }
   
