@@ -377,12 +377,12 @@
 <p>However there are two minimum required steps to follow before any other operation can be performed, these are:</p>
 <h4 id='1-initialize-sdk' class='heading'>1. Initialize SDK</h4>
 
-<p>Initialize the OmnyPay SDK using <code>initialize(withMerchantId:configuration:completion:)</code> api by passing your merchant Id. The merchant_id uniquely identifies your organization and any API calls to access or update resources are scoped within the merchant id.This should be called prior to calling OmnyPay functions and recommend this be invoked at application startup. The application can detect success through the completion handler.</p>
+<p>Initialize the OmnyPay SDK using <code>initialize(withMerchantId: merchantApiKey:merchantApiSecret:configuration:completion:)</code> api by passing your merchant Id, merchant api key and merchant api secret. The merchant_id uniquely identifies your organization and any API calls to access or update resources are scoped within the merchant id. Merchant api key and api secret is used internally to sign all API calls. This should be called prior to calling OmnyPay functions and recommend this be invoked at application startup. The application can detect success through the completion handler.</p>
 <h4 id='2-authenticate-shopper' class='heading'>2. Authenticate shopper</h4>
 
 <p>OmnyPay supports authentication through a retailer authentication service. If a retailer authentication service is used, the Retailer should work with OmnyPay technical representative to establish connection before invoking the authentication API. OmnyPay supports [basic authentication] and oAuth token in its API and SDK</p>
 
-<p>To verify using oAuth, the application should pass auth token and shopper id in <code>authenticateShopper(shopperId:authToken:completion:)</code> api. If the oAuth token is refreshed, the application should call this API to re-authenticate the user in order to allow the shopper to continue seamlessly. These steps are necessary to make minimum validations in order to continue with any further operation.</p>
+<p>To verify using oAuth, the application should pass auth token and shopper id in <code>authenticateShopper(withShopperId:authToken:completion:)</code> api. If the oAuth token is refreshed, the application should call this API to re-authenticate the user in order to allow the shopper to continue seamlessly. These steps are necessary to make minimum validations in order to continue with any further operation.</p>
 <h2 id='anatomy-of-a-typical-transaction-flow' class='heading'>Anatomy of a typical transaction flow</h2>
 
 <p>All the APIs perform specific operations so you can design your own transaction flow and user experience.</p>
@@ -399,7 +399,7 @@
 <span class="c1">// .....</span>
 
 <span class="c1">// Call Initialize with merchantId received as a part of registration process</span>
-<span class="n">omnyPayAPI</span><span class="o">.</span><span class="nf">initialize</span><span class="p">(</span><span class="nv">withMerchantId</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">your</span> <span class="n">mercahntId</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="o">&lt;</span><span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">?]</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">omnyPayAPI</span><span class="o">.</span><span class="nf">initialize</span><span class="p">(</span><span class="nv">withMerchantId</span><span class="p">:</span> <span class="s">"merchant id"</span><span class="p">,</span> <span class="nv">merchantApiKey</span><span class="p">:</span> <span class="s">"merchant api key"</span><span class="p">,</span> <span class="nv">merchantApiSecret</span><span class="p">:</span> <span class="s">"merchant api secret"</span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="o">&lt;</span><span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">?]</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="n">error</span><span class="p">)</span> <span class="k">in</span>
 
     <span class="k">guard</span> <span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
@@ -414,7 +414,7 @@
 
 <p>Authenticate the user with your identity service (which can also be catered by OmnyPay). Once authenticated, pass on the Authorization token to the OmnyPay service.</p></li>
 <li><p><strong>Authenticate user (shopper) on OmnyPay platform by passing your user/shopper id and auth token</strong></p>
-<pre class="highlight swift"><code><span class="n">omnyPayAPI</span><span class="o">.</span><span class="nf">authenticateShopper</span><span class="p">(</span><span class="nv">shopperId</span><span class="p">:</span> <span class="s">"Your Shopper ID"</span><span class="p">,</span> <span class="nv">authToken</span><span class="p">:</span> <span class="s">"Your auth token"</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="n">omnyPayAPI</span><span class="o">.</span><span class="nf">authenticateShopper</span><span class="p">(</span><span class="nv">withShopperId</span><span class="p">:</span> <span class="s">"merchant shopper id"</span><span class="p">,</span> <span class="nv">authToken</span><span class="p">:</span> <span class="s">"merchant auth token"</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
 
   <span class="k">guard</span> <span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
@@ -505,7 +505,7 @@
 <ul>
 <li>AutenticatedShopper</li>
 </ul>
-<pre class="highlight swift"><code><span class="n">omnyPayAPI</span><span class="o">.</span><span class="nf">checkin</span><span class="p">(</span><span class="nv">onPointOfSale</span><span class="p">:</span> <span class="s">"posId"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+<pre class="highlight swift"><code><span class="n">omnyPayAPI</span><span class="o">.</span><span class="nf">checkin</span><span class="p">(</span><span class="nv">onPointOfSale</span><span class="p">:</span> <span class="s">"POS id"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
   <span class="k">guard</span> <span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
     <span class="nf">print</span><span class="p">(</span><span class="s">"Checkin failed."</span><span class="p">)</span>
     <span class="k">return</span>
@@ -593,7 +593,8 @@
   <span class="c1">/// Payment successful.</span>
 <span class="p">}</span>
 </code></pre></li>
-<li><p><strong>Get payment receipt</strong></p>
+<li><p><strong>Get payment receipt</strong></p></li>
+</ul>
 
 <p>Fetches the payment receipt for the current transaction.</p>
 
@@ -603,8 +604,7 @@
 <li>AutenticatedShopper</li>
 <li>Basket Created</li>
 <li>Sucessful CheckIn</li>
-<li>Basket with a non-zero subtotal value.</li>
-</ul>
+<li><p>Basket with a non-zero subtotal value.</p>
 <pre class="highlight swift"><code><span class="n">omnyPayAPI</span><span class="o">.</span><span class="nf">getPaymentReceipt</span><span class="p">()</span> <span class="p">{</span> <span class="p">(</span><span class="n">paymentReceipt</span><span class="p">,</span><span class="n">error</span><span class="p">)</span> <span class="k">in</span> 
 
   <span class="k">guard</span> <span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
@@ -679,7 +679,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-08-22)</p>
+      <p>&copy; 2017 <a class="link" href="http://www.omnypay.net/" target="_blank" rel="external">OmnyPay</a>. All rights reserved. (Last updated: 2017-08-23)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

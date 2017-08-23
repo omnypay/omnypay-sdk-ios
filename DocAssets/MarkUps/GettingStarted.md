@@ -2,7 +2,7 @@
 
 There are two main classes of OmnyPayAPI SDK:
 
-- **OmnyPayAPI**: A static class that is used to access all OmnyPay APIs.
+- **OmnyPayAPI**: A class that is used to access all OmnyPay APIs.
 - **OmnyPayEventListener**: A singleton class to start listening to OmnyPay events like basket updated, receipt received etc. This class expects a delegate of type `OmnyPayEventDelegate` protocol to be set. All the callbacks are delivered to this delegate.
 
 > **Note: All OmnyPay API returns the response in associated completion blocks. These blocks are always executed on application main queue, so you can freely perform any UI task.**
@@ -15,13 +15,13 @@ However there are two minimum required steps to follow before any other operatio
 
 #### 1. Initialize SDK
 
-Initialize the OmnyPay SDK using ```initialize(withMerchantId:configuration:completion:)``` api by passing your merchant Id. The merchant_id uniquely identifies your organization and any API calls to access or update resources are scoped within the merchant id.This should be called prior to calling OmnyPay functions and recommend this be invoked at application startup. The application can detect success through the completion handler.
+Initialize the OmnyPay SDK using ```initialize(withMerchantId: merchantApiKey:merchantApiSecret:configuration:completion:)``` api by passing your merchant Id, merchant api key and merchant api secret. The merchant_id uniquely identifies your organization and any API calls to access or update resources are scoped within the merchant id. Merchant api key and api secret is used internally to sign all API calls. This should be called prior to calling OmnyPay functions and recommend this be invoked at application startup. The application can detect success through the completion handler.
 
 #### 2. Authenticate shopper
 
 OmnyPay supports authentication through a retailer authentication service. If a retailer authentication service is used, the Retailer should work with OmnyPay technical representative to establish connection before invoking the authentication API. OmnyPay supports [basic authentication] and oAuth token in its API and SDK
 
-To verify using oAuth, the application should pass auth token and shopper id in ```authenticateShopper(shopperId:authToken:completion:)``` api. If the oAuth token is refreshed, the application should call this API to re-authenticate the user in order to allow the shopper to continue seamlessly. These steps are necessary to make minimum validations in order to continue with any further operation.
+To verify using oAuth, the application should pass auth token and shopper id in ```authenticateShopper(withShopperId:authToken:completion:)``` api. If the oAuth token is refreshed, the application should call this API to re-authenticate the user in order to allow the shopper to continue seamlessly. These steps are necessary to make minimum validations in order to continue with any further operation.
 
 
 ## Anatomy of a typical transaction flow
@@ -41,7 +41,7 @@ An example flow can be created as below:
     // .....
     
     // Call Initialize with merchantId received as a part of registration process
-    omnyPayAPI.initialize(withMerchantId: <your mercahntId>, configuration: <[String : Any?]>) {
+    omnyPayAPI.initialize(withMerchantId: "merchant id", merchantApiKey: "merchant api key", merchantApiSecret: "merchant api secret", configuration: <[String : Any?]>) {
         (result,error) in
        
         guard error != nil else {
@@ -60,7 +60,7 @@ An example flow can be created as below:
 - **Authenticate user (shopper) on OmnyPay platform by passing your user/shopper id and auth token**
 
     ```swift
-    omnyPayAPI.authenticateShopper(shopperId: "Your Shopper ID", authToken: "Your auth token") {
+    omnyPayAPI.authenticateShopper(withShopperId: "merchant shopper id", authToken: "merchant auth token") {
       (session, error) in
       
       guard error != nil else {
@@ -160,7 +160,7 @@ An example flow can be created as below:
     - AutenticatedShopper
 
     ```swift
-    omnyPayAPI.checkin(onPointOfSale: "posId") { (result, error) in
+    omnyPayAPI.checkin(onPointOfSale: "POS id") { (result, error) in
       guard error != nil else {
         print("Checkin failed.")
         return
@@ -249,13 +249,13 @@ An example flow can be created as below:
 
 - **Get payment receipt**
 
-	Fetches the payment receipt for the current transaction.
-	
-	**Prerequisite:**
-	- AutenticatedShopper
-	- Basket Created
-	- Sucessful CheckIn
-	- Basket with a non-zero subtotal value.
+  Fetches the payment receipt for the current transaction.
+  
+  **Prerequisite:**
+  - AutenticatedShopper
+  - Basket Created
+  - Sucessful CheckIn
+  - Basket with a non-zero subtotal value.
 
     ```swift
     omnyPayAPI.getPaymentReceipt() { (paymentReceipt,error) in 
