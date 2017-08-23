@@ -47,10 +47,10 @@ class ViewController: UIViewController {
      * merchantId with the your merchant_id.
      */
     omnypayApi.initialize(withMerchantId: Constants.merchantId,
+                          merchantApiKey: Constants.merchantApiKey,
+                          merchantApiSecret: Constants.merchantApiSecret,
                           configuration: [
                             "host": ApiWrapper.getBaseApiUrl(),
-                            "api-key": Constants.merchantApiKey,
-                            "api-secret": Constants.merchantApiSecret,
                             "correlation-id": Constants.correlationId
     ]){ (status, error) in
       if status {
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
      * user/shopper id and auth token. authenticateShopper is the method defined is OmnyPayAPI
      * which is responsible for authenticating a shopper with OmnyPay service.
      */
-    omnypayApi.authenticateShopper(shopperId: self.merchantShopperId!, authToken: self.merchantAuthToken!){ (session, error) in
+    omnypayApi.authenticateShopper(withShopperId: self.merchantShopperId!, authToken: self.merchantAuthToken!){ (session, error) in
       if error == nil {
         KVNProgress.dismiss()
         self.performSegue(withIdentifier: "fetchCards", sender: self)
